@@ -1,41 +1,64 @@
-
-function toggleMenu() {
-    const navMenu = document.querySelector('.nav-menu');
+document.addEventListener('DOMContentLoaded', () => {
+    // Variables for navigation elements
     const hamburger = document.querySelector('.hamburger');
-    
-    if (navMenu.classList.contains('show')) {
-        navMenu.classList.remove('show');
-        hamburger.classList.remove('active');
-    } else {
-        navMenu.classList.add('show');
-        hamburger.classList.add('active');
-    }
-}
-
-function toggleDropdown(event) {
-    event.preventDefault();
-    const dropdown = event.target.parentElement.querySelector('.dropdown-menu');
-    const toggleIcon = event.target.querySelector('.toggle-icon');
-    
-    if (dropdown.classList.contains('show')) {
-        dropdown.classList.remove('show');
-        toggleIcon.textContent = "+";
-    } else {
-        dropdown.classList.add('show');
-        toggleIcon.textContent = "-";
-    }
-}
-
-document.addEventListener("DOMContentLoaded", function() {
-    // Typewriter effect
+    const navMenu = document.querySelector('.nav-menu');
+    const dropdownLinks = document.querySelectorAll('.has-dropdown > a');
     const typewriter = document.getElementById('typewriter');
     const textArray = ["Welcome to WestSide ABA", "Your Partner in Growth", "Empowering Through Therapy"];
     let textIndex = 0;
     let charIndex = 0;
-    let typingDelay = 100;
-    let erasingDelay = 50;
-    let newTextDelay = 2000;
+    const typingDelay = 100;
+    const erasingDelay = 50;
+    const newTextDelay = 2000;
 
+    // Function to toggle the mobile menu
+    function toggleMenu() {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('show');
+    }
+
+    // Function to toggle dropdowns in the menu
+    function toggleDropdown(event) {
+        event.preventDefault();
+        const dropdownMenu = this.nextElementSibling;
+        const toggleIcon = this.querySelector('.toggle-icon');
+        const isOpen = dropdownMenu.classList.contains('show');
+
+        // Close all dropdowns first
+        document.querySelectorAll('.dropdown-menu').forEach(menu => {
+            menu.classList.remove('show');
+            menu.previousElementSibling.querySelector('.toggle-icon').textContent = '+';
+        });
+
+        // Toggle the clicked dropdown
+        if (!isOpen) {
+            dropdownMenu.classList.add('show');
+            toggleIcon.textContent = '-';
+        } else {
+            dropdownMenu.classList.remove('show');
+            toggleIcon.textContent = '+';
+        }
+    }
+
+    // Function to close all dropdowns when clicking outside
+    function closeDropdowns(e) {
+        if (!e.target.closest('.nav-menu')) {
+            document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                menu.classList.remove('show');
+                menu.previousElementSibling.querySelector('.toggle-icon').textContent = '+';
+            });
+        }
+    }
+
+    // Function for smooth scrolling
+    function smoothScroll(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    }
+
+    // Typewriter effect functions
     function type() {
         if (charIndex < textArray[textIndex].length) {
             typewriter.textContent += textArray[textIndex].charAt(charIndex);
@@ -57,47 +80,12 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
+    // Event listeners
+    hamburger.addEventListener('click', toggleMenu);
+    dropdownLinks.forEach(link => link.addEventListener('click', toggleDropdown));
+    document.addEventListener('click', closeDropdowns);
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => anchor.addEventListener('click', smoothScroll));
+
+    // Start the typewriter effect
     type();
-
-    // Smooth scroll for the down arrow
-    document.querySelector('.hero-arrow-down a').addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-    });
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-    const dropdownLinks = document.querySelectorAll('.has-dropdown');
-
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('show');
-    });
-
-    dropdownLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            link.classList.toggle('open');
-        });
-    });
-
-    // Close dropdown if clicked outside
-    document.addEventListener('click', (e) => {
-        if (!e.target.closest('.has-dropdown')) {
-            dropdownLinks.forEach(link => link.classList.remove('open'));
-        }
-    });
-});
-
-// Smooth Scroll
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
 });
