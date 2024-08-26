@@ -148,13 +148,17 @@ header {
     flex-direction: column;
     cursor: pointer;
     z-index: 1000;
+    padding: 7px 9px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-right: 10px;
 }
 
 .hamburger span {
     width: 25px;
     height: 2px;
     background-color: #070707;
-    margin: 4px 0;
+    margin: 3px 0;
     transition: all 0.3s;
 }
 
