@@ -155,90 +155,91 @@
 <!-- contact block -->
 <!-- contact1 -->
 <section class="w3l-contact-1 pb-5" id="contact">
-    <div class="contacts-9 py-lg-5 py-md-4">
-        <div class="container">
-            <div class="d-grid contact-view">
-                <div class="cont-details">
-                    <h4 class="title-small">Get in touch</h4>
-                    <h3 class="title-big mb-4">Feel free to contact us</h3>
-                    <p class="mb-sm-5 mb-4">Start working with Us, We guarantee that you’ll be able to have any issue resolved within 24 hours.</p>
+  <div class="contacts-9 py-lg-5 py-md-4">
+      <div class="container">
+          <div class="d-grid contact-view">
+              <div class="cont-details">
+                  <h4 class="title-small">Reach Out to Us</h4>
+                  <h3 class="title-big mb-4">We’re Here to Help You</h3>
+                  <p class="mb-sm-5 mb-4">Connect with our team to learn more about our personalized ABA therapy services. We’re here to assist you and will respond within 24 hours.</p>
 
-                    <div class="cont-top">
-                        <div class="cont-left text-center">
-                            <span class="fa fa-map-marker text-primary"></span>
-                        </div>
-                        <div class="cont-right">
-                            <h6>Our head office address</h6>
-                            <p class="pr-lg-5">Address here, 208 Trainer Avenue street, Illinois, UK - 62617.</p>
-                        </div>
-                    </div>
-                    <div class="cont-top margin-up">
-                        <div class="cont-left text-center">
-                            <span class="fa fa-phone text-primary"></span>
-                        </div>
-                        <div class="cont-right">
-                            <h6>Call for help </h6>
-                            <p><a href="tel:+(21) 255 999 8888">+(21) 255 999 8888</a></p>
-                        </div>
-                    </div>
-                    <div class="cont-top margin-up">
-                        <div class="cont-left text-center">
-                            <span class="fa fa-envelope-o text-primary"></span>
-                        </div>
-                        <div class="cont-right">
-                            <h6>Contact with our support</h6>
-                            <p><a href="mailto:coursing@mail.com" class="mail">coursing@mail.com</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="map-content-9">
-                    <h5 class="mb-sm-4 mb-3">Write to us</h5>
-                    <form id="contactForm">
-                      <div class="twice-two">
-                          <input type="text" class="form-control" name="name" id="name" placeholder="Name" required="">
-                          <input type="email" class="form-control" name="email" id="email" placeholder="Email" required="">
+                  <div class="cont-top">
+                      <div class="cont-left text-center">
+                          <span class="fa fa-map-marker text-primary"></span>
                       </div>
-                      <div class="twice">
-                          <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required="">
+                      <div class="cont-right">
+                          <h6>Our Main Office</h6>
+                          <p class="pr-lg-5">123 Therapy Road, Suite 100, Chicago, IL - 12345.</p>
                       </div>
-                      <textarea name="message" class="form-control" id="message" placeholder="Message" required=""></textarea>
-                      <div class="text-right">
-                          <button type="submit" class="btn btn-primary btn-style mt-4">Send Message</button>
+                  </div>
+                  <div class="cont-top margin-up">
+                      <div class="cont-left text-center">
+                          <span class="fa fa-phone text-primary"></span>
                       </div>
-                  </form>
-              
-                  <!-- Success/Error Message -->
-                  <div id="responseMessage" style="display:none; margin-top: 20px;"></div>
-              
-                  <script>
-                      $(document).ready(function() {
-                          $('#contactForm').submit(function(e) {
-                              e.preventDefault();  // Prevent form from submitting normally
-              
-                              $.ajax({
-                                  url: 'submit_contact.php', // The PHP file where the data is processed
-                                  type: 'POST',
-                                  data: $(this).serialize(),  // Serialize form data
-                                  dataType: 'json',  // Expect JSON response from the server
-                                  success: function(response) {
-                                      if (response.success) {
-                                          $('#responseMessage').css('color', 'green').text(response.message).fadeIn();
-                                      } else {
-                                          $('#responseMessage').css('color', 'red').text(response.message).fadeIn();
-                                      }
-                                  },
-                                  error: function() {
-                                      $('#responseMessage').css('color', 'red').text("There was an error submitting the form. Please try again.").fadeIn();
-                                  }
-                              });
-                          });
-                      });
-                  </script>
-                </div>
-            </div>
-        </div>
-    </div>
+                      <div class="cont-right">
+                          <h6>Phone Support</h6>
+                          <p><a href="tel:+(123) 456 7890">+(123) 456 7890</a></p>
+                      </div>
+                  </div>
+                  <div class="cont-top margin-up">
+                      <div class="cont-left text-center">
+                          <span class="fa fa-envelope-o text-primary"></span>
+                      </div>
+                      <div class="cont-right">
+                          <h6>Email Support</h6>
+                          <p><a href="mailto:support@abatherapy.com" class="mail">support@abatherapy.com</a></p>
+                      </div>
+                  </div>
+              </div>
+              <div class="map-content-9">
+                  <h5 class="mb-sm-4 mb-3">Write to Us</h5>
+                  <form id="contactForm">
+                    <div class="twice-two">
+                        <input type="text" class="form-control" name="name" id="name" placeholder="Your Name" required="">
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required="">
+                    </div>
+                    <div class="twice">
+                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required="">
+                    </div>
+                    <textarea name="message" class="form-control" id="message" placeholder="How can we help you?" required=""></textarea>
+                    <div class="text-right">
+                        <button type="submit" class="btn btn-primary btn-style mt-4">Send Message</button>
+                    </div>
+                </form>
+            
+                <!-- Success/Error Message -->
+                <div id="responseMessage" style="display:none; margin-top: 20px;"></div>
+            
+                <script>
+                    $(document).ready(function() {
+                        $('#contactForm').submit(function(e) {
+                            e.preventDefault();  // Prevent form from submitting normally
+            
+                            $.ajax({
+                                url: 'submit_contact.php', // The PHP file where the data is processed
+                                type: 'POST',
+                                data: $(this).serialize(),  // Serialize form data
+                                dataType: 'json',  // Expect JSON response from the server
+                                success: function(response) {
+                                    if (response.success) {
+                                        $('#responseMessage').css('color', 'green').text(response.message).fadeIn();
+                                    } else {
+                                        $('#responseMessage').css('color', 'red').text(response.message).fadeIn();
+                                    }
+                                },
+                                error: function() {
+                                    $('#responseMessage').css('color', 'red').text("There was an error submitting the form. Please try again.").fadeIn();
+                                }
+                            });
+                        });
+                    });
+                </script>
+              </div>
+          </div>
+      </div>
+  </div>
 </section>
+
 <!-- /contact1 -->
 <div class="map-iframe">
     <iframe
