@@ -24,443 +24,775 @@
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/style3.css">
     <link rel="stylesheet" href="assets/css/style-starter.css">
-</head>
-<body>
-    <header>
-        <div class="container3">
-          <div class="logo">
-            <img src="images/logo.png" alt="Logo">
-          </div>
-          <div class="hamburger" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          <ul class="nav-menu">
-            <li><a href="#">Home</a></li>
-            <li class="has-dropdown">
-              <a href="#" onclick="toggleDropdown(event)">About Us <span class="toggle-icon">+</span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Our Team</a></li>
-                <li><a href="#">Our Values</a></li>
-              </ul>
-            </li>
-            <li class="has-dropdown">
-              <a href="#" onclick="toggleDropdown(event)">Our Services <span class="toggle-icon">+</span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Service 1</a></li>
-                <li><a href="#">Service 2</a></li>
-              </ul>
-            </li>
-            <li><a href="#">Resource</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">Contact Us</a></li>
-          </ul>
-        </div>
-      </header>
+    <style>
+        .hero-logo {
+    width: 150px;
+    margin-bottom: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.hero-logo {
+    max-width: 150px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.hero-logo:hover {
+    transform: scale(1.1);
+}
+    </style>  
+
     
-<!-- Hero Section -->
-<section id="hero" class="hero">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-        <!-- Logo/Image -->
-        <img src="images/logo1.png" alt="WestSide ABA Logo" class="hero-logo">
-        
-        <h1 class="hero-title" style="color: #fff;">
-            <span id="typewriter"></span><span class="typewriter-cursor">|</span>
-        </h1>
-        <p class="hero-subtitle" style="color: #fff;">Empowering Your Journey with Compassionate Care</p>
-        <div class="hero-buttons">
-            <a href="#contact" class="cta-button">Get Started</a>
-            <a href="#services" class="cta-button-outline">Our Services</a>
+  </head>
+  <body>
+<!--header-->
+<header id="site-header" class="fixed-top">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-dark stroke">
+      <h1>
+        <a class="navbar-brand" href="index.html">
+            <img src="assets/images/logo.png" alt="Your logo" title="Your logo" style="width: 350px;height: auto;" /></a>
+      </h1>
+      <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse"
+        data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+        <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+        </span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav mx-lg-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item @@about__active">
+            <a class="nav-link" href="about.html">About Us</a>
+          </li>
+          <li class="nav-item dropdown @@pages__active">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Our Services <span class="fa fa-angle-down"></span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item @@b__active" href="blog.html">Digital Learning Environment</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown @@pages__active">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Resources <span class="fa fa-angle-down"></span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item @@b__active" href="blog.html">Blog</a>
+              <a class="dropdown-item @@b__active" href="blog.html">Our Team</a>
+            </div>
+          </li>
+          <li class="nav-item @@contact__active">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+
+        <!--/search-right-->
+        <div class="search-right">
+          <a href="#search" title="search"><span class="fa fa-search" aria-hidden="true"></span></a>
+          <!-- search popup -->
+          <div id="search" class="pop-overlay">
+            <div class="popup">
+
+              <form action="404.html" method="GET" class="search-box">
+                <input type="search" placeholder="Search" name="search" required="required" autofocus="">
+                <button type="submit" class="btn"><span class="fa fa-search" aria-hidden="true"></span></button>
+              </form>
+
+            </div>
+            <a class="close" href="#close">×</a>
+          </div>
+          <!-- /search popup -->
+        </div>
+        <div class="top-quote mr-lg-2 text-center">
+            <a href="login.html" class="btn login mr-2"><span class="fa fa-user"></span> login</a>
+          </div>
+        </div>
+      <!-- toggle switch for light and dark theme -->
+      <div class="mobile-position">
+        <nav class="navigation">
+          <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+              <input type="checkbox" id="checkbox">
+              <div class="mode-container py-1">
+                <i class="gg-sun"></i>
+                <i class="gg-moon"></i>
+              </div>
+            </label>
+          </div>
+        </nav>
+      </div>
+      <!-- //toggle switch for light and dark theme -->
+    </nav>
+  </div>
+</header>
+<!--/header-->
+
+<!-- main-slider -->
+<section class="w3l-main-slider" id="home">
+    <div class="companies20-content">
+        <div class="owl-one owl-carousel owl-theme">
+            <div class="item">
+                <li>
+                    <div class="slider-info banner-view bg bg2">
+                        <div class="banner-info">
+                            <div class="container">
+                                <div class="banner-info-bg">
+                                    <div class="cols cols0">
+                                        <!-- Logo/Image -->
+                    <img src="assets/images/logo1.png" alt="WestSide ABA Logo" class="hero-logo">
+                                        <h1 style="font-size: clamp(2em, 6vw, 4em);
+                                        font-weight: 900;
+                                        color: #ffff;
+                                        margin-bottom: 10px;"><span class="multiText"></span></h1>
+                                        <p style=" font-size: clamp(1em, 3vw, 1.4em);
+                                        color: #d8e5eccb;
+                                        line-height: 1.6;
+                                        margin-top: 20px;">Empowering Your Journey with Compassionate Care</p>
+                                        
+                                    </div>
+                                    <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="about.html" style="margin-bottom: 50px;"> Ready to
+                                        get started?</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </div>
         </div>
     </div>
-</section> <!-- about section -->
-<div class="w3l-about-content py-5" id="about">
-    <div class="container py-lg-5 py-md-4 py-2">
-        <div class="row align-items-center">
-            <div class="col-lg-6">
-                <img src="images/bg_1.jpg" class="img-fluid radius-image" alt="">
-            </div>
-            <div class="col-lg-6 ps-lg-5 mt-lg-0 mt-4">
-                <div class="title-main">
-                    <p>About Us</p>
-                    <h3 class="title-style">Premier ABA Therapy</h3>
+
+    <div class="waveWrapper waveAnimation">
+        <svg viewBox="0 0 500 150" preserveAspectRatio="none">
+            <path d="M-5.07,73.52 C149.99,150.00 299.66,-102.13 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none;"></path>
+        </svg>
+    </div>
+</section>
+<!-- //about breadcrumb -->
+<section id="about" class="home-services pt-lg-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="box-wrap">
+                    <div class="box-wrap-grid">
+                        <div class="icon">
+                            <span class="fa fa-graduation-cap"></span>
+                        </div>
+                        <div class="info">
+                            <p>Our</p>
+                            <h4><a href="#url">Mission</a></h4>
+                        </div>
+                    </div>
+                    <p class="mt-4">Our mission is to provide personalized Applied Behavior Analysis (ABA) therapy to children with autism, focusing on enhancing communication, social skills, and behavior development in a nurturing environment.</p>
                 </div>
-                <p class="mt-4">At Westside ABA, we are committed to delivering exceptional Applied Behavior Analysis (ABA) therapy to children with autism and related developmental disorders. Our dedicated team of professionals employs the latest evidence-based practices to create personalized treatment plans that cater to each child's individual needs, fostering their growth and development in a supportive and nurturing environment.</p>
-        
-                <a href="#about" class="btn btn-style mt-5">Learn More</a>
             </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 mt-md-0 mt-4">
+                <div class="box-wrap">
+                    <div class="box-wrap-grid">
+                        <div class="icon">
+                            <span class="fa fa-book"></span>
+                        </div>
+                        <div class="info">
+                            <p>Our</p>
+                            <h4><a href="#url">Vision</a></h4>
+                        </div>
+                    </div>
+                    <p class="mt-4">Our vision is to create an inclusive world where every child on the autism spectrum has access to the support they need to achieve their full potential.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 mt-lg-0 mt-4">
+                <div class="box-wrap">
+                    <div class="box-wrap-grid">
+                        <div class="icon">
+                            <span class="fa fa-trophy"></span>
+                        </div>
+                        <div class="info">
+                            <p>Our</p>
+                            <h4><a href="#url">Goal</a></h4>
+                        </div>
+                    </div>
+                    <p class="mt-4">Our goal is to empower children through evidence-based ABA therapy, fostering growth in communication, behavior, and life skills that lead to independence and improved quality of life.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="w3l-aboutblock1 py-5" id="about">
+    <div class="container py-lg-5 py-md-4 py-2">
+        <div class="row">
+            <div class="col-lg-6 align-self">
+                <span class="title-small mb-2">About Us</span>
+                <h3 class="title-big mx-0">Premier ABA Therapy</h3>
+                <p class="mt-lg-4 mt-3">At Westside ABA, we are committed to delivering exceptional Applied Behavior Analysis (ABA) therapy to children with autism and related developmental disorders. Our dedicated team of professionals employs the latest evidence-based practices to create personalized treatment plans that cater to each child's individual needs, fostering their growth and development in a supportive and nurturing environment.</p>
+            </div>
+            <div class="col-lg-6 left-wthree-img mt-lg-0 mt-sm-5 mt-4">
+                <img src="assets/images/about.jpg" alt="" class="img-fluid radius-image">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /main-slider -->
+<!-- //about services -->
+<section class="w3l-courses">
+    <div class="blog pb-5" id="courses">
+        <div class="container py-lg-5 py-md-4 py-2">
+            <h5 class="title-small text-center mb-1">Explore Our Programs</h5>
+            <h3 class="title-big text-center mb-sm-5 mb-4">Featured <span>ABA Therapy</span> Programs</h3>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 item">
+                    <div class="card">
+                        <div class="card-header p-0 position-relative">
+                            <a href="#program-single" class="zoom d-block">
+                                <img class="card-img-bottom d-block" src="assets/images/c1.jpg"
+                                    alt="Card image cap">
+                            </a>
+                            <div class="post-pos">
+                                <a href="#program" class="therapy-tag blue">Beginner</a>
+                            </div>
+                        </div>
+                        <div class="card-body program-details">
+                            <a href="#program-single" class="program-desc">Intro to ABA Therapy for Children with Autism</a>
+                            <div class="program-meta mt-4">
+                                <div class="meta-item course-lesson">
+                                    <span class="fa fa-clock-o"></span>
+                                    <span class="meta-value"> 15 hrs </span>
+                                </div>
+                                <div class="meta-item course-users">
+                                    <span class="fa fa-user-o"></span>
+                                    <span class="meta-value"> 30 </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="author align-items-center">
+                                <img src="assets/images/therapist1.jpg" alt="" class="img-fluid rounded-circle">
+                                <ul class="program-meta">
+                                    <li>
+                                        <span class="meta-value mx-1">by</span> <a href="#therapist"> Sarah</a>
+                                    </li>
+                                    <li>
+                                        <span class="meta-value mx-1">in</span> <a href="#therapy"> ABA Therapy</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 item mt-md-0 mt-5">
+                    <div class="card">
+                        <div class="card-header p-0 position-relative">
+                            <a href="#program-single" class="zoom d-block">
+                                <img class="card-img-bottom d-block" src="assets/images/therapy2.jpg"
+                                    alt="Card image cap">
+                            </a>
+                            <div class="post-pos">
+                                <a href="#program" class="therapy-tag blue">Intermediate</a>
+                            </div>
+                        </div>
+                        <div class="card-body program-details">
+                            <a href="#program-single" class="program-desc">Building Communication Skills with ABA</a>
+                            <div class="program-meta mt-4">
+                                <div class="meta-item course-lesson">
+                                    <span class="fa fa-clock-o"></span>
+                                    <span class="meta-value"> 25 hrs </span>
+                                </div>
+                                <div class="meta-item course-users">
+                                    <span class="fa fa-user-o"></span>
+                                    <span class="meta-value"> 40 </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="author align-items-center">
+                                <img src="assets/images/therapist2.jpg" alt="" class="img-fluid rounded-circle">
+                                <ul class="program-meta">
+                                    <li>
+                                        <span class="meta-value mx-1">by</span> <a href="#therapist"> John</a>
+                                    </li>
+                                    <li>
+                                        <span class="meta-value mx-1">in</span> <a href="#therapy"> ABA Therapy</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 item mt-lg-0 mt-5">
+                    <div class="card">
+                        <div class="card-header p-0 position-relative">
+                            <a href="#program-single" class="zoom d-block">
+                                <img class="card-img-bottom d-block" src="assets/images/therapy3.jpg"
+                                    alt="Card image cap">
+                            </a>
+                            <div class="post-pos">
+                                <a href="#program" class="therapy-tag blue">Advanced</a>
+                            </div>
+                        </div>
+                        <div class="card-body program-details">
+                            <a href="#program-single" class="program-desc">Enhancing Social Skills with ABA Therapy</a>
+                            <div class="program-meta mt-4">
+                                <div class="meta-item course-lesson">
+                                    <span class="fa fa-clock-o"></span>
+                                    <span class="meta-value"> 30 hrs </span>
+                                </div>
+                                <div class="meta-item course-users">
+                                    <span class="fa fa-user-o"></span>
+                                    <span class="meta-value"> 45 </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="author align-items-center">
+                                <img src="assets/images/therapist3.jpg" alt="" class="img-fluid rounded-circle">
+                                <ul class="program-meta">
+                                    <li>
+                                        <span class="meta-value mx-1">by</span> <a href="#therapist"> Emily</a>
+                                    </li>
+                                    <li>
+                                        <span class="meta-value mx-1">in</span> <a href="#therapy"> ABA Therapy</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-5 text-more">
+                <p class="pt-md-3 sample text-center">
+                    Interested in learning more? Explore our full range of therapy programs.
+                    <a href="programs.html">View All Programs <span class="pl-2 fa fa-long-arrow-right"></span></a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="w3l-features py-5" id="services">
+    <div class="call-w3 py-lg-5 py-md-4 py-2">
+        <div class="container">
+            <div class="row main-cont-wthree-2">
+                <div class="col-lg-5 feature-grid-left">
+                    <h5 class="title-small mb-1">What we offer</h5>
+                    <h3 class="title-big mb-4">Our Services</h3>
+                    <p class="text-para">Exceptional Services for Your Child’s Development</p>
+                    <p class="mt-3">We are dedicated to providing high-quality care through our team of skilled therapists who support children in their development. Our services are tailored to meet individual needs, focusing on growth and progress.</p>
+                    <a href="#services" class="btn btn-primary btn-style mt-md-5 mt-4">Learn More</a>
+                </div>
+                <div class="col-lg-7 feature-grid-right mt-lg-0 mt-5">
+                    <div class="call-grids-w3 d-grid">
+                        <div class="grids-1 box-wrap">
+                            <a href="#therapists" class="icon"><span class="fa fa-brain"></span></a>
+                            <h4><a href="#therapists" class="title-head">Skilled Therapists</a></h4>
+                            <p>Our professional therapists are experts in behavior analysis and child development.</p>
+                        </div>
+                        <div class="grids-1 box-wrap">
+                            <a href="#support" class="icon"><span class="fa fa-users"></span></a>
+                            <h4><a href="#support" class="title-head">Family Support</a></h4>
+                            <p>We provide continuous guidance and support for families throughout the therapy process.</p>
+                        </div>
+                        <div class="grids-1 box-wrap">
+                            <a href="#resources" class="icon"><span class="fa fa-book"></span></a>
+                            <h4><a href="#resources" class="title-head">Learning Resources</a></h4>
+                            <p>Access our library of books, materials, and resources to help your child succeed.</p>
+                        </div>
+                        <div class="grids-1 box-wrap">
+                            <a href="#community" class="icon"><span class="fa fa-handshake"></span></a>
+                            <h4><a href="#community" class="title-head">Community Support</a></h4>
+                            <p>Join a network of families and professionals working together for child development.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="w3l-homeblock3 py-5">
+    <div class="container py-lg-5 py-md-4 py-2">
+        <h5 class="title-small text-center mb-1">In the News</h5>
+        <h3 class="title-big text-center mb-sm-5 mb-4">Latest <span>Updates</span></h3>
+        <div class="row top-pics">
+            <div class="col-md-6">
+                <div class="top-pic1">
+                    <div class="card-body blog-details">
+                        <a href="#blog-single" class="blog-desc">New Approach to Behavioral Therapy Boosts Child Development</a>
+                        <div class="author align-items-center">
+                            <img src="assets/images/team1.jpg" alt="" class="img-fluid rounded-circle" />
+                            <ul class="blog-meta">
+                                <li>
+                                    <a href="#author">John Doe</a>
+                                </li>
+                                <li class="meta-item blog-lesson">
+                                    <span class="meta-value"> Sep 15, 2024 </span>. <span class="meta-value ml-2"><span class="fa fa-clock-o"></span> 2 min</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mt-md-0 mt-4">
+                <div class="top-pic2">
+                    <div class="card-body blog-details">
+                        <a href="#blog-single" class="blog-desc">How Play-Based Therapy Can Accelerate Learning</a>
+                        <div class="author align-items-center">
+                            <img src="assets/images/team2.jpg" alt="" class="img-fluid rounded-circle" />
+                            <ul class="blog-meta">
+                                <li>
+                                    <a href="#author">Jane Smith</a>
+                                </li>
+                                <li class="meta-item blog-lesson">
+                                    <span class="meta-value"> Sep 20, 2024 </span>. <span class="meta-value ml-2"><span class="fa fa-clock-o"></span> 3 min</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="top-pic3">
+                        <div class="card-body blog-details">
+                            <a href="#blog-single" class="blog-desc">Understanding Early Signs of Developmental Delays</a>
+                            <div class="author align-items-center">
+                                <img src="assets/images/team3.jpg" alt="" class="img-fluid rounded-circle" />
+                                <ul class="blog-meta">
+                                    <li>
+                                        <a href="#author">Sarah Lee</a>
+                                    </li>
+                                    <li class="meta-item blog-lesson">
+                                        <span class="meta-value"> Sep 25, 2024 </span>. <span class="meta-value ml-2"><span class="fa fa-clock-o"></span> 4 min</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-md-5 mt-4 text-more text-center">
+            <a href="blog.html">View All Posts <span class="pl-2 fa fa-long-arrow-right"></span></a>
         </div>
     </div>
 </div>
-<!-- //about section -->
-<!-- services section -->
-<section class="w3l-grids-block py-5">
+<!-- middle -->
+<div class="middle py-5">
     <div class="container py-lg-5 py-md-4 py-2">
-        <div class="title-main text-center mx-auto mb-md-5 mb-4" style="max-width:600px;">
-            <p>Our Services</p>
-            <h3 class="title-style">Exceptional Services for Your Child’s Development</h3>
-        </div>
-        <div class="row text-center justify-content-center">
-            <div class="col-lg-4 col-md-6 col-sm-10">
-                <div class="bottom-block">
-                    <a href="services.html" class="d-block">
-                        <i class="fas fa-brain"></i>
-                        <h3 class="my-3">Skilled Therapists</h3>
-                        <p class="">Our therapists are highly trained and experienced in ABA therapy, dedicated to making a meaningful impact in each child’s life.</p>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-10 mt-md-0 mt-4">
-                <div class="bottom-block">
-                    <a href="services.html" class="d-block">
-                        <i class="fas fa-clipboard-check"></i>
-                        <h3 class="my-3">Evidence-Based Methods</h3>
-                        <p class="">We implement proven, research-backed strategies to provide effective therapy and achieve the best outcomes for your child.</p>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-10 mt-lg-0 mt-4">
-                <div class="bottom-block">
-                    <a href="services.html" class="d-block">
-                        <i class="fas fa-heart"></i>
-                        <h3 class="my-3">Compassionate Support</h3>
-                        <p class="">We offer a supportive and empathetic approach, ensuring that families and children feel valued and understood throughout their journey.</p>
-                    </a>
-                </div>
-            </div>
-            <!-- Additional Services -->
-            <div class="col-lg-4 col-md-6 col-sm-10 mt-4">
-                <div class="bottom-block">
-                    <a href="services.html" class="d-block">
-                        <i class="fas fa-cogs"></i>
-                        <h3 class="my-3">Customized Treatment Plans</h3>
-                        <p class="">We develop personalized therapy plans tailored to the specific needs and goals of each child, ensuring targeted and effective interventions.</p>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-10 mt-4">
-                <div class="bottom-block">
-                    <a href="services.html" class="d-block">
-                        <i class="fas fa-users"></i>
-                        <h3 class="my-3">Family Training and Support</h3>
-                        <p class="">We provide training and resources to families, empowering them with tools and strategies to support their child's progress at home.</p>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-10 mt-4">
-                <div class="bottom-block">
-                    <a href="services.html" class="d-block">
-                        <i class="fas fa-chart-line"></i>
-                        <h3 class="my-3">Progress Monitoring and Reporting</h3>
-                        <p class="">We regularly track and assess progress, providing detailed reports and feedback to ensure that therapy goals are being met.</p>
-                    </a>
-                </div>
-            </div>
+        <div class="welcome-left text-center py-lg-4">
+            <h5 class="title-small mb-1">Begin Your Journey</h5>
+            <h3 class="title-big">Support and Enhance Lives with ABA Therapy</h3>
+            <a href="#services" class="btn btn-style btn-outline-light mt-sm-5 mt-4 mr-2">Explore Our Services</a>
+            <a href="contact.html" class="btn btn-style btn-primary mt-sm-5 mt-4">Get in Touch</a>
         </div>
     </div>
-</section>
-<!-- //services section -->
-     
-<!-- why section -->
-<section class="w3l-whyblock pb-5 pt-2">
-    <div class="container pb-lg-5 pb-md-4 pb-2">
-        <div class="row align-items-center">
-            <div class="col-lg-6">
-                <img src="images/bg_3.jpg" alt="" class="img-fluid radius-image">
-            </div>
-            <div class="col-lg-6 ps-xl-5 ps-lg-4 mt-lg-0 mt-5">
-                <div class="title-main mb-4" style="max-width:600px;">
-                    <p>Our Commitment</p>
-                    <h3 class="title-style">Why Choose Us</h3>
-                </div>
-                <p>At Westside ABA, we are dedicated to enhancing the quality of life for children with autism through a compassionate, individualized approach. Our commitment to ongoing education, family involvement, and evidence-based practices ensures that we provide the highest standard of ABA therapy.</p>
-                <div class="two-grids mt-5">
-                    <div class="grids_info">
-                        <i class="fas fa-certificate"></i>
-                        <div class="detail">
-                            <h4>Certified and Experienced Professionals</h4>
-                            <p>Our team of certified ABA therapists has extensive experience and training, ensuring expert care and effective therapy for every child.</p>
-                        </div>
-                    </div>
-                    <div class="grids_info mt-xl-5 mt-4">
-                        <i class="fas fa-calendar-alt"></i>
-                        <div class="detail">
-                            <h4>Flexible Scheduling Options</h4>
-                            <p>We offer flexible scheduling to accommodate the busy lives of families, ensuring that therapy is accessible and consistent.</p>
-                        </div>
-                    </div>
-                    <div class="grids_info mt-xl-5 mt-4">
-                        <i class="fas fa-users"></i>
-                        <div class="detail">
-                            <h4>Family-Centered Approach</h4>
-                            <p>We involve families in every step of the therapy process, providing training, support, and resources to help them support their child’s development.</p>
-                        </div>
-                    </div>
-                    <div class="grids_info mt-xl-5 mt-4">
-                        <i class="fas fa-bullseye"></i>
-                        <div class="detail">
-                            <h4>Goal-Oriented Interventions</h4>
-                            <p>Our therapy programs are designed with clear, measurable goals, ensuring that progress is tracked and outcomes are achieved.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- //why section -->
-  <!-- FAQ Section -->
-  <section class="faq-section" id="faq">
-    <div class="container">
-        <div class="title-main">
-            <p>Frequently Asked Questions</p>
-            <h3 class="title-style">Your Questions Answered</h3>
-        </div>
-        <div class="faq-container">
-            <!-- FAQ Content -->
-            <div class="faq-content">
-                <div class="accordion" id="faqAccordion">
-                    <!-- FAQ Item 1 -->
-                    <div class="accordion-item mb-3">
-                        <h2 class="accordion-header" id="headingOne">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                <span>What is ABA Therapy?</span>
-                                <i class="fas fa-plus icon-plus"></i>
-                                <i class="fas fa-minus icon-minus"></i>
-                            </button>
-                        </h2>
-                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">
-                                <p>ABA (Applied Behavior Analysis) therapy is a type of behavioral therapy that helps individuals improve their behaviors and skills through positive reinforcement and structured interventions.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- FAQ Item 2 -->
-                    <div class="accordion-item mb-3">
-                        <h2 class="accordion-header" id="headingTwo">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                <span>How long does ABA therapy take?</span>
-                                <i class="fas fa-plus icon-plus"></i>
-                                <i class="fas fa-minus icon-minus"></i>
-                            </button>
-                        </h2>
-                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">
-                                <p>The duration of ABA therapy varies depending on individual needs and goals. Therapy can range from a few hours a week to several hours a day, often over an extended period.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- FAQ Item 3 -->
-                    <div class="accordion-item mb-3">
-                        <h2 class="accordion-header" id="headingThree">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                <span>Is ABA therapy covered by insurance?</span>
-                                <i class="fas fa-plus icon-plus"></i>
-                                <i class="fas fa-minus icon-minus"></i>
-                            </button>
-                        </h2>
-                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">
-                                <p>Many insurance plans cover ABA therapy, but coverage can vary. It is best to check with your insurance provider to understand your benefits and any requirements for coverage.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- FAQ Image -->
-            <div class="faq-image">
-                <img src="images/faq.jpg" alt="FAQ Image">
-            </div>
-        </div>
-    </div>
-</section>
-<!-- //FAQ Section -->
+</div>
+<!-- //middle -->
 
-
+<section class="w3l-team py-5" id="team">
+    <div class="call-w3 py-lg-5 py-md-4">
+        <div class="container">
+            <div class="row main-cont-wthree-2">
+                <div class="col-lg-5 feature-grid-left">
+                    <h5 class="title-small mb-1">Experienced Professionals</h5>
+                    <h3 class="title-big mb-4">Meet Our Team</h3>
+                    <p class="text-para">Our team of highly skilled and compassionate educators is dedicated to your child’s development. Each teacher brings years of expertise and passion for learning.</p>
+                    <p class="mt-3">We take pride in nurturing the potential of every student through personalized education and care. Our teachers work closely with students to achieve the best learning outcomes.</p>
+                    <a href="#url" class="btn btn-primary btn-style mt-md-5 mt-4">Discover More</a>
+                </div>
+                <div class="col-lg-7 feature-grid-right mt-lg-0 mt-5">
+                    <div class="row">
+                        <!-- Team Member 1 -->
+                        <div class="col-sm-6">
+                            <div class="box16">
+                                <a href="#url"><img src="assets/images/team1.jpg" alt="James - Director" class="img-fluid radius-image" /></a>
+                                <div class="box-content">
+                                    <h3 class="title"><a href="#url">James</a></h3>
+                                    <span class="post">Director</span>
+                                    <ul class="social">
+                                        <li><a href="#" class="facebook"><span class="fa fa-facebook-f"></span></a></li>
+                                        <li><a href="#" class="twitter"><span class="fa fa-twitter"></span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Team Member 2 -->
+                        <div class="col-sm-6 mt-sm-0 mt-3">
+                            <div class="box16">
+                                <a href="#url"><img src="assets/images/team2.jpg" alt="Victoria - Managing Director" class="img-fluid radius-image" /></a>
+                                <div class="box-content">
+                                    <h3 class="title"><a href="#url">Victoria</a></h3>
+                                    <span class="post">Managing Director</span>
+                                    <ul class="social">
+                                        <li><a href="#" class="facebook"><span class="fa fa-facebook-f"></span></a></li>
+                                        <li><a href="#" class="twitter"><span class="fa fa-twitter"></span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Team Member 3 -->
+                        <div class="col-sm-6 mt-lg-4 mt-3">
+                            <div class="box16">
+                                <a href="#url"><img src="assets/images/team3.jpg" alt="Isabella - Teacher" class="img-fluid radius-image" /></a>
+                                <div class="box-content">
+                                    <h3 class="title"><a href="#url">Isabella</a></h3>
+                                    <span class="post">Teacher</span>
+                                    <ul class="social">
+                                        <li><a href="#" class="facebook"><span class="fa fa-facebook-f"></span></a></li>
+                                        <li><a href="#" class="twitter"><span class="fa fa-twitter"></span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Team Member 4 -->
+                        <div class="col-sm-6 mt-lg-4 mt-3">
+                            <div class="box16">
+                                <a href="#url"><img src="assets/images/team4.jpg" alt="Elizabeth - Teacher" class="img-fluid radius-image" /></a>
+                                <div class="box-content">
+                                    <h3 class="title"><a href="#url">Elizabeth</a></h3>
+                                    <span class="post">Teacher</span>
+                                    <ul class="social">
+                                        <li><a href="#" class="facebook"><span class="fa fa-facebook-f"></span></a></li>
+                                        <li><a href="#" class="twitter"><span class="fa fa-twitter"></span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <!-- footer -->
-<footer class="w3l-footer-29-main py-5">
-    <div class="container pt-lg-5 pt-sm-4 pt-2 pb-2">
+<section class="w3l-footer-29-main">
+    <div class="footer-29 py-5">
+      <div class="container py-md-4">
         <div class="row footer-top-29">
-            <div class="col-lg-4 col-md-6 footer-list-29">
-                <h6 class="footer-title-29">Contact Us</h6>
-                <p class="mb-2 pe-xl-5">Address: 1234 Therapy Lane, Suite 100, Your City, ST 12345</p>
-                <p class="mb-2">Phone Number: <a href="tel:+1(123)456-7890">+1(123) 456-7890</a></p>
-                <p class="mb-2">Email: <a href="mailto:info@westsideaba.com">info@westsideaba.com</a></p>
-                <div class="mt-4">
-                    <ul class="social">
-                        <li><a href="https://facebook.com/WestsideABA"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="https://linkedin.com/company/westsideaba"><i class="fab fa-linkedin-in"></i></a></li>
-                        <li><a href="https://twitter.com/WestsideABA"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="https://plus.google.com/WestsideABA"><i class="fab fa-google-plus-g"></i></a></li>
-                    </ul>
-                </div>
+          <div class="col-lg-4 col-md-6 col-sm-7 footer-list-29 footer-1 pr-lg-5">
+            <h6 class="footer-title-29">Contact Info</h6>
+            <p>Address: Study course, 343 marketing, #2214 Cravel Street, NY - 62617.</p>
+            <p class="my-2">Phone: <a href="tel:+1(21) 234 4567">+1(21) 234 4567</a></p>
+            <p>Email: <a href="mailto:info@example.com">info@example.com</a></p>
+            <div class="main-social-footer-29 mt-4">
+              <a href="#facebook" class="facebook"><span class="fa fa-facebook"></span></a>
+              <a href="#twitter" class="twitter"><span class="fa fa-twitter"></span></a>
+              <a href="#instagram" class="instagram"><span class="fa fa-instagram"></span></a>
+              <a href="#linkedin" class="linkedin"><span class="fa fa-linkedin"></span></a>
             </div>
-            <div class="col-lg-2 col-md-3 col-6 footer-list-29 mt-md-0 mt-4">
-                <ul>
-                    <h6 class="footer-title-29">Quick Links</h6>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="workwithus.html">Work with Us</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
-                    <li><a href="#rewards">Rewards</a></li>
-                </ul>
-            </div>
-            <div class="col-lg-2 col-md-3 col-6 ps-lg-5 ps-lg-4 footer-list-29 mt-md-0 mt-4">
-                <ul>
-                    <h6 class="footer-title-29">Explore</h6>
-                    <li><a href="#blog">Blog</a></li>
-                    <li><a href="#privacy">Privacy Policy</a></li>
-                    <li><a href="#partners">Our Partners</a></li>
-                    <li><a href="#license">License & Uses</a></li>
-                    <li><a href="#events">Events</a></li>
-                </ul>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-8 footer-list-29 mt-lg-0 mt-4 ps-lg-5">
-                <h6 class="footer-title-29">Subscribe</h6>
-                <form action="#" class="subscribe" method="post">
-                    <input type="email" name="email" placeholder="Email Address" required="">
-                    <button class="btn btn-style mt-2">Subscribe</button>
-                </form>
-                <p class="mt-3">Join our mailing list to receive updates, news, and insights about ABA therapy and Westside ABA.</p>
-            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-5 col-6 footer-list-29 footer-2 mt-sm-0 mt-5">
+            <ul>
+              <h6 class="footer-title-29">Company</h6>
+              <li><a href="about.html">About Company</a></li>
+              <li><a href="#blog">Latest Blog Posts</a></li>
+              <li><a href="#teacher">Join The Team</a></li>
+              <li><a href="courses.html">Online Courses</a></li>
+              <li><a href="contact.html">Get in Touch</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-6 col-sm-5 col-6 footer-list-29 footer-3 mt-lg-0 mt-5">
+            <h6 class="footer-title-29">Programs</h6>
+            <ul>
+              <li><a href="#traning">Training Center</a></li>
+              <li><a href="#documentation">Documentation</a></li>
+              <li><a href="#release">Release Status</a></li>
+              <li><a href="#customers">Customers</a></li>
+              <li><a href="#helpcenter">Help Center</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-7 footer-list-29 footer-4 mt-lg-0 mt-5">
+            <h6 class="footer-title-29">Support</h6>
+            <a href="#playstore"><img src="assets/images/googleplay.png" class="img-responsive" alt=""></a>
+            <a href="#appstore"><img src="assets/images/appstore.png" class="img-responsive mt-3" alt=""></a>
+          </div>
         </div>
-        <!-- copyright -->
-        <p class="copy-footer-29 text-center mt-5 pt-lg-3">© 2024 Westside ABA. All rights reserved.</p>
+      </div>
     </div>
-</footer>
-<!-- //footer -->
+    <!-- copyright -->
+    <section class="w3l-copyright text-center">
+      <div class="container">
+        <p class="copy-footer-29">© 2020 Study Course. All rights reserved. Design by <a href="https://creativesparxstudio.com/"
+            target="_blank">Creative Sparx Studio</a></p>
+      </div>
+  
 
-
-    <!-- Js scripts -->
-       <!-- Bootstrap JS -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom JS -->
-    <script src="script.js"></script>
     <!-- move top -->
     <button onclick="topFunction()" id="movetop" title="Go to top">
-        <span class="fas fa-level-up-alt" aria-hidden="true"></span>
+      &#10548;
     </button>
     <script>
-        // When the user scrolls down 20px from the top of the document, show the button
-        window.onscroll = function () {
-            scrollFunction()
-        };
+      // When the user scrolls down 20px from the top of the document, show the button
+      window.onscroll = function () {
+        scrollFunction()
+      };
 
-        function scrollFunction() {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                document.getElementById("movetop").style.display = "block";
-            } else {
-                document.getElementById("movetop").style.display = "none";
-            }
+      function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+          document.getElementById("movetop").style.display = "block";
+        } else {
+          document.getElementById("movetop").style.display = "none";
         }
+      }
 
-        // When the user clicks on the button, scroll to the top of the document
-        function topFunction() {
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
+      // When the user clicks on the button, scroll to the top of the document
+      function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }
+    </script>
+    <!-- /move top -->
+  </section>
+  <!-- //copyright -->
+</section>
+<!-- //footer -->
+
+<!-- Template JavaScript -->
+<script src="assets/js/jquery-3.3.1.min.js"></script>
+
+<script src="assets/js/theme-change.js"></script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var 
+</script>
+<!-- stats number counter-->
+<script src="assets/js/jquery.waypoints.min.js"></script>
+<script src="assets/js/jquery.countup.js"></script>
+<script>
+  $('.counter').countUp();
+</script>
+<!-- //stats number counter -->
+
+<script src="assets/js/owl.carousel.js"></script>
+<!-- script for banner slider-->
+<script>
+  $(document).ready(function () {
+    $('.owl-one').owlCarousel({
+      loop: true,
+      margin: 0,
+      nav: false,
+      dots: false,
+      responsiveClass: true,
+      autoplay: true,
+      autoplayTimeout: 5000,
+      autoplaySpeed: 1000,
+      autoplayHoverPause: false,
+      responsive: {
+        0: {
+          items: 1
+        },
+        480: {
+          items: 1
+        },
+        667: {
+          items: 1
+        },
+        1000: {
+          items: 1,
+          nav: true
         }
-    </script>
-    <!-- //move top -->
+      }
+    })
+  })
+</script>
+<!-- //script -->
 
-    <!-- common jquery plugin -->
-    <script src="assets/js/jquery-3.3.1.min.js"></script>
-    <!-- //common jquery plugin -->
+<!-- script for tesimonials carousel slider -->
+<script>
+  $(document).ready(function () {
+      $("#owl-demo1").owlCarousel({
+          loop: true,
+          margin: 20,
+          nav: false,
+          responsiveClass: true,
+          responsive: {
+              0: {
+                  items: 1,
+                  nav: false
+              },
+              768: {
+                  items: 2,
+                  nav: false
+              },
+              1000: {
+                  items: 3,
+                  nav: false,
+                  loop: false
+              }
+          }
+      })
+  })
+</script>
+<!-- //script for tesimonials carousel slider -->
 
-    <!-- banner slider -->
-    <script src="assets/js/slideshow.js"></script>
-    <!-- //banner slider -->
+<!-- disable body scroll which navbar is in active -->
+<script>
+  $(function () {
+    $('.navbar-toggler').click(function () {
+      $('body').toggleClass('noscroll');
+    })
+  });
+</script>
+<!-- disable body scroll which navbar is in active -->
 
-    <!-- for services carousel slider -->
-    <script src="assets/js/owl.carousel.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('.owl-three').owlCarousel({
-                loop: true,
-                stagePadding: 20,
-                margin: 20,
-                autoplay: true,
-                autoplayTimeout: 5000,
-                autoplaySpeed: 1000,
-                autoplayHoverPause: false,
-                nav: true,
-                responsive: {
-                    0: {
-                        items: 1
-                    },
-                    600: {
-                        items: 2
-                    },
-                    991: {
-                        items: 3
-                    },
-                    1200: {
-                        items: 4
-                    }
-                }
-            })
-        })
-    </script>
-    <!-- //for services carousel slider -->
+<!--/MENU-JS-->
+<script>
+  $(window).on("scroll", function () {
+    var scroll = $(window).scrollTop();
 
-    <!-- counter-->
-    <script src="assets/js/counter.js"></script>
-    <!-- //counter-->
+    if (scroll >= 80) {
+      $("#site-header").addClass("nav-fixed");
+    } else {
+      $("#site-header").removeClass("nav-fixed");
+    }
+  });
 
-    <!-- theme switch js (light and dark)-->
-    <script src="assets/js/theme-change.js"></script>
-    <!-- //theme switch js (light and dark)-->
+  //Main navigation Active Class Add Remove
+  $(".navbar-toggler").on("click", function () {
+    $("header").toggleClass("active");
+  });
+  $(document).on("ready", function () {
+    if ($(window).width() > 991) {
+      $("header").removeClass("active");
+    }
+    $(window).on("resize", function () {
+      if ($(window).width() > 991) {
+        $("header").removeClass("active");
+      }
+    });
+  });
+</script>
+<!--//MENU-JS-->
 
-    <!-- MENU-JS -->
-    <script>
-        $(window).on("scroll", function () {
-            var scroll = $(window).scrollTop();
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="script2.js"></script>
+<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+<script>
+    // Text animation using Typed.js
+    var typingEffect = new Typed('.multiText', {
+        strings: ["Therapist", "Behavior Specialist", "Caregiver"],
+        loop: true,
+        typeSpeed: 100,
+        backSpeed: 80,
+        backDelay: 1500,
+    });
 
-            if (scroll >= 80) {
-                $("#site-header").addClass("nav-fixed");
-            } else {
-                $("#site-header").removeClass("nav-fixed");
-            }
-        });
+    // Burger menu toggle script
+    const burger = document.querySelector('.burger');
+    const navItems = document.querySelector('.navItems');
 
-        //Main navigation Active Class Add Remove
-        $(".navbar-toggler").on("click", function () {
-            $("header").toggleClass("active");
-        });
-        $(document).on("ready", function () {
-            if ($(window).width() > 991) {
-                $("header").removeClass("active");
-            }
-            $(window).on("resize", function () {
-                if ($(window).width() > 991) {
-                    $("header").removeClass("active");
-                }
-            });
-        });
-    </script>
-    <!-- //MENU-JS -->
+    burger.addEventListener('click', () => {
+        navItems.classList.toggle('nav-active');
+        burger.classList.toggle('toggle');
+    });
+</script>
 
-    <!-- disable body scroll which navbar is in active -->
-    <script>
-        $(function () {
-            $('.navbar-toggler').click(function () {
-                $('body').toggleClass('noscroll');
-            })
-        });
-    </script>
-    <!-- //disable body scroll which navbar is in active -->
 
-    <!-- bootstrap -->
-    <script src="assets/js/bootstrap.min.js"></script>
-    <!-- //bootstrap -->
-    <!-- //Js scripts -->
-     
-    <!-- JavaScript -->
-    <script src="js/script.js" defer></script>
-    
 </body>
 
 </html>
