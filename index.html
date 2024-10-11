@@ -25,6 +25,8 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
     <!-- AOS Library CSS -->
 <link href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    !-- Font Awesome Link -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <!-- Stylesheet -->
     <link rel="stylesheet" href="css/style3.css">
     <link rel="stylesheet" href="assets/css/style-starter.css">
@@ -63,7 +65,95 @@
     animation-timeline: view();
     animation-range: entry 0% cover;
 }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f8fc;
+}
+
+.how-it-works {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #f4f4f9;
+}
+
+.how-it-works h2 {
+    font-size: 36px;
+    color: #1f3d7a;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+.steps {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.step {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 15px;
+    flex: 1 1 45%;
+    max-width: 45%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.step h3 {
+    font-size: 22px;
+    color: #1f3d7a;
+    margin: 20px 0 10px;
+}
+
+.step p {
+    font-size: 16px;
+    color: #555;
+}
+
+.icon-box {
+    background-color: #1f3d7a;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    margin: 0 auto;
+    transition: background-color 0.3s ease;
+}
+
+.step:hover .icon-box {
+    background-color: #4a6ea8;
+}
+
+.icon-box i {
+    font-size: 26px;
+}
+
+@media (max-width: 768px) {
+    .step {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .how-it-works h2 {
+        font-size: 28px;
+    }
+        }
     </style>  
 
     
@@ -420,7 +510,40 @@
         </div>
     </div>
 </section>
-
+section class="how-it-works">
+    <h2>How it Works</h2>
+    <div class="steps">
+        <div class="step">
+            <div class="icon-box">
+                <i class="fas fa-phone-alt"></i>
+            </div>
+            <h3>Request Service</h3>
+            <p>Provide basic demographic & medical information</p>
+        </div>
+        <div class="step">
+            <div class="icon-box">
+                <i class="fas fa-file-alt"></i>
+            </div>
+            <h3>Funding Source Approval</h3>
+            <p>Establish and secure authorization for the funding source.</p>
+        </div>
+        <div class="step">
+            <div class="icon-box">
+                <i class="fas fa-user-check"></i>
+            </div>
+            <h3>Initial Assessment</h3>
+            <p>Therapist arranges the first meeting for therapy.</p>
+        </div>
+        <div class="step">
+            <div class="icon-box">
+                <i class="fas fa-hands-helping"></i>
+            </div>
+            <h3>Initiate ABA Therapy</h3>
+            <p>Deliver ABA Therapy to client at home or in the community.</p>
+        </div>
+    </div>
+  </section>
+      
 
 <div class="w3l-homeblock3 py-5">
     <div class="container py-lg-5 py-md-4 py-2">
