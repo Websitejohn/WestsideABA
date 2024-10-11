@@ -66,6 +66,7 @@
     animation-timeline: view();
     animation-range: entry 0% cover;
 }
+/* General styling */
 * {
     margin: 0;
     padding: 0;
@@ -73,91 +74,121 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f7f8fc;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f4fa;
 }
 
+/* Section styling */
 .how-it-works {
+    padding: 60px 20px;
     text-align: center;
-    padding: 40px 20px;
-    background-color: #f4f4f9;
+    background-color: #edf2f7;
 }
 
 .how-it-works h2 {
     font-size: 36px;
     color: #1f3d7a;
-    margin-bottom: 30px;
-    letter-spacing: 1px;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1.5px;
 }
 
-.steps {
+/* Steps container */
+.steps-container {
     display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
     flex-wrap: wrap;
-    justify-content: center;
 }
 
+/* Step styling */
 .step {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    margin: 10px;
     padding: 20px;
-    margin: 15px;
-    flex: 1 1 45%;
-    max-width: 45%;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
 }
 
 .step:hover {
     transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
 }
 
-.step h3 {
-    font-size: 22px;
-    color: #1f3d7a;
-    margin: 20px 0 10px;
-}
-
-.step p {
-    font-size: 16px;
-    color: #555;
-}
-
+/* Icon styling */
 .icon-box {
-    background-color: #1f3d7a;
-    color: white;
     width: 60px;
     height: 60px;
     border-radius: 50%;
+    background-color: #1f3d7a;
     display: flex;
     justify-content: center;
     align-items: center;
+    color: white;
     font-size: 24px;
-    margin: 0 auto;
-    transition: background-color 0.3s ease;
+    margin: 0 auto 20px;
 }
 
-.step:hover .icon-box {
-    background-color: #4a6ea8;
+/* Step information */
+.step-info h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
 }
 
-.icon-box i {
-    font-size: 26px;
+.step-info p {
+    font-size: 16px;
+    color: #666;
 }
 
+/* Connecting line between steps */
+.line {
+    width: 60px;
+    height: 5px;
+    background-color: #1f3d7a;
+    margin: 40px auto;
+    border-radius: 2px;
+    position: absolute;
+    top: 50%;
+    left: 120px;
+}
+
+.line:after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #1f3d7a;
+    top: -8px;
+    left: 100%;
+    border-radius: 50%;
+}
+
+/* Media Queries */
 @media (max-width: 768px) {
+    .steps-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
     .step {
-        flex: 1 1 100%;
-        max-width: 100%;
+        width: 80%;
+        margin-bottom: 40px;
     }
 
-    .how-it-works h2 {
-        font-size: 28px;
+    .line {
+        display: none;
     }
-        }
-    </style>  
-
-    
+}
+    </style>
   </head>
   <body>
     
@@ -515,38 +546,58 @@ body {
     </div>
 </section>
 <section class="how-it-works">
-    <h2>How it Works</h2>
-    <div class="steps">
+<section class="how-it-works" id="how-it-works">
+    <h2>How It Works</h2>
+    <div class="steps-container">
         <div class="step">
-            <div class="icon-box">
-                <i class="fas fa-phone-alt"></i>
+            <div class="step-content">
+                <div class="icon-box">
+                    <i class="fas fa-phone-alt"></i>
+                </div>
+                <div class="step-info">
+                    <h3>01. Request Service</h3>
+                    <p>Provide basic demographic & medical information.</p>
+                </div>
             </div>
-            <h3>Request Service</h3>
-            <p>Provide basic demographic & medical information</p>
         </div>
+        <div class="line"></div>
         <div class="step">
-            <div class="icon-box">
-                <i class="fas fa-file-alt"></i>
+            <div class="step-content">
+                <div class="icon-box">
+                    <i class="fas fa-file-alt"></i>
+                </div>
+                <div class="step-info">
+                    <h3>02. Funding Source Approval</h3>
+                    <p>Establish and secure authorization for the funding source.</p>
+                </div>
             </div>
-            <h3>Funding Source Approval</h3>
-            <p>Establish and secure authorization for the funding source.</p>
         </div>
+        <div class="line"></div>
         <div class="step">
-            <div class="icon-box">
-                <i class="fas fa-user-check"></i>
+            <div class="step-content">
+                <div class="icon-box">
+                    <i class="fas fa-user-check"></i>
+                </div>
+                <div class="step-info">
+                    <h3>03. Initial Assessment</h3>
+                    <p>Therapist arranges the first meeting for therapy.</p>
+                </div>
             </div>
-            <h3>Initial Assessment</h3>
-            <p>Therapist arranges the first meeting for therapy.</p>
         </div>
+        <div class="line"></div>
         <div class="step">
-            <div class="icon-box">
-                <i class="fas fa-hands-helping"></i>
+            <div class="step-content">
+                <div class="icon-box">
+                    <i class="fas fa-hands-helping"></i>
+                </div>
+                <div class="step-info">
+                    <h3>04. Initiate ABA Therapy</h3>
+                    <p>Deliver ABA Therapy to client at home or in the community.</p>
+                </div>
             </div>
-            <h3>Initiate ABA Therapy</h3>
-            <p>Deliver ABA Therapy to client at home or in the community.</p>
         </div>
     </div>
-  </section>
+</section>
       
 
 <div class="w3l-homeblock3 py-5">
