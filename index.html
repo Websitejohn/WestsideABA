@@ -293,7 +293,7 @@ body {
                                     <!-- Logo/Image -->
                                     <img src="assets/images/logo1.png" alt="WestSide ABA Logo" class="hero-logo" style="max-width: 150px;">
                                     <!-- Animate elements -->
-                                    <h5 class="animated-text">Comprehensive ABA Care</h5>
+                                    <h5 class="animated-text" data-aos="fade-right">Comprehensive ABA Care</h5>
                                     <p class="mt-4 pr-lg-4 animated-text">Helping individuals with autism reach their full potential.</p>
                                     <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2 animated-text" href="#section1"> Ready to start?</a>
                                 </div>
@@ -311,7 +311,7 @@ body {
                                     <!-- Logo/Image -->
                                     <img src="assets/images/logo1.png" alt="WestSide ABA Logo" class="hero-logo" style="max-width: 150px;">
                                     <!-- Animate elements -->
-                                    <h5 class="animated-text">Customized ABA Plans</h5>
+                                    <h5 class="animated-text" data-aos="fade-right">Customized ABA Plans</h5>
                                     <p class="mt-4 pr-lg-4 animated-text">We work with families to create individualized therapy.</p>
                                     <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2 animated-text" href="#request-service-form"> Let's begin</a>
                                 </div>
@@ -329,7 +329,7 @@ body {
                                     <!-- Logo/Image -->
                                     <img src="assets/images/logo1.png" alt="WestSide ABA Logo" class="hero-logo" style="max-width: 150px;">
                                     <!-- Animate elements -->
-                                    <h5 class="animated-text">Behavioral Growth Support</h5>
+                                    <h5 class="animated-text" data-aos="fade-right">Behavioral Growth Support</h5>
                                     <p class="mt-4 pr-lg-4 animated-text">Helping individuals build essential life skills.</p>
                                     <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2 animated-text" href="about.html">About Us</a>
                                 </div>
@@ -1037,6 +1037,7 @@ body {
 <!-- script for banner slider-->
 <script>
   $(document).ready(function () {
+    // Owl Carousel initialization
     $('.owl-one').owlCarousel({
       loop: true,
       margin: 0,
@@ -1061,9 +1062,25 @@ body {
           items: 1,
           nav: true
         }
+      },
+      // Trigger animations on slide change
+      onTranslate: function () {
+        // Remove the AOS classes to reset animations
+        $('.owl-item .aos-animate').removeClass('aos-animate');
+      },
+      onTranslated: function () {
+        // Re-trigger the AOS animations after the slide has fully changed
+        AOS.refresh(); 
       }
-    })
-  })
+    });
+
+    // Initialize AOS (Animation on Scroll)
+    AOS.init({
+      duration: 1000,  // Set the duration for animation
+      once: false,     // Allow repeated animations (on every slide change)
+      mirror: true     // Trigger animations on elements when they become visible
+    });
+  });
 </script>
 <!-- //script -->
 
