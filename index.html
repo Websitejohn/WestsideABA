@@ -1045,8 +1045,8 @@ body {
       dots: false,
       responsiveClass: true,
       autoplay: true,
-      autoplayTimeout: 5000,
-      autoplaySpeed: 1000,
+      autoplayTimeout: 6000, // Slightly increased to allow animation to fully play
+      autoplaySpeed: 1200,   // Smooth transition between slides
       autoplayHoverPause: false,
       responsive: {
         0: {
@@ -1063,22 +1063,21 @@ body {
           nav: true
         }
       },
-      // Trigger animations on slide change
+      // Reset AOS on slide change for re-animation
       onTranslate: function () {
-        // Remove the AOS classes to reset animations
         $('.owl-item .aos-animate').removeClass('aos-animate');
       },
       onTranslated: function () {
-        // Re-trigger the AOS animations after the slide has fully changed
-        AOS.refresh(); 
+        AOS.refresh();
       }
     });
 
-    // Initialize AOS (Animation on Scroll)
+    // Initialize AOS with enhanced options
     AOS.init({
-      duration: 1000,  // Set the duration for animation
-      once: false,     // Allow repeated animations (on every slide change)
-      mirror: true     // Trigger animations on elements when they become visible
+      duration: 1500,      // Increased duration for more fluid animations
+      easing: 'ease-in-out', // Smoother easing effect for transitions
+      once: false,         // Allow repeated animations
+      mirror: false        // Don't animate in reverse when scrolling back
     });
   });
 </script>
