@@ -615,6 +615,9 @@ body {
 </div>
 
     <style>
+body, html {
+  overflow-x: hidden;
+}
        .request-service-form {
             background-color: #fff; 
             border-radius: 10px; 
@@ -1113,8 +1116,8 @@ body {
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
 <script>
     AOS.init({
-      duration: 1000,  // Animation duration
-      offset: 300,     // Offset to trigger animation closer to the view (increase this for later animation trigger)
+      duration: 2000,  // Animation duration
+      offset: 100,     // Offset to trigger animation closer to the view (increase this for later animation trigger)
       easing: 'ease-in-out', // Animation easing
       once: true       // Ensure the animation runs only once (if this is desired)
     });
