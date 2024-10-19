@@ -1064,21 +1064,22 @@ body {
           nav: true
         }
       },
-      // Reset AOS on slide change for re-animation
+      // Trigger animations on slide change only for active slide
       onTranslate: function () {
-        $('.owl-item .aos-animate').removeClass('aos-animate');
+        $('.owl-item.active .aos-animate').removeClass('aos-animate'); // Only remove AOS classes from the active slide
       },
       onTranslated: function () {
-        AOS.refresh();
+        $('.owl-item.active [data-aos]').addClass('aos-animate'); // Only trigger AOS animations for the active slide
+        AOS.refreshHard();  // Use refreshHard to force update only within the active slide
       }
     });
 
-    // Initialize AOS with enhanced options
+    // Initialize AOS
     AOS.init({
-      duration: 1500,      // Increased duration for more fluid animations
-      easing: 'ease-in-out', // Smoother easing effect for transitions
-      once: false,         // Allow repeated animations
-      mirror: false        // Don't animate in reverse when scrolling back
+      duration: 1500,       // Duration of the animations
+      easing: 'ease-in-out', // Smoother easing effect
+      once: false,          // Allow repeated animations
+      mirror: false         // Avoid animations on reverse scroll
     });
   });
 </script>
