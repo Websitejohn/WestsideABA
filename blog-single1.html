@@ -203,10 +203,10 @@
                       <li>
                           <p class="m-0 mr-4">Share this post :</p>
                       </li>
-                      <li><a href="#facebook" class="facebook"><span class="fa fa-facebook"></span></a></li>
-                      <li><a href="#twitter" class="twitter"><span class="fa fa-twitter"></span></a></li>
-                      <li><a href="#instagram" class="instagram"><span class="fa fa-instagram"></span></a></li>
-                      <li><a href="#linkedin" class="linkedin"><span class="fa fa-linkedin"></span></a></li>
+                      <li><a href="https://www.facebook.com/sharer/sharer.php?u=YOUR_URL" class="facebook"><span class="fa fa-facebook"></span></a></li>
+                      <li><a href="https://twitter.com/intent/tweet?url=YOUR_URL&text=Check out this blog post!" class="twitter"><span class="fa fa-twitter"></span></a></li>
+                      <li><a href="https://www.linkedin.com/shareArticle?mini=true&url=YOUR_URL&title=Blog Post Title&summary=Your post summary here" class="linkedin"><span class="fa fa-linkedin"></span></a></li>
+                      <li><a href="#" class="instagram" onclick="copyToClipboard()" title="Copy link to share on Instagram"><span class="fa fa-instagram"></span></a></li>
                   </ul>
               </div>
               <div class="new-posts clearfix">
@@ -264,7 +264,7 @@
               </div>
               <div class="leave-comment-form" id="comment">
                   <h3 class="aside-title">Leave a reply</h3>
-                  <form action="#" method="post">
+                  <form action="https://formspree.io/f/mjkbngjd" method="post">
                       <div class="input-grids">
                           <div class="form-group">
                               <input type="text" name="Name" class="form-control" placeholder="Your Name" required="">
@@ -322,7 +322,7 @@
         
                         <div class="col-md-6 item mt-md-0 mt-5">
                             <div class="card">
-                                <<div class="card-header p-0 position-relative">
+                                <div class="card-header p-0 position-relative">
                                   <a href="blog-single3.html" class="zoom d-block">
                                       <img class="card-img-bottom d-block" src="assets/images/c1.jpg" alt="Card image cap">
                                   </a>
@@ -461,7 +461,27 @@
   })();
   </script>
   <!--End of Tawk.to Script-->
-  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const currentURL = window.location.href;
+
+        document.querySelector('.facebook').href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentURL)}`;
+        document.querySelector('.twitter').href = `https://twitter.com/intent/tweet?url=${encodeURIComponent(currentURL)}&text=Check out this blog post!`;
+        document.querySelector('.linkedin').href = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(currentURL)}&title=Blog Post Title&summary=Your post summary here`;
+    });
+
+    function copyToClipboard() {
+        var dummy = document.createElement('input'),
+            text = window.location.href;
+
+        document.body.appendChild(dummy);
+        dummy.value = text;
+        dummy.select();
+        document.execCommand('copy');
+        document.body.removeChild(dummy);
+        alert('Link copied! Now you can share it on Instagram.');
+    }
+</script>
 <!-- //stats number counter -->
 
 <script src="assets/js/owl.carousel.js"></script>
