@@ -474,6 +474,7 @@
         document.querySelector('.twitter').href = `https://twitter.com/intent/tweet?url=${encodeURIComponent(currentURL)}&text=Check out this blog post!`;
         document.querySelector('.linkedin').href = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(currentURL)}&title=Blog Post Title&summary=Your post summary here`;
     });
+document.querySelector('.whatsapp').href = `https://wa.me/?text=${encodedURL}`;
 
     function copyToClipboard() {
         var dummy = document.createElement('input'),
