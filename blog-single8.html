@@ -466,7 +466,27 @@
   })();
   </script>
   <!--End of Tawk.to Script-->
-  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const currentURL = window.location.href;
+
+        document.querySelector('.facebook').href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentURL)}`;
+        document.querySelector('.twitter').href = `https://twitter.com/intent/tweet?url=${encodeURIComponent(currentURL)}&text=Check out this blog post!`;
+        document.querySelector('.linkedin').href = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(currentURL)}&title=Blog Post Title&summary=Your post summary here`;
+    });
+
+    function copyToClipboard() {
+        var dummy = document.createElement('input'),
+            text = window.location.href;
+
+        document.body.appendChild(dummy);
+        dummy.value = text;
+        dummy.select();
+        document.execCommand('copy');
+        document.body.removeChild(dummy);
+        alert('Link copied! Now you can share it on Instagram.');
+    }
+</script>
 <!-- //stats number counter -->
 
 <script src="assets/js/owl.carousel.js"></script>
