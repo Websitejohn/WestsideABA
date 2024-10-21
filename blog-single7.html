@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Westside ABA</title>
+    <title>Westside ABA Blog | Early Intervention: Why It Matters for Children with Autism</title>
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
@@ -223,7 +223,7 @@
                       <li><a href="https://www.facebook.com/sharer/sharer.php?u=YOUR_URL" class="facebook"><span class="fa fa-facebook"></span></a></li>
                       <li><a href="https://twitter.com/intent/tweet?url=YOUR_URL&text=Check out this blog post!" class="twitter"><span class="fa fa-twitter"></span></a></li>
                       <li><a href="https://www.linkedin.com/shareArticle?mini=true&url=YOUR_URL&title=Blog Post Title&summary=Your post summary here" class="linkedin"><span class="fa fa-linkedin"></span></a></li>
-                      <li><a href="#" class="instagram" onclick="copyToClipboard()" title="Copy link to share on Instagram"><span class="fa fa-instagram"></span></a></li>
+                      <li><a href="https://www.instagram.com" class="instagram" target="_blank"><span class="fa fa-instagram"></span></a></li>
                       <li>
                         <a href="https://wa.me/?text=YOUR_URL" class="whatsapp" target="_blank">
                             <span class="fa fa-whatsapp"></span>
@@ -477,24 +477,21 @@
   <!--End of Tawk.to Script-->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const currentURL = window.location.href;
+    const currentURL = window.location.href;
+    
+    if (currentURL) {
+        const encodedURL = encodeURIComponent(currentURL);
 
-        document.querySelector('.facebook').href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentURL)}`;
-        document.querySelector('.twitter').href = `https://twitter.com/intent/tweet?url=${encodeURIComponent(currentURL)}&text=Check out this blog post!`;
-        document.querySelector('.linkedin').href = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(currentURL)}&title=Blog Post Title&summary=Your post summary here`;
-    });
-
-    function copyToClipboard() {
-        var dummy = document.createElement('input'),
-            text = window.location.href;
-
-        document.body.appendChild(dummy);
-        dummy.value = text;
-        dummy.select();
-        document.execCommand('copy');
-        document.body.removeChild(dummy);
-        alert('Link copied! Now you can share it on Instagram.');
+        document.querySelector('.facebook').href = `https://www.facebook.com/sharer/sharer.php?u=${encodedURL}`;
+        document.querySelector('.twitter').href = `https://twitter.com/intent/tweet?url=${encodedURL}&text=Check out this blog post!`;
+        document.querySelector('.linkedin').href = `https://www.linkedin.com/shareArticle?mini=true&url=${encodedURL}&title=Blog Post Title&summary=Your post summary here`;
+        document.querySelector('.instagram').href = `https://www.instagram.com/?url=${encodedURL}`;
+        document.querySelector('.whatsapp').href = `https://wa.me/?text=${encodedURL}`;
+    } else {
+        console.error('Current URL is not available');
     }
+});
+
 </script>
 <!-- //stats number counter -->
 
