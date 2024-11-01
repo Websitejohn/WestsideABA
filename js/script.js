@@ -1,31 +1,53 @@
-const slides = document.querySelectorAll('.slide');
-let currentSlide = 0;
+jQuery.noConflict();
+jQuery(document).ready(function($){
+								
+							
+function lightboxPhoto() {
+	
+	jQuery("a[data-gal^='prettyPhoto']").prettyPhoto({
+			animationSpeed:'fast',
+			slideshow:5000,
+			theme:'light_rounded',
+			show_title:false,
+			overlay_gallery: false
+		});
+	
+	}
+	
+		if(jQuery().prettyPhoto) {
+	
+		lightboxPhoto(); 
+			
+	}
+	
+	
+if (jQuery().quicksand) {
 
-function applyAnimation(slide) {
-    const title = slide.querySelector('.slider-title');
-    const text = slide.querySelector('.slider-text');
+ 	// Clone applications to get a second collection
+	var $data = $(".portfolio-area").clone();
+	
+	//NOTE: Only filter on the main portfolio page, not on the subcategory pages
+	$('.portfolio-categ li').click(function(e) {
+		$(".filter li").removeClass("active");	
+		// Use the last category class as the category to filter by. This means that multiple categories are not supported (yet)
+		var filterClass=$(this).attr('class').split(' ').slice(-1)[0];
+		
+		if (filterClass == 'all') {
+			var $filteredData = $data.find('.portfolio-item2');
+		} else {
+			var $filteredData = $data.find('.portfolio-item2[data-type=' + filterClass + ']');
+		}
+		$(".portfolio-area").quicksand($filteredData, {
+			duration: 600,
+			adjustHeight: 'auto'
+		}, function () {
 
-    // Remove the animation classes (in case they're already applied)
-    title.classList.remove('animate__animated', 'animate__lightSpeedInLeft');
-    text.classList.remove('animate__animated', 'animate__fadeInUp');
+				lightboxPhoto();
+						});		
+		$(this).addClass("active"); 			
+		return false;
+	});
+	
+}//if quicksand
 
-    // Force a reflow to restart the animation
-    void title.offsetWidth; 
-    void text.offsetWidth;
-
-    // Re-add the animation classes
-    title.classList.add('animate__animated', 'animate__lightSpeedInLeft');
-    text.classList.add('animate__animated', 'animate__fadeInUp');
-}
-
-function nextSlide() {
-    currentSlide = (currentSlide + 1) % slides.length;
-    showSlide(currentSlide);
-    applyAnimation(slides[currentSlide]);  // Apply animation on the new active slide
-}
-
-// Automatically switch slides every X seconds (customize the interval as per your slider)
-setInterval(nextSlide, 5000);
-
-// Make sure to run applyAnimation on the first slide initially
-applyAnimation(slides[currentSlide]);
+});
