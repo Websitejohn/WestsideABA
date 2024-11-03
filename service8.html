@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Westside ABA | Autism Support</title>
+    <title>ABA Therapy Services | Westside ABA</title>
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
@@ -23,6 +23,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+      <!-- AOS Library for animations -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
     <!-- Stylesheet -->
     <link rel="stylesheet" href="css/style3.css">
     <link rel="stylesheet" href="assets/css/style-starter.css">
@@ -74,7 +77,7 @@
           <li class="nav-item @@about__active">
             <a class="nav-link" href="about.html">About Us</a>
           </li>
-          <li class="nav-item dropdown @@pages__active ">
+          <li class="nav-item dropdown @@pages__active active">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Our Services <span class="sr-only">(current)</span><span class="fa fa-angle-down"></span>
             </a>
@@ -99,7 +102,7 @@
               <a class="dropdown-item @@b__active" href="index.html#team">Our Team</a>
             </div>
           </li>
-          <li class="nav-item @@contact__active active">
+          <li class="nav-item @@contact__active">
             <a class="nav-link" href="contact.html">Contact</a>
           </li>
         </ul>
@@ -144,119 +147,77 @@
   </div>
 </header>
 <!--/header-->
+
 <!-- about breadcrumb -->
 <section class="w3l-breadcrumb">
-    <div class="breadcrumb-bg breadcrumb-bg-about py-5">
-        <div class="container pt-lg-5 pt-3 p-lg-4 pb-3">
-            <h2 class="title mt-5 pt-lg-5 pt-sm-3">Get in touch</h2>
-            <ul class="breadcrumbs-custom-path pb-sm-5 pb-4 mt-2 text-center mb-md-5">
-                <li><a href="index.html">Home</a></li>
-                <li class="active"> / Contact us </li>
-            </ul>
-        </div>
-    </div>
-    <div class="waveWrapper waveAnimation">
-        <svg viewBox="0 0 500 150" preserveAspectRatio="none">
-            <path d="M-5.07,73.52 C149.99,150.00 299.66,-102.13 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none;"></path>
-        </svg>
-    </div>
+  <div class="breadcrumb-bg breadcrumb-bg-about py-5">
+      <div class="container pt-lg-5 pt-3 p-lg-4 pb-3">
+          <h2 class="title mt-5 pt-lg-5 pt-sm-3">Digital Learning Environment</h2>
+          <ul class="breadcrumbs-custom-path pb-sm-5 pb-4 mt-2 text-center mb-md-5">
+              <li><a href="index.html">Home</a></li>
+              <li class="active"> / Digital Learning </li>
+          </ul>
+      </div>
+  </div>
+  <div class="waveWrapper waveAnimation">
+      <svg viewBox="0 0 500 150" preserveAspectRatio="none">
+          <path d="M-5.07,73.52 C149.99,150.00 299.66,-102.13 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none;"></path>
+      </svg>
+  </div>
 </section>
 <!-- //about breadcrumb -->
-<!-- contact block -->
-<!-- contact1 -->
-<section class="w3l-contact-1 pb-5" id="contact">
-  <div class="contacts-9 py-lg-5 py-md-4">
-      <div class="container">
-          <div class="d-grid contact-view">
-              <div class="cont-details">
-                  <h4 class="title-small">Reach Out to Us</h4>
-                  <h3 class="title-big mb-4">We’re Here to Help You</h3>
-                  <p class="mb-sm-5 mb-4">Connect with our team to learn more about our personalized ABA therapy services. We’re here to assist you and will respond within 24 hours.</p>
 
-                  <div class="cont-top">
-                      <div class="cont-left text-center">
-                          <span class="fa fa-map-marker text-primary"></span>
-                      </div>
-                      <div class="cont-right">
-                          <h6>Our Office</h6>
-                          <p class="pr-lg-5"> Westside ABA, Danville, Indiana, 46122.</p>
-                      </div>
-                  </div>
-                  <div class="cont-top margin-up">
-                      <div class="cont-left text-center">
-                          <span class="fa fa-phone text-primary"></span>
-                      </div>
-                      <div class="cont-right">
-                          <h6>Phone Support</h6>
-                          <p><a href="tel:+1 (774) 272-3844">+1 (774) 272-3844</a></p>
-                      </div>
-                  </div>
-                  <div class="cont-top margin-up">
-                      <div class="cont-left text-center">
-                          <span class="fa fa-envelope-o text-primary"></span>
-                      </div>
-                      <div class="cont-right">
-                          <h6>Email Support</h6>
-                          <p><a href="mailto:info@westsideaba.com" class="mail">info@westsideaba.com</a></p>
-                      </div>
-                  </div>
+<section class="w3l-features py-5" id="daily-living-skills">
+  <div class="call-w3 py-lg-5 py-md-4 py-2">
+      <div class="container">
+          <div class="row main-cont-wthree-2">
+              <!-- Left Column: Program Overview -->
+              <div class="col-lg-5 feature-grid-left" data-aos="fade-right" data-aos-duration="2000" data-aos-delay="300">
+                  <h5 class="title-small mb-1">Promoting Independence</h5>
+                  <h3 class="title-big mb-4">Daily Living and Adaptive Skills</h3>
+                  <p class="text-para">Helping individuals gain essential life skills to promote self-reliance and independence in daily activities.</p>
+                  <p class="mt-3">Our program focuses on teaching practical skills for day-to-day tasks, from personal care to community interactions, empowering individuals to confidently navigate various life situations.</p>
+                  
               </div>
-              <div class="map-content-9"> 
-                  <h5 class="mb-sm-4 mb-3">Write to Us</h5>
-                  <form id="contactForm" action="https://formspree.io/f/mjkbngjd" method="post"> 
-                    <div class="twice-two">
-                        <input type="text" class="form-control" name="name" id="name" placeholder="Your Name" required="">
-                        <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required="">
-                    </div>
-                    <div class="twice">
-                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required="">
-                    </div>
-                    <textarea name="message" class="form-control" id="message" placeholder="How can we help you?" required=""></textarea>
-                    <div class="text-right">
-                        <button type="submit" class="btn btn-primary btn-style mt-4">Send Message</button>
-                    </div>
-                </form>
-            
-                <!-- Success/Error Message -->
-                <div id="responseMessage" style="display:none; margin-top: 20px;"></div>
-            
-                <script>
-                    $(document).ready(function() {
-                        $('#contactForm').submit(function(e) {
-                            e.preventDefault();  // Prevent form from submitting normally
-            
-                            $.ajax({
-                                url: 'submit_contact.php', // The PHP file where the data is processed
-                                type: 'POST',
-                                data: $(this).serialize(),  // Serialize form data
-                                dataType: 'json',  // Expect JSON response from the server
-                                success: function(response) {
-                                    if (response.success) {
-                                        $('#responseMessage').css('color', 'green').text(response.message).fadeIn();
-                                    } else {
-                                        $('#responseMessage').css('color', 'red').text(response.message).fadeIn();
-                                    }
-                                },
-                                error: function() {
-                                    $('#responseMessage').css('color', 'red').text("There was an error submitting the form. Please try again.").fadeIn();
-                                }
-                            });
-                        });
-                    });
-                </script>
+
+              <!-- Right Column: Core Skills in Daily Living -->
+              <div class="col-lg-7 feature-grid-right mt-lg-0 mt-5">
+                  <div class="call-grids-w3 d-grid">
+                      <!-- First Core Skill: Personal Hygiene -->
+                      <div class="grids-1 box-wrap" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="300">
+                          <a href="#personal-hygiene" class="icon"><span class="fa fa-shower"></span></a>
+                          <h4><a href="#personal-hygiene" class="title-head">Personal Hygiene</a></h4>
+                          <p>Developing routines and habits for personal hygiene, such as brushing teeth and bathing, to foster self-care.</p>
+                      </div>
+
+                      <!-- Second Core Skill: Dressing and Grooming -->
+                      <div class="grids-1 box-wrap" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="300">
+                          <a href="#dressing-grooming" class="icon"><span class="fa fa-tshirt"></span></a>
+                          <h4><a href="#dressing-grooming" class="title-head">Dressing and Grooming</a></h4>
+                          <p>Teaching individuals how to dress appropriately and perform grooming tasks to boost confidence and independence.</p>
+                      </div>
+
+                      <!-- Fourth Core Skill: Household Management -->
+                      <div class="grids-1 box-wrap" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="300">
+                          <a href="#household-management" class="icon"><span class="fa fa-home"></span></a>
+                          <h4><a href="#household-management" class="title-head">Household Management</a></h4>
+                          <p>Building skills for tasks like cleaning and organizing, promoting responsibility and independence at home.</p>
+                      </div>
+
+                      <!-- Fifth Core Skill: Community Access -->
+                      <div class="grids-1 box-wrap" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="300">
+                          <a href="#community-access" class="icon"><span class="fa fa-bus"></span></a>
+                          <h4><a href="#community-access" class="title-head">Community Access</a></h4>
+                          <p>Preparing individuals to navigate community settings safely, from using public transportation to grocery shopping.</p>
+                      </div>
+                  </div>
               </div>
           </div>
       </div>
   </div>
 </section>
 
-<!-- /contact1 -->
-<div class="map-iframe">
-    <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d196237.1850024323!2d-86.29756226318896!3d39.77993181485612!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x886b50ffa7796a03%3A0xd68e9df640b9ea7c!2sIndianapolis%2C%20IN%2C%20USA!5e0!3m2!1sen!2sng!4v1728756839990!5m2!1sen!2sng"
-        width="100%" height="400" frameborder="0" style="border: 0px;" allowfullscreen=""></iframe>
-</div>
-<!-- //contact block -->
+
 <!-- footer -->
 <section class="w3l-footer-29-main">
     <div class="footer-29 py-5">
@@ -300,7 +261,7 @@
             target="_blank">Creative Sparx Studio</a></p>
       </div>
 
-  <  <!-- move top -->
+    <!-- move top -->
   <button onclick="topFunction()" id="movetop" title="Go to top">
     &#10548;
   </button>
@@ -510,7 +471,7 @@
 <script>
     AOS.init({
       duration: 2000,  // Animation duration
-      offset: 200,     // Offset to trigger animation closer to the view (increase this for later animation trigger)
+      offset: 100,     // Offset to trigger animation closer to the view (increase this for later animation trigger)
       easing: 'ease-in-out', // Animation easing
       once: true       // Ensure the animation runs only once (if this is desired)
     });

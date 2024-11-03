@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Westside ABA | Autism Support</title>
+    <title>ABA Therapy Services | Westside ABA</title>
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
@@ -23,6 +23,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+      <!-- AOS Library for animations -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
     <!-- Stylesheet -->
     <link rel="stylesheet" href="css/style3.css">
     <link rel="stylesheet" href="assets/css/style-starter.css">
@@ -74,7 +77,7 @@
           <li class="nav-item @@about__active">
             <a class="nav-link" href="about.html">About Us</a>
           </li>
-          <li class="nav-item dropdown @@pages__active ">
+          <li class="nav-item dropdown @@pages__active active">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Our Services <span class="sr-only">(current)</span><span class="fa fa-angle-down"></span>
             </a>
@@ -99,7 +102,7 @@
               <a class="dropdown-item @@b__active" href="index.html#team">Our Team</a>
             </div>
           </li>
-          <li class="nav-item @@contact__active active">
+          <li class="nav-item @@contact__active">
             <a class="nav-link" href="contact.html">Contact</a>
           </li>
         </ul>
@@ -144,119 +147,77 @@
   </div>
 </header>
 <!--/header-->
+
 <!-- about breadcrumb -->
 <section class="w3l-breadcrumb">
-    <div class="breadcrumb-bg breadcrumb-bg-about py-5">
-        <div class="container pt-lg-5 pt-3 p-lg-4 pb-3">
-            <h2 class="title mt-5 pt-lg-5 pt-sm-3">Get in touch</h2>
-            <ul class="breadcrumbs-custom-path pb-sm-5 pb-4 mt-2 text-center mb-md-5">
-                <li><a href="index.html">Home</a></li>
-                <li class="active"> / Contact us </li>
-            </ul>
-        </div>
-    </div>
-    <div class="waveWrapper waveAnimation">
-        <svg viewBox="0 0 500 150" preserveAspectRatio="none">
-            <path d="M-5.07,73.52 C149.99,150.00 299.66,-102.13 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none;"></path>
-        </svg>
-    </div>
+  <div class="breadcrumb-bg breadcrumb-bg-about py-5">
+      <div class="container pt-lg-5 pt-3 p-lg-4 pb-3">
+          <h2 class="title mt-5 pt-lg-5 pt-sm-3">Digital Learning Environment</h2>
+          <ul class="breadcrumbs-custom-path pb-sm-5 pb-4 mt-2 text-center mb-md-5">
+              <li><a href="index.html">Home</a></li>
+              <li class="active"> / Digital Learning </li>
+          </ul>
+      </div>
+  </div>
+  <div class="waveWrapper waveAnimation">
+      <svg viewBox="0 0 500 150" preserveAspectRatio="none">
+          <path d="M-5.07,73.52 C149.99,150.00 299.66,-102.13 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none;"></path>
+      </svg>
+  </div>
 </section>
 <!-- //about breadcrumb -->
-<!-- contact block -->
-<!-- contact1 -->
-<section class="w3l-contact-1 pb-5" id="contact">
-  <div class="contacts-9 py-lg-5 py-md-4">
-      <div class="container">
-          <div class="d-grid contact-view">
-              <div class="cont-details">
-                  <h4 class="title-small">Reach Out to Us</h4>
-                  <h3 class="title-big mb-4">We’re Here to Help You</h3>
-                  <p class="mb-sm-5 mb-4">Connect with our team to learn more about our personalized ABA therapy services. We’re here to assist you and will respond within 24 hours.</p>
 
-                  <div class="cont-top">
-                      <div class="cont-left text-center">
-                          <span class="fa fa-map-marker text-primary"></span>
-                      </div>
-                      <div class="cont-right">
-                          <h6>Our Office</h6>
-                          <p class="pr-lg-5"> Westside ABA, Danville, Indiana, 46122.</p>
-                      </div>
-                  </div>
-                  <div class="cont-top margin-up">
-                      <div class="cont-left text-center">
-                          <span class="fa fa-phone text-primary"></span>
-                      </div>
-                      <div class="cont-right">
-                          <h6>Phone Support</h6>
-                          <p><a href="tel:+1 (774) 272-3844">+1 (774) 272-3844</a></p>
-                      </div>
-                  </div>
-                  <div class="cont-top margin-up">
-                      <div class="cont-left text-center">
-                          <span class="fa fa-envelope-o text-primary"></span>
-                      </div>
-                      <div class="cont-right">
-                          <h6>Email Support</h6>
-                          <p><a href="mailto:info@westsideaba.com" class="mail">info@westsideaba.com</a></p>
-                      </div>
-                  </div>
+<section class="w3l-features py-5" id="behavior-skill-training">
+  <div class="call-w3 py-lg-5 py-md-4 py-2">
+      <div class="container">
+          <div class="row main-cont-wthree-2">
+              <!-- Left Column: Behavior Skill Training Overview -->
+              <div class="col-lg-5 feature-grid-left" data-aos="fade-right" data-aos-duration="2000" data-aos-delay="300">
+                  <h5 class="title-small mb-1">Targeted Skill Development</h5>
+                  <h3 class="title-big mb-4">Behavior Skill Training</h3>
+                  <p class="text-para">Building essential behavioral skills through guided practice and reinforcement techniques.</p>
+                  <p class="mt-3">Our Behavior Skill Training (BST) approach focuses on teaching critical life skills, helping children learn through step-by-step instructions, modeling, and hands-on practice for sustainable behavioral growth.</p>
+                  
               </div>
-              <div class="map-content-9"> 
-                  <h5 class="mb-sm-4 mb-3">Write to Us</h5>
-                  <form id="contactForm" action="https://formspree.io/f/mjkbngjd" method="post"> 
-                    <div class="twice-two">
-                        <input type="text" class="form-control" name="name" id="name" placeholder="Your Name" required="">
-                        <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required="">
-                    </div>
-                    <div class="twice">
-                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required="">
-                    </div>
-                    <textarea name="message" class="form-control" id="message" placeholder="How can we help you?" required=""></textarea>
-                    <div class="text-right">
-                        <button type="submit" class="btn btn-primary btn-style mt-4">Send Message</button>
-                    </div>
-                </form>
-            
-                <!-- Success/Error Message -->
-                <div id="responseMessage" style="display:none; margin-top: 20px;"></div>
-            
-                <script>
-                    $(document).ready(function() {
-                        $('#contactForm').submit(function(e) {
-                            e.preventDefault();  // Prevent form from submitting normally
-            
-                            $.ajax({
-                                url: 'submit_contact.php', // The PHP file where the data is processed
-                                type: 'POST',
-                                data: $(this).serialize(),  // Serialize form data
-                                dataType: 'json',  // Expect JSON response from the server
-                                success: function(response) {
-                                    if (response.success) {
-                                        $('#responseMessage').css('color', 'green').text(response.message).fadeIn();
-                                    } else {
-                                        $('#responseMessage').css('color', 'red').text(response.message).fadeIn();
-                                    }
-                                },
-                                error: function() {
-                                    $('#responseMessage').css('color', 'red').text("There was an error submitting the form. Please try again.").fadeIn();
-                                }
-                            });
-                        });
-                    });
-                </script>
+
+              <!-- Right Column: Core Services within Behavior Skill Training -->
+              <div class="col-lg-7 feature-grid-right mt-lg-0 mt-5">
+                  <div class="call-grids-w3 d-grid">
+                      <!-- First Core Service: Skill Modeling -->
+                      <div class="grids-1 box-wrap" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="300">
+                          <a href="#skill-modeling" class="icon"><span class="fa fa-chalkboard"></span></a>
+                          <h4><a href="#skill-modeling" class="title-head">Skill Modeling</a></h4>
+                          <p>Demonstrating desired skills through structured modeling to guide understanding and replication.</p>
+                      </div>
+
+                      <!-- Second Core Service: Guided Practice -->
+                      <div class="grids-1 box-wrap" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="300">
+                          <a href="#guided-practice" class="icon"><span class="fa fa-hands-helping"></span></a>
+                          <h4><a href="#guided-practice" class="title-head">Guided Practice</a></h4>
+                          <p>Hands-on practice sessions with supportive guidance to reinforce skill acquisition and confidence.</p>
+                      </div>
+
+                      <!-- Third Core Service: Positive Reinforcement -->
+                      <div class="grids-1 box-wrap" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="300">
+                          <a href="#positive-reinforcement" class="icon"><span class="fa fa-thumbs-up"></span></a>
+                          <h4><a href="#positive-reinforcement" class="title-head">Positive Reinforcement</a></h4>
+                          <p>Encouraging progress with positive reinforcement techniques that motivate continued development.</p>
+                      </div>
+
+                      <!-- Fourth Core Service: Feedback and Assessment -->
+                      <div class="grids-1 box-wrap" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="300">
+                          <a href="#feedback-assessment" class="icon"><span class="fa fa-clipboard-check"></span></a>
+                          <h4><a href="#feedback-assessment" class="title-head">Feedback and Assessment</a></h4>
+                          <p>Providing constructive feedback and regular assessments to track progress and adjust goals as needed.</p>
+                      </div>
+                  </div>
               </div>
           </div>
       </div>
   </div>
 </section>
 
-<!-- /contact1 -->
-<div class="map-iframe">
-    <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d196237.1850024323!2d-86.29756226318896!3d39.77993181485612!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x886b50ffa7796a03%3A0xd68e9df640b9ea7c!2sIndianapolis%2C%20IN%2C%20USA!5e0!3m2!1sen!2sng!4v1728756839990!5m2!1sen!2sng"
-        width="100%" height="400" frameborder="0" style="border: 0px;" allowfullscreen=""></iframe>
-</div>
-<!-- //contact block -->
+
 <!-- footer -->
 <section class="w3l-footer-29-main">
     <div class="footer-29 py-5">
@@ -300,7 +261,7 @@
             target="_blank">Creative Sparx Studio</a></p>
       </div>
 
-  <  <!-- move top -->
+    <!-- move top -->
   <button onclick="topFunction()" id="movetop" title="Go to top">
     &#10548;
   </button>
@@ -510,7 +471,7 @@
 <script>
     AOS.init({
       duration: 2000,  // Animation duration
-      offset: 200,     // Offset to trigger animation closer to the view (increase this for later animation trigger)
+      offset: 100,     // Offset to trigger animation closer to the view (increase this for later animation trigger)
       easing: 'ease-in-out', // Animation easing
       once: true       // Ensure the animation runs only once (if this is desired)
     });
