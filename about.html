@@ -443,126 +443,117 @@ body, html {
 </section>
 
 <!-- //stats -->
-<div class="request-service-form">
-  <h3 class="title-big text-center mb-sm-5 mb-4"data-aos="slide-left" data-aos-duration="800">Request a Service</h3>
+<section id="request-service-form" style="padding-top: 80px; /* Adjust this value based on your header height */ ">
+  <div class="request-service-form">
+    <div class="map-content-9"> 
+    <h3 class="mb-sm-4 mb-3" >Request a Service</h3>
 
-  <!-- Formspree form integration -->
-  <form action="https://formspree.io/f/mjkbngjd" method="POST" style="display: flex; flex-direction: column; gap: 15px;">
-      <input type="text" name="fullname" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <input type="tel" name="phone" placeholder="Your Phone" required>
+    <!-- Formspree form integration -->
+    
+    <form action="https://formspree.io/f/mjkbngjd" method="POST"
+      style="display: flex; flex-direction: column; gap: 15px;">
+      <input type="text" class="form-control" name="fullname" placeholder="Your Name" required>
+      <input type="email" class="form-control" name="email" placeholder="Your Email" required>
+      <input type="tel" class="form-control" name="phone" placeholder="Your Phone" required>
       <select name="service" required>
-          <option value="">Choose Student Age</option>
-          <option value="5-10">5 - 10 Years</option>
-          <option value="11-15">11 - 15 Years</option>
-          <option value="16-18">16 - 18 Years</option>
+        <option value="">Choose Student Age</option>
+        <option value="8 months-4yrs">8 months - 4 Years</option>
+        <option value="5-8">5 - 8 Years</option>
+        <option value="9-12">9 - 12 Years</option>
+        <option value="13-16">13 - 16 Years</option>
       </select>
-      <textarea name="message" placeholder="Enter Message" rows="5" required></textarea>
-      <button type="submit">Contact Us</button>
-  </form>
-</div>
-
+      <textarea name="message" class="form-control" placeholder="Enter Message" rows="5" required></textarea>
+      <button type="submit" class="btn btn-primary btn-style mt-4">Contact Us</button>
+    </form>
+  </div>
+  </div>
   <style>
-     .request-service-form {
-          background-color: #fff; 
-          border-radius: 10px; 
-          max-width: 500px; 
-          width: 90%; 
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-          padding: 30px; 
-          margin: 50px auto; 
-          font-family: 'Poppins', sans-serif;
+    .request-service-form {
+    
+      border-radius: 10px;
+      max-width: 500px;
+      width: 90%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      margin: 50px auto;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .request-service-form h2 {
+      text-align: center;
+      color: #2d2f48;
+      font-size: 24px;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    .request-service-form input,
+    .request-service-form select,
+    .request-service-form textarea,
+    .request-service-form button {
+      padding: 12px;
+      font-size: 14px;
+      border-radius: 8px;
+      width: 100%;
+      transition: border-color 0.3s ease, background-color 0.3s ease;
+    }
+
+    .request-service-form input:hover,
+    .request-service-form textarea:hover,
+    .request-service-form select:hover {
+      
+    }
+
+    .request-service-form button:hover {
+      
+      transform: translateY(-3px) !important;
+    }
+
+    .request-service-form input:focus,
+    .request-service-form textarea:focus,
+    .request-service-form select:focus {
+     
+      outline: none !important;
+    }
+
+    /* Responsive styles */
+    @media screen and (min-width: 600px) {
+      .request-service-form {
+        width: 80% !important;
+      }
+    }
+
+    @media screen and (min-width: 768px) {
+      .request-service-form {
+        width: 60% !important;
       }
 
       .request-service-form h2 {
-          text-align: center; 
-          color: #2d2f48; 
-          font-size: 24px; 
-          margin-bottom: 20px; 
-          font-weight: bold;
-      }
-
-      .request-service-form input,
-      .request-service-form select,
-      .request-service-form textarea,
-      .request-service-form button {
-          padding: 12px; 
-          font-size: 14px; 
-          border: 1px solid #e1e3ea; 
-          border-radius: 8px; 
-          background-color: #f9f9f9; 
-          width: 100%; 
-          transition: border-color 0.3s ease, background-color 0.3s ease;
-      }
-
-      .request-service-form input:hover, 
-      .request-service-form textarea:hover, 
-      .request-service-form select:hover {
-          border-color: #3b5ab8 !important; 
-          background-color: #f1f5ff !important;
+        font-size: 26px !important;
       }
 
       .request-service-form button {
-          background-color: #3b5ab8; 
-          border: none; 
-          color: white; 
-          padding: 15px; 
-          font-size: 14px; 
-          font-weight: bold; 
-          cursor: pointer; 
-          text-align: center; 
-          transition: background-color 0.3s ease, transform 0.3s ease;
+        font-size: 16px !important;
+        padding: 16px !important;
+      }
+    }
+
+    @media screen and (min-width: 1024px) {
+      .request-service-form {
+        width: 50% !important;
       }
 
-      .request-service-form button:hover {
-          background-color: #31449d !important; 
-          transform: translateY(-3px) !important;
+      .request-service-form h2 {
+        font-size: 28px !important;
       }
 
-      .request-service-form input:focus, 
-      .request-service-form textarea:focus, 
-      .request-service-form select:focus {
-          border-color: #3b5ab8 !important; 
-          outline: none !important;
+      .request-service-form button {
+        font-size: 18px !important;
+        padding: 18px !important;
       }
-
-      /* Responsive styles */
-      @media screen and (min-width: 600px) {
-          .request-service-form {
-              width: 80% !important;
-          }
-      }
-
-      @media screen and (min-width: 768px) {
-          .request-service-form {
-              width: 60% !important;
-          }
-
-          .request-service-form h2 {
-              font-size: 26px !important;
-          }
-
-          .request-service-form button {
-              font-size: 16px !important;
-              padding: 16px !important;
-          }
-      }
-
-      @media screen and (min-width: 1024px) {
-          .request-service-form {
-              width: 50% !important;
-          }
-
-          .request-service-form h2 {
-              font-size: 28px !important;
-          }
-
-          .request-service-form button {
-              font-size: 18px !important;
-              padding: 18px !important;
-          }
-      }
+    }
   </style>
+</section>
 <!-- footer -->
 <section class="w3l-footer-29-main">
     <div class="footer-29 py-5">
