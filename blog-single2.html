@@ -1,362 +1,400 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Westside ABA Blog | Creating a Positive Learning Environment for Kids with Autism</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-    <link rel="manifest" href="favicon/site.webmanifest">
-    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Westside ABA - Enhancing Lives with Comprehensive ABA Therapy">
-    <meta name="keywords" content="ABA therapy, autism, behavioral analysis, child development">
-    <meta property="og:title" content="Westside ABA">
-    <meta property="og:description" content="Enhancing Lives with Comprehensive ABA Therapy">
-    <meta property="og:image" content="path/to/og-image.jpg">
-    <meta property="og:url" content="https://www.westsideaba.com">
-    <meta property="og:type" content="website">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="css/style3.css">
-    <link rel="stylesheet" href="assets/css/style-starter.css">
-    <link rel="stylesheet" href="assets/css/style-liberty.css">
-    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-    <style>
-        .hero-logo {
-    width: 150px;
-    margin-bottom: 20px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-.hero-logo {
-    max-width: 150px;
-    margin-bottom: 20px;
-    transition: transform 0.3s ease;
-}
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Westside ABA Blog | Creating a Positive Learning Environment for Kids with Autism</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="manifest" href="favicon/site.webmanifest">
+  <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Westside ABA - Enhancing Lives with Comprehensive ABA Therapy">
+  <meta name="keywords" content="ABA therapy, autism, behavioral analysis, child development">
+  <meta property="og:title" content="Westside ABA">
+  <meta property="og:description" content="Enhancing Lives with Comprehensive ABA Therapy">
+  <meta property="og:image" content="path/to/og-image.jpg">
+  <meta property="og:url" content="https://www.westsideaba.com">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style3.css">
+  <link rel="stylesheet" href="assets/css/style-starter.css">
+  <link rel="stylesheet" href="assets/css/style-liberty.css">
+  <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+  <style>
+    .hero-logo {
+      width: 150px;
+      margin-bottom: 20px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-.hero-logo:hover {
-    transform: scale(1.1);
-}
-    </style>  
+    .hero-logo {
+      max-width: 150px;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease;
+    }
 
-    
-  </head>
-  <body>
-<!--header-->
-<header id="site-header" class="fixed-top">
-  <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-dark stroke">
-      <h1>
-        <a class="navbar-brand" href="index.html">
-            <img src="assets/images/logo.png" alt="Your logo" title="Your logo" style="width: 350px;height: auto;" /></a>
-      </h1>
-      <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse"
-        data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
-        aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
-        <span class="navbar-toggler-icon fa icon-close fa-times"></span>
-        </span>
-      </button>
+    .hero-logo:hover {
+      transform: scale(1.1);
+    }
+  </style>
 
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <ul class="navbar-nav mx-lg-auto">
-          <li class="nav-item ">
-            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item @@about__active">
-            <a class="nav-link" href="about.html">About Us</a>
-          </li>
-          <li class="nav-item @@about__active">
-            <a class="nav-link" href="service.html">Our services</a>
-          </li>
-          <li class="nav-item dropdown @@pages__active active">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Resources <span class="fa fa-angle-down"></span>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item @@b__active active" href="blog1.html">Blog</a>
-              <a class="dropdown-item @@b__active" href="index.html#team">Our Team</a>
+
+</head>
+
+<body>
+  <!--header-->
+  <header id="site-header" class="fixed-top">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-dark stroke">
+        <h1>
+          <a class="navbar-brand" href="index.html">
+            <img src="assets/images/logo.png" alt="Your logo" title="Your logo"
+              style="width: 350px;height: auto;" /></a>
+        </h1>
+        <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse"
+          data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+          <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+          </span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav mx-lg-auto">
+            <li class="nav-item ">
+              <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item @@about__active">
+              <a class="nav-link" href="about.html">About Us</a>
+            </li>
+            <li class="nav-item @@about__active">
+              <a class="nav-link" href="service.html">Our services</a>
+            </li>
+            <li class="nav-item dropdown @@pages__active active">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Resources <span class="fa fa-angle-down"></span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item @@b__active active" href="blog1.html">Blog</a>
+                <a class="dropdown-item @@b__active" href="index.html#team">Our Team</a>
+              </div>
+            </li>
+            <li class="nav-item @@contact__active">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+
+
+          <!--/search-right-->
+          <div class="search-right">
+            <a href="#search" title="search"><span class="fa fa-search" aria-hidden="true"></span></a>
+            <!-- search popup -->
+            <div id="search" class="pop-overlay">
+              <div class="popup">
+
+                <form action="404.html" method="GET" class="search-box">
+                  <input type="search" placeholder="Search" name="search" required="required" autofocus="">
+                  <button type="submit" class="btn"><span class="fa fa-search" aria-hidden="true"></span></button>
+                </form>
+
+              </div>
+              <a class="close" href="#close">×</a>
             </div>
-          </li>
-          <li class="nav-item @@contact__active">
-            <a class="nav-link" href="contact.html">Contact</a>
-          </li>
-        </ul>
-
-
-        <!--/search-right-->
-        <div class="search-right">
-          <a href="#search" title="search"><span class="fa fa-search" aria-hidden="true"></span></a>
-          <!-- search popup -->
-          <div id="search" class="pop-overlay">
-            <div class="popup">
-
-              <form action="404.html" method="GET" class="search-box">
-                <input type="search" placeholder="Search" name="search" required="required" autofocus="">
-                <button type="submit" class="btn"><span class="fa fa-search" aria-hidden="true"></span></button>
-              </form>
-
-            </div>
-            <a class="close" href="#close">×</a>
+            <!-- /search popup -->
           </div>
-          <!-- /search popup -->
-        </div>
-        <div class="top-quote mr-lg-2 text-center">
+          <div class="top-quote mr-lg-2 text-center">
             <a href="login.html" class="btn login mr-2"><span class="fa fa-user"></span> login</a>
           </div>
         </div>
-      <!-- toggle switch for light and dark theme -->
-      <div class="mobile-position">
-        <nav class="navigation">
-          <div class="theme-switch-wrapper">
-            <label class="theme-switch" for="checkbox">
-              <input type="checkbox" id="checkbox">
-              <div class="mode-container py-1">
-                <i class="gg-sun"></i>
-                <i class="gg-moon"></i>
-              </div>
-            </label>
-          </div>
-        </nav>
-      </div>
-      <!-- //toggle switch for light and dark theme -->
-    </nav>
-  </div>
-</header>
-<!--/header-->
-<!-- about breadcrumb -->
-<section class="w3l-breadcrumb">
-    <div class="breadcrumb-bg breadcrumb-bg-about py-5">
-        <div class="container pt-lg-5 pt-3 p-lg-4 pb-3">
-            <h2 class="title mt-5 pt-lg-5 pt-sm-3">Blog Post</h2>
-            <ul class="breadcrumbs-custom-path pb-sm-5 pb-4 mt-2 text-center mb-md-5">
-                <li><a href="index.html">Home</a></li>
-                <li class="active"> / pages </li>
-                <li class="active"> / blog single page </li>
-            </ul>
+        <!-- toggle switch for light and dark theme -->
+        <div class="mobile-position">
+          <nav class="navigation">
+            <div class="theme-switch-wrapper">
+              <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox">
+                <div class="mode-container py-1">
+                  <i class="gg-sun"></i>
+                  <i class="gg-moon"></i>
+                </div>
+              </label>
+            </div>
+          </nav>
         </div>
+        <!-- //toggle switch for light and dark theme -->
+      </nav>
+    </div>
+  </header>
+  <!--/header-->
+  <!-- about breadcrumb -->
+  <section class="w3l-breadcrumb">
+    <div class="breadcrumb-bg breadcrumb-bg-about py-5">
+      <div class="container pt-lg-5 pt-3 p-lg-4 pb-3">
+        <h2 class="title mt-5 pt-lg-5 pt-sm-3">Blog Post</h2>
+        <ul class="breadcrumbs-custom-path pb-sm-5 pb-4 mt-2 text-center mb-md-5">
+          <li><a href="index.html">Home</a></li>
+          <li class="active"> / <a href="blog1.html">Blog Posts</a> </li>
+          <li class="active"> / Blog Single Page </li>
+        </ul>
+      </div>
     </div>
     <div class="waveWrapper waveAnimation">
-        <svg viewBox="0 0 500 150" preserveAspectRatio="none">
-            <path d="M-5.07,73.52 C149.99,150.00 299.66,-102.13 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none;"></path>
-        </svg>
+      <svg viewBox="0 0 500 150" preserveAspectRatio="none">
+        <path d="M-5.07,73.52 C149.99,150.00 299.66,-102.13 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
+          style="stroke: none;"></path>
+      </svg>
     </div>
-</section>
-<!-- //about breadcrumb -->
-<!-- single post -->
-<section class="text-11 pb-5">
-  <div class="text11 py-lg-5 py-md-4">
+  </section>
+  <!-- //about breadcrumb -->
+  <!-- single post -->
+  <section class="text-11 pb-5">
+    <div class="text11 py-lg-5 py-md-4">
       <div class="container">
-          <img src="assets/images/c4.jpg" class="img-fluid radius-image" alt="Creating a Positive Learning Environment for Kids with Autism">
-          <div class="text11-content">
-              <h4 class="">Creating a Positive Learning Environment for Kids with Autism</h4>
-              <p class="my-3">Learn how to establish a supportive atmosphere that enhances learning and development for children with autism through effective communication and engagement techniques.</p>
-              <p class="mb-3">Creating a nurturing environment is crucial for helping children with autism thrive academically and socially. By using structured routines, positive reinforcement, and clear communication, you can foster an inclusive learning space that caters to their unique needs.</p>
-              <h5 class="quote">
-                  "A positive learning environment for children with autism is one where their strengths are celebrated, and challenges are met with patience and creativity."
-                  <footer class="blockquote-footer mt-3">Emma Williams</footer>
-              </h5>
+        <img src="assets/images/c4.jpg" class="img-fluid radius-image"
+          alt="Creating a Positive Learning Environment for Kids with Autism">
+        <div class="text11-content">
+          <h4 class="">Creating a Positive Learning Environment for Kids with Autism</h4>
+          <p class="my-3">Learn how to establish a supportive atmosphere that enhances learning and development for
+            children with autism through effective communication and engagement techniques.</p>
+          <p class="mb-3">Creating a nurturing environment is crucial for helping children with autism thrive
+            academically and socially. By using structured routines, positive reinforcement, and clear communication,
+            you can foster an inclusive learning space that caters to their unique needs.</p>
+          <h5 class="quote">
+            "A positive learning environment for children with autism is one where their strengths are celebrated, and
+            challenges are met with patience and creativity."
+            <footer class="blockquote-footer mt-3">Emma Williams</footer>
+          </h5>
 
-              <p class="mb-3">Parents, educators, and therapists can work together to create a consistent learning space that promotes growth and independence. By providing sensory-friendly areas and encouraging social interaction, children can gain the confidence needed to succeed in both school and life.</p>
-              <div class="sing-post-thumb mb-lg-5 mb-4 row pt-3">
-                  <div class="col-md-6">
-                      <a href="#url"><img src="assets/images/blog4.jpg" class="img-fluid" alt="Positive Learning Environment"></a>
-                  </div>
-                  <div class="col-md-6 mt-md-0 mt-3 align-self">
-                      <p class="">Effective communication strategies, such as visual aids and clear instructions, can help children with autism understand and engage with the material. Positive reinforcement also encourages them to participate actively in their learning process.</p>
-                  </div>
-              </div>
-              <h4 class="mb-4">Why Creating a Positive Environment Matters</h4>
-              <p class="mb-4">A positive environment helps children feel secure and understood. It enables them to focus on learning, knowing that their individual needs are recognized. Through collaboration and tailored support, children with autism can reach their full potential.</p>
-              <div class="text-list mb-4">
-                  <ol>
-                      <li>Structured routines to create predictability and reduce anxiety.</li>
-                      <li>Incorporation of sensory-friendly areas for comfort and focus.</li>
-                      <li>Collaboration between parents, educators, and therapists to maintain consistency.</li>
-                  </ol>
-              </div>
-              <h4 class="mb-4">Benefits of a Supportive Learning Environment</h4>
-              <div class="sing-post-thumb mb-lg-5 mb-4 row">
-                  <div class="col-md-6">
-                      <a href="#url"><img src="assets/images/blog3.jpg" class="img-fluid" alt="Autism Support Environment"></a>
-                  </div>
-                  <div class="col-md-6 mt-md-0 mt-3 align-self">
-                      <a href="#url"><img src="assets/images/blog2.jpg" class="img-fluid" alt="Learning Environment"></a>
-                  </div>
-              </div>
-              <p class="my-3">Children with autism can benefit immensely from an environment that adapts to their needs. By using tools like visual schedules and allowing breaks when necessary, parents and educators can create a space where children feel empowered to learn and grow.</p>
-
-              <div class="social-share-blog mt-md-5 mt-4">
-                <ul class="column3 social m-0 p-0">
-                    <li>
-                        <p class="m-0 mr-4">Share this post :</p>
-                    </li>
-                    <li><a href="https://www.facebook.com/sharer/sharer.php?u=YOUR_URL" class="facebook" target="_blank"><span class="fa fa-facebook"></span></a></li>
-                    <li><a href="https://twitter.com/intent/tweet?url=YOUR_URL&text=Check out this blog post!" class="twitter" target="_blank"><span class="fa fa-twitter"></span></a></li>
-                    <li><a href="https://www.linkedin.com/shareArticle?mini=true&url=YOUR_URL&title=Blog Post Title&summary=Your post summary here" class="linkedin" target="_blank"><span class="fa fa-linkedin"></span></a></li>
-                    <li><a href="https://www.instagram.com" class="instagram" target="_blank"><span class="fa fa-instagram"></span></a></li>
-                    <li><a href="https://wa.me/?text=YOUR_URL" class="whatsapp" target="_blank"><span class="fa fa-whatsapp"></span></a></li>
-                </ul>
+          <p class="mb-3">Parents, educators, and therapists can work together to create a consistent learning space
+            that promotes growth and independence. By providing sensory-friendly areas and encouraging social
+            interaction, children can gain the confidence needed to succeed in both school and life.</p>
+          <div class="sing-post-thumb mb-lg-5 mb-4 row pt-3">
+            <div class="col-md-6">
+              <a href="#url"><img src="assets/images/blog4.jpg" class="img-fluid"
+                  alt="Positive Learning Environment"></a>
             </div>
-            
-              <div class="new-posts clearfix">
-                  <a class="prev-post pull-left" href="blog-single1.html"><span class="fa fa-arrow-left" aria-hidden="true"></span>
-                      Previous Post</a>
-                  <a class="next-post pull-right" href="blog-single3.html">Next Post <span class="fa fa-arrow-right" aria-hidden="true"></span></a>
-              </div>
-              <div class="comments">
-                  <h3 class="aside-title">Recent comments(2)</h3>
-                  <div class="comments-grids">
-                      <div class="media-grid">
-                          <div class="media">
-                              <a class="comment-img" href="#url"><img src="assets/images/team1.jpg" class="img-responsive" width="100px" alt="placeholder image"></a>
-                              <div class="media-body comments-grid-right">
-                                  <h5>Jack Harry</h5>
-                                  <ul class="p-0 comment">
-                                      <li class="">Oct 29th, 2023 at 11:00 am</li>
-                                      <li>
-                                          <a href="#comment" class="">Reply</a>
-                                      </li>
-                                  </ul>
-                                  <p>Creating a structured environment has been key for my son. He is more engaged and responsive thanks to these strategies.</p>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="media-grid">
-                          <div class="media">
-                              <a class="comment-img" href="#url"><img src="assets/images/team2.jpg" class="img-responsive" width="100px" alt="placeholder image"></a>
-                              <div class="media-body comments-grid-right">
-                                  <h5>Charlie</h5>
-                                  <ul class="p-0 comment">
-                                      <li class="">Oct 29th, 2023 at 05:45 pm </li>
-                                      <li>
-                                          <a href="#comment" class="">Reply</a>
-                                      </li>
-                                  </ul>
-                                  <p>These insights have helped us create a more positive space for learning. My child is thriving now, and we are seeing big improvements.</p>
-                                  <div class="media mt-4 mb-0 border-0 px-0">
-                                      <a class="comment-img" href="#url"><img src="assets/images/team3.jpg" class="img-responsive" width="100px" alt="placeholder image"></a>
-                                      <div class="media-body comments-grid-right">
-                                          <h5>Jack Harry</h5>
-                                          <ul class="p-0 comment">
-                                              <li class="">Oct 30th, 2023 at 04:00 pm</li>
-                                              <li>
-                                                  <a href="#comment" class="">Reply</a>
-                                              </li>
-                                          </ul>
-                                          <p>Exactly! The right environment really makes a difference. We've seen great changes as well!</p>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
+            <div class="col-md-6 mt-md-0 mt-3 align-self">
+              <p class="">Effective communication strategies, such as visual aids and clear instructions, can help
+                children with autism understand and engage with the material. Positive reinforcement also encourages
+                them to participate actively in their learning process.</p>
+            </div>
+          </div>
+          <h4 class="mb-4">Why Creating a Positive Environment Matters</h4>
+          <p class="mb-4">A positive environment helps children feel secure and understood. It enables them to focus on
+            learning, knowing that their individual needs are recognized. Through collaboration and tailored support,
+            children with autism can reach their full potential.</p>
+          <div class="text-list mb-4">
+            <ol>
+              <li>Structured routines to create predictability and reduce anxiety.</li>
+              <li>Incorporation of sensory-friendly areas for comfort and focus.</li>
+              <li>Collaboration between parents, educators, and therapists to maintain consistency.</li>
+            </ol>
+          </div>
+          <h4 class="mb-4">Benefits of a Supportive Learning Environment</h4>
+          <div class="sing-post-thumb mb-lg-5 mb-4 row">
+            <div class="col-md-6">
+              <a href="#url"><img src="assets/images/blog3.jpg" class="img-fluid" alt="Autism Support Environment"></a>
+            </div>
+            <div class="col-md-6 mt-md-0 mt-3 align-self">
+              <a href="#url"><img src="assets/images/blog2.jpg" class="img-fluid" alt="Learning Environment"></a>
+            </div>
+          </div>
+          <p class="my-3">Children with autism can benefit immensely from an environment that adapts to their needs. By
+            using tools like visual schedules and allowing breaks when necessary, parents and educators can create a
+            space where children feel empowered to learn and grow.</p>
+
+          <div class="social-share-blog mt-md-5 mt-4">
+            <ul class="column3 social m-0 p-0">
+              <li>
+                <p class="m-0 mr-4">Share this post :</p>
+              </li>
+              <li><a href="https://www.facebook.com/sharer/sharer.php?u=YOUR_URL" class="facebook" target="_blank"><span
+                    class="fa fa-facebook"></span></a></li>
+              <li><a href="https://twitter.com/intent/tweet?url=YOUR_URL&text=Check out this blog post!" class="twitter"
+                  target="_blank"><span class="fa fa-twitter"></span></a></li>
+              <li><a
+                  href="https://www.linkedin.com/shareArticle?mini=true&url=YOUR_URL&title=Blog Post Title&summary=Your post summary here"
+                  class="linkedin" target="_blank"><span class="fa fa-linkedin"></span></a></li>
+              <li><a href="https://www.instagram.com" class="instagram" target="_blank"><span
+                    class="fa fa-instagram"></span></a></li>
+              <li><a href="https://wa.me/?text=YOUR_URL" class="whatsapp" target="_blank"><span
+                    class="fa fa-whatsapp"></span></a></li>
+            </ul>
+          </div>
+
+          <div class="new-posts clearfix">
+            <a class="prev-post pull-left" href="blog-single1.html"><span class="fa fa-arrow-left"
+                aria-hidden="true"></span>
+              Previous Post</a>
+            <a class="next-post pull-right" href="blog-single3.html">Next Post <span class="fa fa-arrow-right"
+                aria-hidden="true"></span></a>
+          </div>
+          <div class="comments">
+            <h3 class="aside-title">Recent comments(2)</h3>
+            <div class="comments-grids">
+              <div class="media-grid">
+                <div class="media">
+                  <a class="comment-img" href="#url"><img src="assets/images/team1.jpg" class="img-responsive"
+                      width="100px" alt="placeholder image"></a>
+                  <div class="media-body comments-grid-right">
+                    <h5>Jack Harry</h5>
+                    <ul class="p-0 comment">
+                      <li class="">Oct 29th, 2023 at 11:00 am</li>
+                      <li>
+                        <a href="#comment" class="">Reply</a>
+                      </li>
+                    </ul>
+                    <p>Creating a structured environment has been key for my son. He is more engaged and responsive
+                      thanks to these strategies.</p>
                   </div>
-              </div>
-              <div class="leave-comment-form" id="comment">
-                  <h3 class="aside-title">Leave a reply</h3>
-                  <form action="https://formspree.io/f/mjkbngjd" method="post">
-                      <div class="input-grids">
-                          <div class="form-group">
-                              <input type="text" name="Name" class="form-control" placeholder="Your Name" required="">
-                          </div>
-                          <div class="form-group">
-                              <input type="email" name="Email" class="form-control" placeholder="Email" required="">
-                          </div>
-                          <div class="form-group">
-                              <textarea name="Comment" class="form-control" placeholder="Your Comment" required=""></textarea>
-                          </div>
-                      </div>
-                      <div class="submit text-right mt-4">
-                          <button class="btn btn-style btn-primary">Post Comment</button>
-                      </div>
-                  </form>
-              </div>
-          
-              <div class="item mt-5 w3l-grids-block-5 w3l-courses">
-                <h3 class="aside-title">You may be interested in </h3>
-                <div class="row w3l-blog">
-                    <div class="col-md-6 item">
-                        <div class="card">
-                          <div class="card-header p-0 position-relative">
-                            <a href="blog-single3.html" class="zoom d-block">
-                                <img class="card-img-bottom d-block" src="assets/images/c1.jpg" alt="Card image cap">
-                            </a>
-                        </div>
-                        <div class="card-body course-details">
-                            <div class="price-review d-flex justify-content-between mb-1 align-items-center">
-                                <div class="author align-items-center">
-                                    <img src="assets/images/a3.jpg" alt="" class="img-fluid rounded-circle">
-                                    <ul class="blog-meta">
-                                        <li>
-                                           <a href="#author"> Alexander</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <ul class="blog-meta">
-                                    <li>
-                                        <a href="#comments"> <span class="fa fa-comments-o"></span> 3</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <a href="blog-single3.html" class="course-desc">Behavioral Interventions: Techniques and Tips for Parents</a>
-                            <p class="mt-3">Discover effective behavioral interventions that parents can apply to help their children with autism improve communication, social skills, and daily living skills.</p>
-                        </div>
-                        <div class="card-footer">
-                            <a href="blog-single3.html" class="read">Read More <span class="fa fa-angle-right ml-1"></span></a>
-                        </div>
-                        </div>
-                    </div>
-    
-                    <div class="col-md-6 item mt-md-0 mt-5">
-                        <div class="card">
-                            <div class="card-header p-0 position-relative">
-                                <a href="blog-single4.html" class="zoom d-block">
-                                    <img class="card-img-bottom d-block" src="assets/images/c2.jpg" alt="Card image cap">
-                                </a>
-                            </div>
-                            <div class="card-body course-details">
-                                <div class="price-review d-flex justify-content-between mb-1align-items-center">
-                                    <div class="author align-items-center">
-                                        <img src="assets/images/a2.jpg" alt="" class="img-fluid rounded-circle">
-                                        <ul class="blog-meta">
-                                            <li>
-                                               <a href="#author"> Charlotte</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <ul class="blog-meta">
-                                        <li>
-                                            <a href="#comments"> <span class="fa fa-comments-o"></span> 4</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <a href="blog-single4.html" class="course-desc">Understanding Sensory Processing Disorders in Children</a>
-                                
-                                <p class="mt-3">Gain insights into sensory processing disorders and learn how to support your child in navigating sensory challenges effectively.</p>
-                            </div>
-                            <div class="card-footer">
-                                <a href="blog-single4.html" class="read">Read More <span class="fa fa-angle-right ml-1"></span></a>
-                            </div>
-                        </div>
-                    </div>
                 </div>
+              </div>
+              <div class="media-grid">
+                <div class="media">
+                  <a class="comment-img" href="#url"><img src="assets/images/team2.jpg" class="img-responsive"
+                      width="100px" alt="placeholder image"></a>
+                  <div class="media-body comments-grid-right">
+                    <h5>Charlie</h5>
+                    <ul class="p-0 comment">
+                      <li class="">Oct 29th, 2023 at 05:45 pm </li>
+                      <li>
+                        <a href="#comment" class="">Reply</a>
+                      </li>
+                    </ul>
+                    <p>These insights have helped us create a more positive space for learning. My child is thriving
+                      now, and we are seeing big improvements.</p>
+                    <div class="media mt-4 mb-0 border-0 px-0">
+                      <a class="comment-img" href="#url"><img src="assets/images/team3.jpg" class="img-responsive"
+                          width="100px" alt="placeholder image"></a>
+                      <div class="media-body comments-grid-right">
+                        <h5>Jack Harry</h5>
+                        <ul class="p-0 comment">
+                          <li class="">Oct 30th, 2023 at 04:00 pm</li>
+                          <li>
+                            <a href="#comment" class="">Reply</a>
+                          </li>
+                        </ul>
+                        <p>Exactly! The right environment really makes a difference. We've seen great changes as well!
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-        </div>
-    </div>
-</div>
-</section>
+          </div>
+          <div class="leave-comment-form" id="comment">
+            <h3 class="aside-title">Leave a reply</h3>
+            <form action="https://formspree.io/f/mjkbngjd" method="post">
+              <div class="input-grids">
+                <div class="form-group">
+                  <input type="text" name="Name" class="form-control" placeholder="Your Name" required="">
+                </div>
+                <div class="form-group">
+                  <input type="email" name="Email" class="form-control" placeholder="Email" required="">
+                </div>
+                <div class="form-group">
+                  <textarea name="Comment" class="form-control" placeholder="Your Comment" required=""></textarea>
+                </div>
+              </div>
+              <div class="submit text-right mt-4">
+                <button class="btn btn-style btn-primary">Post Comment</button>
+              </div>
+            </form>
+          </div>
 
-<!-- //single post -->
-<!-- footer -->
-<section class="w3l-footer-29-main">
+          <div class="item mt-5 w3l-grids-block-5 w3l-courses">
+            <h3 class="aside-title">You may be interested in </h3>
+            <div class="row w3l-blog">
+              <div class="col-md-6 item">
+                <div class="card">
+                  <div class="card-header p-0 position-relative">
+                    <a href="blog-single3.html" class="zoom d-block">
+                      <img class="card-img-bottom d-block" src="assets/images/c1.jpg" alt="Card image cap">
+                    </a>
+                  </div>
+                  <div class="card-body course-details">
+                    <div class="price-review d-flex justify-content-between mb-1 align-items-center">
+                      <div class="author align-items-center">
+                        <img src="assets/images/a3.jpg" alt="" class="img-fluid rounded-circle">
+                        <ul class="blog-meta">
+                          <li>
+                            <a href="#author"> Alexander</a>
+                          </li>
+                        </ul>
+                      </div>
+                      <ul class="blog-meta">
+                        <li>
+                          <a href="#comments"> <span class="fa fa-comments-o"></span> 3</a>
+                        </li>
+                      </ul>
+                    </div>
+                    <a href="blog-single3.html" class="course-desc">Behavioral Interventions: Techniques and Tips for
+                      Parents</a>
+                    <p class="mt-3">Discover effective behavioral interventions that parents can apply to help their
+                      children with autism improve communication, social skills, and daily living skills.</p>
+                  </div>
+                  <div class="card-footer">
+                    <a href="blog-single3.html" class="read">Read More <span class="fa fa-angle-right ml-1"></span></a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 item mt-md-0 mt-5">
+                <div class="card">
+                  <div class="card-header p-0 position-relative">
+                    <a href="blog-single4.html" class="zoom d-block">
+                      <img class="card-img-bottom d-block" src="assets/images/c2.jpg" alt="Card image cap">
+                    </a>
+                  </div>
+                  <div class="card-body course-details">
+                    <div class="price-review d-flex justify-content-between mb-1align-items-center">
+                      <div class="author align-items-center">
+                        <img src="assets/images/a2.jpg" alt="" class="img-fluid rounded-circle">
+                        <ul class="blog-meta">
+                          <li>
+                            <a href="#author"> Charlotte</a>
+                          </li>
+                        </ul>
+                      </div>
+                      <ul class="blog-meta">
+                        <li>
+                          <a href="#comments"> <span class="fa fa-comments-o"></span> 4</a>
+                        </li>
+                      </ul>
+                    </div>
+                    <a href="blog-single4.html" class="course-desc">Understanding Sensory Processing Disorders in
+                      Children</a>
+
+                    <p class="mt-3">Gain insights into sensory processing disorders and learn how to support your child
+                      in navigating sensory challenges effectively.</p>
+                  </div>
+                  <div class="card-footer">
+                    <a href="blog-single4.html" class="read">Read More <span class="fa fa-angle-right ml-1"></span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- //single post -->
+  <!-- footer -->
+  <section class="w3l-footer-29-main">
     <div class="footer-29 py-5">
       <div class="container py-md-4">
         <div class="row footer-top-29">
@@ -376,13 +414,13 @@
             <ul>
               <h6 class="footer-title-29">Company</h6>
               <li><a href="about.html">About Company</a></li>
-              <li><a href="#blog">Latest Blog Posts</a></li>
+              <li><a href="blog1.html">Latest Blog Posts</a></li>
               <li><a href="#teacher">Join The Team</a></li>
-              <li><a href="courses.html">Online Courses</a></li>
+              <li><a href="service.html">Online Courses</a></li>
               <li><a href="contact.html">Get in Touch</a></li>
             </ul>
           </div>
-        
+
           <div class="col-lg-3 col-md-6 col-sm-7 footer-list-29 footer-4 mt-lg-0 mt-5">
             <h6 class="footer-title-29">Support</h6>
             <a href="#playstore"><img src="assets/images/googleplay.png" class="img-responsive" alt=""></a>
@@ -394,65 +432,65 @@
     <!-- copyright -->
     <section class="w3l-copyright text-center">
       <div class="container">
-        <p class="copy-footer-29">© 2024 Westside ABA. All rights reserved. Design by <a href="https://creativesparxstudio.com/"
-            target="_blank">Creative Sparx Studio</a></p>
+        <p class="copy-footer-29">© 2024 Westside ABA. All rights reserved. Design by <a
+            href="https://creativesparxstudio.com/" target="_blank">Creative Sparx Studio</a></p>
       </div>
 
-  <!-- move top -->
-  <button onclick="topFunction()" id="movetop" title="Go to top">
-    &#10548;
-  </button>
-  <script>
-    // When the user scrolls down 20px from the top of the document, show the button
-    window.onscroll = function () {
-      scrollFunction()
-    };
+      <!-- move top -->
+      <button onclick="topFunction()" id="movetop" title="Go to top">
+        &#10548;
+      </button>
+      <script>
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () {
+          scrollFunction()
+        };
 
-    function scrollFunction() {
-      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        document.getElementById("movetop").style.display = "block";
-      } else {
-        document.getElementById("movetop").style.display = "none";
-      }
-    }
+        function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("movetop").style.display = "block";
+          } else {
+            document.getElementById("movetop").style.display = "none";
+          }
+        }
 
-    // When the user clicks on the button, scroll to the top of the document
-    function topFunction() {
-      document.body.scrollTop = 0;
-      document.documentElement.scrollTop = 0;
-    }
-  </script>
-  <!-- /move top -->
-</section>
-<!-- //copyright -->
-</section>
-<!-- //footer -->
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+      </script>
+      <!-- /move top -->
+    </section>
+    <!-- //copyright -->
+  </section>
+  <!-- //footer -->
 
-<!-- Template JavaScript -->
-<script src="assets/js/jquery-3.3.1.min.js"></script>
+  <!-- Template JavaScript -->
+  <script src="assets/js/jquery-3.3.1.min.js"></script>
 
-<script src="assets/js/theme-change.js"></script>
-<script src="js1/script.js"></script>
-<!--Start of Tawk.to Script-->
+  <script src="assets/js/theme-change.js"></script>
+  <script src="js1/script.js"></script>
+  <!--Start of Tawk.to Script-->
 
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
-  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-  (function(){
-  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-  s1.async=true;
-  s1.src='https://embed.tawk.to/66f68e7f4cbc4814f7dfe6ec/1i8php9op';
-  s1.charset='UTF-8';
-  s1.setAttribute('crossorigin','*');
-  s0.parentNode.insertBefore(s1,s0);
-  })();
+  <!--Start of Tawk.to Script-->
+  <script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function () {
+      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/66f68e7f4cbc4814f7dfe6ec/1i8php9op';
+      s1.charset = 'UTF-8';
+      s1.setAttribute('crossorigin', '*');
+      s0.parentNode.insertBefore(s1, s0);
+    })();
   </script>
   <!--End of Tawk.to Script-->
   <script>
-   document.addEventListener('DOMContentLoaded', function() {
-    const currentURL = window.location.href;
-    
-    if (currentURL) {
+    document.addEventListener('DOMContentLoaded', function () {
+      const currentURL = window.location.href;
+
+      if (currentURL) {
         const encodedURL = encodeURIComponent(currentURL);
 
         document.querySelector('.facebook').href = `https://www.facebook.com/sharer/sharer.php?u=${encodedURL}`;
@@ -460,147 +498,147 @@
         document.querySelector('.linkedin').href = `https://www.linkedin.com/shareArticle?mini=true&url=${encodedURL}&title=Blog Post Title&summary=Your post summary here`;
         document.querySelector('.instagram').href = `https://www.instagram.com/?url=${encodedURL}`;
         document.querySelector('.whatsapp').href = `https://wa.me/?text=${encodedURL}`;
-    } else {
+      } else {
         console.error('Current URL is not available');
-    }
-});
-
-</script>
-<!-- //stats number counter -->
-
-<script src="assets/js/owl.carousel.js"></script>
-<!-- script for banner slider-->
-<script>
-$(document).ready(function () {
-  $('.owl-one').owlCarousel({
-    loop: true,
-    margin: 0,
-    nav: false,
-    dots: false,
-    responsiveClass: true,
-    autoplay: true,
-    autoplayTimeout: 5000,
-    autoplaySpeed: 1000,
-    autoplayHoverPause: false,
-    responsive: {
-      0: {
-        items: 1
-      },
-      480: {
-        items: 1
-      },
-      667: {
-        items: 1
-      },
-      1000: {
-        items: 1,
-        nav: true
       }
-    }
-  })
-})
-</script>
-<!-- //script -->
+    });
 
-<!-- script for tesimonials carousel slider -->
-<script>
-$(document).ready(function () {
-    $("#owl-demo1").owlCarousel({
+  </script>
+  <!-- //stats number counter -->
+
+  <script src="assets/js/owl.carousel.js"></script>
+  <!-- script for banner slider-->
+  <script>
+    $(document).ready(function () {
+      $('.owl-one').owlCarousel({
+        loop: true,
+        margin: 0,
+        nav: false,
+        dots: false,
+        responsiveClass: true,
+        autoplay: true,
+        autoplayTimeout: 5000,
+        autoplaySpeed: 1000,
+        autoplayHoverPause: false,
+        responsive: {
+          0: {
+            items: 1
+          },
+          480: {
+            items: 1
+          },
+          667: {
+            items: 1
+          },
+          1000: {
+            items: 1,
+            nav: true
+          }
+        }
+      })
+    })
+  </script>
+  <!-- //script -->
+
+  <!-- script for tesimonials carousel slider -->
+  <script>
+    $(document).ready(function () {
+      $("#owl-demo1").owlCarousel({
         loop: true,
         margin: 20,
         nav: false,
         responsiveClass: true,
         responsive: {
-            0: {
-                items: 1,
-                nav: false
-            },
-            768: {
-                items: 2,
-                nav: false
-            },
-            1000: {
-                items: 3,
-                nav: false,
-                loop: false
-            }
+          0: {
+            items: 1,
+            nav: false
+          },
+          768: {
+            items: 2,
+            nav: false
+          },
+          1000: {
+            items: 3,
+            nav: false,
+            loop: false
+          }
         }
+      })
     })
-})
-</script>
-<!-- //script for tesimonials carousel slider -->
+  </script>
+  <!-- //script for tesimonials carousel slider -->
 
-<!-- disable body scroll which navbar is in active -->
-<script>
-$(function () {
-  $('.navbar-toggler').click(function () {
-    $('body').toggleClass('noscroll');
-  })
-});
-</script>
-<!-- disable body scroll which navbar is in active -->
+  <!-- disable body scroll which navbar is in active -->
+  <script>
+    $(function () {
+      $('.navbar-toggler').click(function () {
+        $('body').toggleClass('noscroll');
+      })
+    });
+  </script>
+  <!-- disable body scroll which navbar is in active -->
 
-<!--/MENU-JS-->
-<script>
-$(window).on("scroll", function () {
-  var scroll = $(window).scrollTop();
+  <!--/MENU-JS-->
+  <script>
+    $(window).on("scroll", function () {
+      var scroll = $(window).scrollTop();
 
-  if (scroll >= 80) {
-    $("#site-header").addClass("nav-fixed");
-  } else {
-    $("#site-header").removeClass("nav-fixed");
-  }
-});
+      if (scroll >= 80) {
+        $("#site-header").addClass("nav-fixed");
+      } else {
+        $("#site-header").removeClass("nav-fixed");
+      }
+    });
 
-//Main navigation Active Class Add Remove
-$(".navbar-toggler").on("click", function () {
-  $("header").toggleClass("active");
-});
-$(document).on("ready", function () {
-  if ($(window).width() > 991) {
-    $("header").removeClass("active");
-  }
-  $(window).on("resize", function () {
-    if ($(window).width() > 991) {
-      $("header").removeClass("active");
-    }
-  });
-});
-</script>
-<!--//MENU-JS-->
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function () {
+      $("header").toggleClass("active");
+    });
+    $(document).on("ready", function () {
+      if ($(window).width() > 991) {
+        $("header").removeClass("active");
+      }
+      $(window).on("resize", function () {
+        if ($(window).width() > 991) {
+          $("header").removeClass("active");
+        }
+      });
+    });
+  </script>
+  <!--//MENU-JS-->
 
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="script2.js"></script>
-<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-<script>
-  // Text animation using Typed.js
-  var typingEffect = new Typed('.multiText', {
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="script2.js"></script>
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <script>
+    // Text animation using Typed.js
+    var typingEffect = new Typed('.multiText', {
       strings: ["Therapist", "Behavior Specialist", "Caregiver"],
       loop: true,
       typeSpeed: 100,
       backSpeed: 80,
       backDelay: 1500,
-  });
+    });
 
-  // Burger menu toggle script
-  const burger = document.querySelector('.burger');
-  const navItems = document.querySelector('.navItems');
+    // Burger menu toggle script
+    const burger = document.querySelector('.burger');
+    const navItems = document.querySelector('.navItems');
 
-  burger.addEventListener('click', () => {
+    burger.addEventListener('click', () => {
       navItems.classList.toggle('nav-active');
       burger.classList.toggle('toggle');
-  });
-</script>
-<!-- AOS Library JS -->
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
-<script>
-  AOS.init({
-    duration: 1000,  // Animation duration
-    offset: 300,     // Offset to trigger animation closer to the view (increase this for later animation trigger)
-    easing: 'ease-in-out', // Animation easing
-    once: true       // Ensure the animation runs only once (if this is desired)
-  });
-</script>  
+    });
+  </script>
+  <!-- AOS Library JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,  // Animation duration
+      offset: 300,     // Offset to trigger animation closer to the view (increase this for later animation trigger)
+      easing: 'ease-in-out', // Animation easing
+      once: true       // Ensure the animation runs only once (if this is desired)
+    });
+  </script>
 </body>
 
 </html>
