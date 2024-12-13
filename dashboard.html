@@ -1,101 +1,979 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Dashboard</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js"></script>
+    <title>Westside ABA</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Westside ABA - Enhancing Lives with Comprehensive ABA Therapy">
+    <meta name="keywords" content="ABA therapy, autism, behavioral analysis, child development">
+    <meta property="og:title" content="Westside ABA">
+    <meta property="og:description" content="Enhancing Lives with Comprehensive ABA Therapy">
+    <meta property="og:image" content="path/to/og-image.jpg">
+    <meta property="og:url" content="https://www.westsideaba.com">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style3.css">
+    <link rel="stylesheet" href="assets/css/style-starter.css">
+    <link rel="stylesheet" href="assets/css/style-liberty.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+
+    <style>
+        body {
+            background-color: var(--background-color);
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            background: white;
+            padding: 2rem;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            font-weight: bold;
+        }
+
+        <style>* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --secondary-color: #2196F3;
+            --background-color: #f5f5f5;
+            --text-color: #333;
+        }
+
+        body {
+            background-color: var(--background-color);
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            background: white;
+            padding: 2rem;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            font-weight: bold;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem 1rem;
+            margin: 0.5rem 0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .nav-item:hover {
+            background: var(--background-color);
+        }
+
+        .nav-item.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .nav-item i {
+            margin-right: 10px;
+        }
+
+        .main-content {
+            padding: 2rem;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .welcome-text {
+            font-size: 1.5rem;
+            color: var(--text-color);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-card h3 {
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card p {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .upcoming-sessions {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .session-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .logout-btn {
+            padding: 0.5rem 1rem;
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            background: #1976D2;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .calendar {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        .progress-charts {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .chart-container {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+        }
+
+        .messages-container {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            height: calc(100vh - 200px);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .message-list {
+            flex-grow: 1;
+            overflow-y: auto;
+        }
+
+        .message-input {
+            display: flex;
+            gap: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+
+        .message-input input {
+            flex-grow: 1;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .settings-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .settings-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .save-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .send-btn {
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        document.getElementById("search-form").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const query = document.querySelector('input[name="query"]').value.trim().toLowerCase();
+            if (query === "") return;
+
+            // Find and highlight matching content
+            document.querySelectorAll('.content').forEach(content => {
+                content.classList.remove('highlight'); // Remove any previous highlights
+                if (content.textContent.toLowerCase().includes(query)) {
+                    content.classList.add('highlight'); // Highlight matching content
+                }
+            });
+
+            // Scroll to the highlighted content if found
+            const highlightedContent = document.querySelector('.highlight');
+            if (highlightedContent) {
+                highlightedContent.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        });
+
+    </script>
 </head>
+
 <body>
-    <header>
-        <h1>Welcome to Your Dashboard</h1>
-        <button id="logout">Logout</button>
-    </header>
-    <main id="dashboard-content">
-        <div id="loading">Loading...</div>
-        <div id="user-info" style="display: none;">
-            <p>Welcome, <span id="user-name">User</span>!</p>
-            <p><strong>Email:</strong> <span id="user-email">Loading...</span></p>
-            <p><strong>Phone:</strong> <span id="user-phone">Loading...</span></p>
-            <p><strong>Account Created:</strong> <span id="user-created-at">Loading...</span></p>
+
+    <!--header-->
+    <header id="site-header" class="fixed-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark stroke">
+                <h1>
+                    <a class="navbar-brand" href="index.html">
+                        <img src="assets/images/logo.png" alt="Your logo" title="Your logo"
+                            style="width: 350px;height: auto;" /></a>
+                </h1>
+                <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse"
+                    data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+                    <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+                    </span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav mx-lg-auto">
+                        <li class="nav-item ">
+                            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item @@about__active">
+                            <a class="nav-link" href="about.html">About Us</a>
+                        </li>
+                        <li class="nav-item @@about__active">
+                            <a class="nav-link" href="service.html">Our services</a>
+                        </li>
+                        <li class="nav-item dropdown @@pages__active">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Resources <span class="fa fa-angle-down"></span>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item @@b__active" href="blog1.html">Blog</a>
+                                <a class="dropdown-item @@b__active" href="index.html#team">Our Team</a>
+                            </div>
+                        </li>
+                        <li class="nav-item @@contact__active">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                    </ul>
+
+                    <!--/search-right-->
+                    <div class="search-right">
+                        <a href="#search" title="search"><span class="fa fa-search" aria-hidden="true"></span></a>
+                        <!-- search popup -->
+                        <div id="search" class="pop-overlay">
+                            <div class="popup">
+                                <!-- Search Form -->
+                                <form id="search-form" class="search-box">
+                                    <input type="search" placeholder="Search..." name="query" required>
+                                    <button type="submit"><span class="fa fa-search" aria-hidden="true"></span></button>
+                                </form>
+
+                            </div>
+                            <a class="close" href="#close">×</a>
+                        </div>
+                        <!-- /search popup -->
+                    </div>
+
+                    <div class="top-quote mr-lg-2 text-center">
+                        <a class="btn login mr-2" onclick="logout()"><span class="fa fa-sign-out"></span> Logout</a>
+                    </div>
+                </div>
+                <!-- toggle switch for light and dark theme -->
+                <div class="mobile-position">
+                    <nav class="navigation">
+                        <div class="theme-switch-wrapper">
+                            <label class="theme-switch" for="checkbox">
+                                <input type="checkbox" id="checkbox">
+                                <div class="mode-container py-1">
+                                    <i class="gg-sun"></i>
+                                    <i class="gg-moon"></i>
+                                </div>
+                            </label>
+                        </div>
+                    </nav>
+                </div>
+                <!-- //toggle switch for light and dark theme -->
+            </nav>
         </div>
-    </main>
-    <footer>
-        <p>&copy; 2024 Westside ABA</p>
-    </footer>
+    </header>
+    <!--/header-->
 
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
-        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
-        import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
+    <!-- about breadcrumb -->
+    <section class="w3l-breadcrumb">
+        <div class="breadcrumb-bg breadcrumb-bg-about py-5">
+            <div class="container pt-lg-5 pt-3 p-lg-4 pb-3">
+                <h2 class="title mt-5 pt-lg-5 pt-sm-3">Login page</h2>
+                <ul class="breadcrumbs-custom-path pb-sm-5 pb-4 mt-2 text-center mb-md-5">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="active"> / Login </li>
+                </ul>
+            </div>
+        </div>
+        <div class="waveWrapper waveAnimation">
+            <svg viewBox="0 0 500 150" preserveAspectRatio="none">
+                <path d="M-5.07,73.52 C149.99,150.00 299.66,-102.13 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
+                    style="stroke: none;"></path>
+            </svg>
+        </div>
+    </section>
+    <section>
+        <div class="dashboard">
+            <div class="sidebar">
+                <div class="logo">Westside ABA</div>
+                <div class="nav-item active" data-page="dashboard">
+                    <i class="material-icons">dashboard</i>
+                    Dashboard
+                </div>
+                <div class="nav-item" data-page="sessions">
+                    <i class="material-icons">calendar_today</i>
+                    Sessions
+                </div>
+                <div class="nav-item" data-page="progress">
+                    <i class="material-icons">assessment</i>
+                    Progress
+                </div>
+                <div class="nav-item" data-page="messages">
+                    <i class="material-icons">message</i>
+                    Messages
+                </div>
+                <div class="nav-item" data-page="settings">
+                    <i class="material-icons">settings</i>
+                    Settings
+                </div>
+            </div>
+            <div class="main-content">
+                <!-- Dashboard Page -->
+                <div id="dashboard-page" class="page active">
+                    <div class="header">
+                        <div class="welcome-text">Welcome back, <span id="user-name">Loading...</span></div>
+                        <button class="logout-btn" onclick="logout()">Logout</button>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <h3>Total Sessions</h3>
+                            <p id="total-sessions">0</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Hours This Month</h3>
+                            <p id="monthly-hours">0</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Goals Achieved</h3>
+                            <p id="goals-achieved">0</p>
+                        </div>
+                    </div>
+                    <div class="upcoming-sessions">
+                        <h2>Upcoming Sessions</h2>
+                        <div id="sessions-list"></div>
+                    </div>
+                </div>
 
-        // Firebase Configuration
+                <!-- Sessions Page -->
+                <div id="sessions-page" class="page">
+                    <div class="header">
+                        <h2>Session Calendar</h2>
+                    </div>
+                    <div class="calendar">
+                        <div id="calendar-container">
+                            <p>Calendar view coming soon...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Progress Page -->
+                <div id="progress-page" class="page">
+                    <div class="header">
+                        <h2>Progress Tracking</h2>
+                    </div>
+                    <div class="progress-charts">
+                        <div class="chart-container">
+                            <h3>Behavioral Progress</h3>
+                            <div id="behavior-chart">
+                                <p>Behavior tracking charts coming soon...</p>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <h3>Skill Development</h3>
+                            <div id="skills-chart">
+                                <p>Skills development charts coming soon...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Messages Page -->
+                <div id="messages-page" class="page">
+                    <div class="header">
+                        <h2>Messages</h2>
+                    </div>
+                    <div class="messages-container">
+                        <div class="message-list" id="message-list">
+                        </div>
+                        <div class="message-input">
+                            <input type="text" id="message-input" placeholder="Type your message...">
+                            <button class="send-btn" onclick="sendMessage()">Send</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Settings Page -->
+                <div id="settings-page" class="page">
+                    <div class="header">
+                        <h2>Account Settings</h2>
+                    </div>
+                    <div class="settings-grid">
+                        <div class="settings-card">
+                            <h3>Profile Information</h3>
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" id="profile-name">
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" id="profile-email">
+                            </div>
+                            <button class="save-btn" onclick="saveProfile()">Save Changes</button>
+                        </div>
+                        <div class="settings-card">
+                            <h3>Notifications</h3>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" id="email-notifications"> Email Notifications
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" id="sms-notifications"> SMS Notifications
+                                </label>
+                            </div>
+                            <button class="save-btn" onclick="saveNotificationSettings()">Save Preferences</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- footer -->
+    <section class="w3l-footer-29-main">
+        <div class="footer-29 py-5">
+            <div class="container py-md-4">
+                <div class="row footer-top-29">
+                    <div class="col-lg-4 col-md-6 col-sm-7 footer-list-29 footer-1 pr-lg-5">
+                        <h6 class="footer-title-29">Contact Info</h6>
+                        <p>Address: Westside ABA, Danville, Indiana, 46122.</p>
+                        <p class="my-2">Phone: <a href="tel:+1 (774) 272-3844">+1 (774) 272-3844 </a></p>
+                        <p>Email: <a href="mailto:info@example.com">info@westsideaba.com</a></p>
+                        <div class="main-social-footer-29 mt-4">
+                            <a href="#facebook" class="facebook"><span class="fa fa-facebook"></span></a>
+                            <a href="#twitter" class="twitter"><span class="fa fa-twitter"></span></a>
+                            <a href="#instagram" class="instagram"><span class="fa fa-instagram"></span></a>
+                            <a href="#linkedin" class="linkedin"><span class="fa fa-linkedin"></span></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-5 col-6 footer-list-29 footer-2 mt-sm-0 mt-5">
+                        <ul>
+                            <h6 class="footer-title-29">Company</h6>
+                            <li><a href="about.html">About Company</a></li>
+                            <li><a href="blog1.html">Latest Blog Posts</a></li>
+                            <li><a href="#teacher">Join The Team</a></li>
+                            <li><a href="service.html">Our Services</a></li>
+                            <li><a href="contact.html">Get in Touch</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 col-sm-7 footer-list-29 footer-4 mt-lg-0 mt-5">
+                        <h6 class="footer-title-29">Support</h6>
+                        <a href="#playstore"><img src="assets/images/googleplay.png" class="img-responsive" alt=""></a>
+                        <a href="#appstore"><img src="assets/images/appstore.png" class="img-responsive mt-3"
+                                alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- copyright -->
+        <section class="w3l-copyright text-center">
+            <div class="container">
+                <p class="copy-footer-29">© 2024 Westside ABA. All rights reserved. Design by <a
+                        href="https://creativesparxstudio.com/" target="_blank">Creative Sparx Studio</a></p>
+            </div>
+
+            <!-- move top -->
+            <button onclick="topFunction()" id="movetop" title="Go to top">
+                &#10548;
+            </button>
+            <script>
+                // When the user scrolls down 20px from the top of the document, show the button
+                window.onscroll = function () {
+                    scrollFunction()
+                };
+
+                function scrollFunction() {
+                    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                        document.getElementById("movetop").style.display = "block";
+                    } else {
+                        document.getElementById("movetop").style.display = "none";
+                    }
+                }
+
+                // When the user clicks on the button, scroll to the top of the document
+                function topFunction() {
+                    document.body.scrollTop = 0;
+                    document.documentElement.scrollTop = 0;
+                }
+            </script>
+            <!-- /move top -->
+        </section>
+        <!-- //copyright -->
+    </section>
+    <!-- //footer -->
+
+    <!-- Template JavaScript -->
+    <script src="assets/js/jquery-3.3.1.min.js"></script>
+
+    <script src="assets/js/theme-change.js"></script>
+    <script src="js1/script.js"></script>
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/66f68e7f4cbc4814f7dfe6ec/1i8php9op';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
+    <!-- Template JavaScript -->
+
+
+    <script src="assets/js/jquery-3.3.1.min.js"></script>
+
+    <script src="assets/js/theme-change.js"></script>
+    <script src="js1/script.js"></script>
+
+    <!-- stats number counter-->
+    <script src="assets/js/jquery.waypoints.min.js"></script>
+    <script src="assets/js/jquery.countup.js"></script>
+    <script>
+        $('.counter').countUp();
+    </script>
+    <!-- //stats number counter -->
+
+    <script src="assets/js/owl.carousel.js"></script>
+    <!-- script for banner slider-->
+    <script>
+        $(document).ready(function () {
+            // Owl Carousel initialization
+            $('.owl-one').owlCarousel({
+                loop: true,
+                margin: 0,
+                nav: false,
+                dots: false,
+                responsiveClass: true,
+                autoplay: true,
+                autoplayTimeout: 6000, // Adjusted to give enough time for animation
+                autoplaySpeed: 1200,   // Smooth transition between slides
+                autoplayHoverPause: false,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    480: {
+                        items: 1
+                    },
+                    667: {
+                        items: 1
+                    },
+                    1000: {
+                        items: 1,
+                        nav: true
+                    }
+                },
+                // Reset AOS for the current slide and animate only once
+                onTranslate: function () {
+                    $('.owl-item.active .aos-animate').removeClass('aos-animate'); // Remove class before animating
+                },
+                onTranslated: function () {
+                    $('.owl-item.active [data-aos]').addClass('aos-animate'); // Add class only to active slide elements
+                    AOS.refreshHard();  // Refresh only for the active slide
+                }
+            });
+
+            // Initialize AOS with once: true to animate elements only once
+            AOS.init({
+                duration: 1500,       // Duration of animations
+                easing: 'ease-in-out', // Smooth easing
+                once: true,           // Animate only once per element
+                mirror: false         // Disable reverse animations when scrolling back
+            });
+        });
+    </script>
+    <!-- //script -->
+
+    <!-- script for tesimonials carousel slider -->
+    <script>
+        $(document).ready(function () {
+            $("#owl-demo1").owlCarousel({
+                loop: true,
+                margin: 20,
+                nav: false,
+                responsiveClass: true,
+                responsive: {
+                    0: {
+                        items: 1,
+                        nav: false
+                    },
+                    768: {
+                        items: 2,
+                        nav: false
+                    },
+                    1000: {
+                        items: 3,
+                        nav: false,
+                        loop: false
+                    }
+                }
+            })
+        })
+    </script>
+    <!-- //script for tesimonials carousel slider -->
+
+    <!-- disable body scroll which navbar is in active -->
+    <script>
+        $(function () {
+            $('.navbar-toggler').click(function () {
+                $('body').toggleClass('noscroll');
+            })
+        });
+    </script>
+    <!-- disable body scroll which navbar is in active -->
+
+    <!--/MENU-JS-->
+    <script>
+        $(window).on("scroll", function () {
+            var scroll = $(window).scrollTop();
+
+            if (scroll >= 80) {
+                $("#site-header").addClass("nav-fixed");
+            } else {
+                $("#site-header").removeClass("nav-fixed");
+            }
+        });
+
+        //Main navigation Active Class Add Remove
+        $(".navbar-toggler").on("click", function () {
+            $("header").toggleClass("active");
+        });
+        $(document).on("ready", function () {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+            $(window).on("resize", function () {
+                if ($(window).width() > 991) {
+                    $("header").removeClass("active");
+                }
+            });
+        });
+    </script>
+    <!--//MENU-JS-->
+
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="script2.js"></script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+        // Text animation using Typed.js
+        var typingEffect = new Typed('.multiText', {
+            strings: ["Therapist", "Behavior Specialist", "Caregiver"],
+            loop: true,
+            typeSpeed: 100,
+            backSpeed: 80,
+            backDelay: 1500,
+        });
+
+        // Burger menu toggle script
+        const burger = document.querySelector('.burger');
+        const navItems = document.querySelector('.navItems');
+
+        burger.addEventListener('click', () => {
+            navItems.classList.toggle('nav-active');
+            burger.classList.toggle('toggle');
+        });
+    </script>
+    <!-- AOS Library JS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 2000,  // Animation duration
+            offset: 100,     // Offset to trigger animation closer to the view (increase this for later animation trigger)
+            easing: 'ease-in-out', // Animation easing
+            once: true       // Ensure the animation runs only once (if this is desired)
+        });
+    </script>
+    <script>
+        // Initialize Firebase
         const firebaseConfig = {
             apiKey: "AIzaSyDxlLko9ERZr58IgxPO-wKu4Xkn2y9FzKA",
             authDomain: "westsideaba-2bd91.firebaseapp.com",
+            databaseURL: "https://westsideaba-2bd91-default-rtdb.firebaseio.com",
             projectId: "westsideaba-2bd91",
-            storageBucket: "westsideaba-2bd91.appspot.com",
+            storageBucket: "westsideaba-2bd91.firebasestorage.app",
             messagingSenderId: "288703441172",
             appId: "1:288703441172:web:a078ebfbb87faf8fa7fa01",
             measurementId: "G-2XYZZ69SPL"
         };
 
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-        const db = getFirestore(app);
+        firebase.initializeApp(firebaseConfig);
 
-        // UI Elements
-        const userNameEl = document.getElementById("user-name");
-        const userEmailEl = document.getElementById("user-email");
-        const userPhoneEl = document.getElementById("user-phone");
-        const userCreatedAtEl = document.getElementById("user-created-at");
-        const loadingEl = document.getElementById("loading");
-        const userInfoEl = document.getElementById("user-info");
+        // Page navigation
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', () => {
+                // Remove active class from all pages and nav items
+                document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+                document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
 
-        // Check User Authentication
-        onAuthStateChanged(auth, async (user) => {
-            try {
-                if (user) {
-                    const userId = user.uid; // User ID from authentication
-                    const userDocRef = doc(db, "users", userId); // Reference to Firestore user document
-                    const userDoc = await getDoc(userDocRef);
+                // Add active class to clicked nav item and corresponding page
+                item.classList.add('active');
+                const pageId = item.getAttribute('data-page') + '-page';
+                document.getElementById(pageId).classList.add('active');
+            });
+        });
 
-                    if (userDoc.exists()) {
-                        const userData = userDoc.data();
-                        userNameEl.textContent = `${userData.firstName} ${userData.lastName}`;
-                        userEmailEl.textContent = userData.email;
-                        userPhoneEl.textContent = userData.phone || "Not provided";
-                        userCreatedAtEl.textContent = userData.createdAt || "Unknown";
-
-                        // Hide loading spinner, show user info
-                        loadingEl.style.display = "none";
-                        userInfoEl.style.display = "block";
-                    } else {
-                        console.error("No user data found!");
-                    }
-                } else {
-                    window.location.href = "login.html"; // Redirect to login if unauthenticated
-                }
-            } catch (error) {
-                console.error("Error fetching user data:", error);
-                alert("An error occurred. Please try again.");
+        // Auth state observer
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+                document.getElementById('user-name').textContent = user.displayName || user.email;
+                loadUserData(user.uid);
+                loadUserProfile(user);
+            } else {
+                window.location.href = '/login.html';
             }
         });
 
-        // Logout Functionality
-        document.getElementById("logout").addEventListener("click", async () => {
-            try {
-                await signOut(auth);
-                window.location.href = "login.html"; // Redirect to login
-            } catch (error) {
-                console.error("Error logging out:", error);
-                alert("An error occurred while logging out.");
+        function loadUserData(userId) {
+            const dbRef = firebase.database().ref('users/' + userId);
+
+            dbRef.on('value', (snapshot) => {
+                const data = snapshot.val();
+                if (data) {
+                    document.getElementById('total-sessions').textContent = data.totalSessions || 0;
+                    document.getElementById('monthly-hours').textContent = data.monthlyHours || 0;
+                    document.getElementById('goals-achieved').textContent = data.goalsAchieved || 0;
+
+                    // Load upcoming sessions
+                    const sessionsList = document.getElementById('sessions-list');
+                    sessionsList.innerHTML = '';
+
+                    if (data.upcomingSessions) {
+                        Object.values(data.upcomingSessions).forEach(session => {
+                            const sessionElement = document.createElement('div');
+                            sessionElement.className = 'session-item';
+                            sessionElement.innerHTML = `
+                                <div>
+                                    <h4>${session.therapistName}</h4>
+                                    <p>${session.date} - ${session.time}</p>
+                                </div>
+                                <div>
+                                    <span>${session.duration} hours</span>
+                                </div>
+                            `;
+                            sessionsList.appendChild(sessionElement);
+                        });
+                    }
+                }
+            });
+        }
+
+        function loadUserProfile(user) {
+            document.getElementById('profile-name').value = user.displayName || '';
+            document.getElementById('profile-email').value = user.email || '';
+        }
+
+        function saveProfile() {
+            const user = firebase.auth().currentUser;
+            const newName = document.getElementById('profile-name').value;
+
+            user.updateProfile({
+                displayName: newName
+            }).then(() => {
+                alert('Profile updated successfully!');
+            }).catch(error => {
+                console.error('Error updating profile:', error);
+                alert('Error updating profile');
+            });
+        }
+
+        function saveNotificationSettings() {
+            const user = firebase.auth().currentUser;
+            const emailNotif = document.getElementById('email-notifications').checked;
+            const smsNotif = document.getElementById('sms-notifications').checked;
+
+            firebase.database().ref('users/' + user.uid + '/notifications').set({
+                email: emailNotif,
+                sms: smsNotif
+            }).then(() => {
+                alert('Notification preferences saved!');
+            }).catch(error => {
+                console.error('Error saving notification settings:', error);
+                alert('Error saving notification settings');
+            });
+        }
+
+        function sendMessage() {
+            const messageInput = document.getElementById('message-input');
+            const message = messageInput.value.trim();
+
+            if (message) {
+                const user = firebase.auth().currentUser;
+                firebase.database().ref('messages').push({
+                    userId: user.uid,
+                    userName: user.displayName || user.email,
+                    message: message,
+                    timestamp: firebase.database.ServerValue.TIMESTAMP
+                }).then(() => {
+                    messageInput.value = '';
+                }).catch(error => {
+                    console.error('Error sending message:', error);
+                });
+            }
+        }
+
+        function logout() {
+            firebase.auth().signOut().then(() => {
+                window.location.href = '/login.html';
+            }).catch((error) => {
+                console.error('Logout Error:', error);
+            });
+        }
+
+        // Load messages
+        firebase.database().ref('messages').on('value', (snapshot) => {
+            const messageList = document.getElementById('message-list');
+            messageList.innerHTML = '';
+
+            const messages = snapshot.val();
+            if (messages) {
+                Object.values(messages).forEach(msg => {
+                    const messageElement = document.createElement('div');
+                    messageElement.className = 'message';
+                    messageElement.innerHTML = `
+                        <strong>${msg.userName}</strong>: ${msg.message}
+                    `;
+                    messageList.appendChild(messageElement);
+                });
+
+                // Scroll to bottom
+                messageList.scrollTop = messageList.scrollHeight;
             }
         });
     </script>
 </body>
+
 </html>
