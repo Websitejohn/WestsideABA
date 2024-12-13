@@ -39,30 +39,7 @@
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
 
     <style>
-        body {
-            background-color: var(--background-color);
-        }
-
-        .dashboard {
-            display: grid;
-            grid-template-columns: 250px 1fr;
-            min-height: 100vh;
-        }
-
-        .sidebar {
-            background: white;
-            padding: 2rem;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            margin-bottom: 2rem;
-            font-weight: bold;
-        }
-
-        <style>* {
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -70,7 +47,6 @@
         }
 
         :root {
-            --secondary-color: #2196F3;
             --background-color: #f5f5f5;
             --text-color: #333;
         }
@@ -88,7 +64,8 @@
         .sidebar {
             background: white;
             padding: 2rem;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            position: relative;
         }
 
         .logo {
@@ -106,6 +83,7 @@
             border-radius: 8px;
             cursor: pointer;
             transition: background 0.3s ease;
+            position: relative;
         }
 
         .nav-item:hover {
@@ -148,7 +126,7 @@
             background: white;
             padding: 1.5rem;
             border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         .stat-card h3 {
@@ -166,7 +144,7 @@
             background: white;
             padding: 1.5rem;
             border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         .session-item {
@@ -289,6 +267,250 @@
             padding: 0.8rem 1.5rem;
             border-radius: 5px;
             cursor: pointer;
+        }
+
+        .message {
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            background: #f5f5f5;
+        }
+
+        .message.own-message {
+            background: #e3f2fd;
+            margin-left: 20%;
+        }
+
+        .notification-badge {
+            background: red;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 6px;
+            font-size: 12px;
+            position: absolute;
+            top: -5px;
+            right: -5px;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .resource-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .resource-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+
+        .resource-icon i {
+            font-size: 30px;
+            color: white;
+        }
+
+        .resource-btn {
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .resource-btn:hover {
+            background: #1976D2;
+        }
+
+        .recent-updates {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+        }
+
+        .update-item {
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .update-item:last-child {
+            border-bottom: none;
+        }
+
+        .notification-toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 1000;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 60px;
+                padding: 0;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                z-index: 1000;
+            }
+
+            .logo {
+                display: none;
+            }
+
+            .nav-item {
+                flex-direction: column;
+                padding: 5px;
+                margin: 0;
+                font-size: 0.8rem;
+                text-align: center;
+            }
+
+            .nav-item i {
+                margin-right: 0;
+                margin-bottom: 2px;
+            }
+
+            .main-content {
+                padding: 1rem;
+                padding-bottom: 70px; /* Add space for bottom navigation */
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .header {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .welcome-text {
+                font-size: 1.2rem;
+            }
+
+            .progress-charts {
+                grid-template-columns: 1fr;
+            }
+
+            .settings-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .messages-container {
+                height: calc(100vh - 280px);
+            }
+
+            .form-group input,
+            .message-input input,
+            .send-btn,
+            .save-btn,
+            .logout-btn {
+                padding: 12px;
+                font-size: 16px; /* Minimum touch target size */
+            }
+
+            .session-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            .stat-card {
+                padding: 1rem;
+            }
+
+            .stat-card h3 {
+                font-size: 0.9rem;
+            }
+
+            .stat-card p {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .dashboard {
+                grid-template-columns: 200px 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .progress-charts {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (hover: none) {
+            .nav-item:hover {
+                background: none;
+            }
+
+            .nav-item.active {
+                background: var(--primary-color);
+            }
+
+            .logout-btn:hover,
+            .send-btn:hover,
+            .save-btn:hover {
+                opacity: 0.9;
+            }
         }
     </style>
     <script>
@@ -440,10 +662,16 @@
                 <div class="nav-item" data-page="messages">
                     <i class="material-icons">message</i>
                     Messages
+                    <span class="notification-badge" style="display: none">0</span>
                 </div>
                 <div class="nav-item" data-page="settings">
                     <i class="material-icons">settings</i>
                     Settings
+                </div>
+                <div class="nav-item" data-page="resources">
+                    <i class="material-icons">library_books</i>
+                    Resources
+                    <span class="resources-badge notification-badge" style="display: none">0</span>
                 </div>
             </div>
             <div class="main-content">
@@ -451,7 +679,7 @@
                 <div id="dashboard-page" class="page active">
                     <div class="header">
                         <div class="welcome-text">Welcome back, <span id="user-name">Loading...</span></div>
-                        <button class="logout-btn" onclick="logout()">Logout</button>
+                      
                     </div>
                     <div class="stats-grid">
                         <div class="stat-card">
@@ -472,7 +700,7 @@
                         <div id="sessions-list"></div>
                     </div>
                 </div>
-
+    
                 <!-- Sessions Page -->
                 <div id="sessions-page" class="page">
                     <div class="header">
@@ -484,7 +712,7 @@
                         </div>
                     </div>
                 </div>
-
+    
                 <!-- Progress Page -->
                 <div id="progress-page" class="page">
                     <div class="header">
@@ -493,19 +721,15 @@
                     <div class="progress-charts">
                         <div class="chart-container">
                             <h3>Behavioral Progress</h3>
-                            <div id="behavior-chart">
-                                <p>Behavior tracking charts coming soon...</p>
-                            </div>
+                            <canvas id="behavior-chart"></canvas>
                         </div>
                         <div class="chart-container">
                             <h3>Skill Development</h3>
-                            <div id="skills-chart">
-                                <p>Skills development charts coming soon...</p>
-                            </div>
+                            <canvas id="skills-chart"></canvas>
                         </div>
                     </div>
                 </div>
-
+    
                 <!-- Messages Page -->
                 <div id="messages-page" class="page">
                     <div class="header">
@@ -520,7 +744,7 @@
                         </div>
                     </div>
                 </div>
-
+    
                 <!-- Settings Page -->
                 <div id="settings-page" class="page">
                     <div class="header">
@@ -555,8 +779,54 @@
                         </div>
                     </div>
                 </div>
+    
+                <!-- Resources Page -->
+                <div id="resources-page" class="page">
+                    <div class="header">
+                        <h2>Resources & Learning Materials</h2>
+                    </div>
+                    <div class="resources-grid">
+                        <div class="resource-card">
+                            <div class="resource-icon">
+                                <i class="material-icons">book</i>
+                            </div>
+                            <h3>ABA Training Materials</h3>
+                            <p>Access comprehensive training guides and materials</p>
+                            <button class="resource-btn" onclick="accessResource('training')">View Materials</button>
+                        </div>
+                        <div class="resource-card">
+                            <div class="resource-icon">
+                                <i class="material-icons">video_library</i>
+                            </div>
+                            <h3>Tutorial Videos</h3>
+                            <p>Watch educational videos and demonstrations</p>
+                            <button class="resource-btn" onclick="accessResource('videos')">Watch Videos</button>
+                        </div>
+                        <div class="resource-card">
+                            <div class="resource-icon">
+                                <i class="material-icons">assignment</i>
+                            </div>
+                            <h3>Assessment Tools</h3>
+                            <p>Download and use assessment templates</p>
+                            <button class="resource-btn" onclick="accessResource('assessment')">Get Tools</button>
+                        </div>
+                        <div class="resource-card">
+                            <div class="resource-icon">
+                                <i class="material-icons">calendar_today</i>
+                            </div>
+                            <h3>Schedule Templates</h3>
+                            <p>Access therapy session planning templates</p>
+                            <button class="resource-btn" onclick="accessResource('schedule')">View Templates</button>
+                        </div>
+                    </div>
+                    <div class="recent-updates">
+                        <h3>Recent Updates</h3>
+                        <div id="updates-list"></div>
+                    </div>
+                </div>
             </div>
         </div>
+    
     </section>
     <!-- footer -->
     <section class="w3l-footer-29-main">
@@ -817,7 +1087,7 @@
             once: true       // Ensure the animation runs only once (if this is desired)
         });
     </script>
-    <script>
+       <script>
         // Initialize Firebase
         const firebaseConfig = {
             apiKey: "AIzaSyDxlLko9ERZr58IgxPO-wKu4Xkn2y9FzKA",
@@ -838,7 +1108,7 @@
                 // Remove active class from all pages and nav items
                 document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
                 document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
-
+                
                 // Add active class to clicked nav item and corresponding page
                 item.classList.add('active');
                 const pageId = item.getAttribute('data-page') + '-page';
@@ -859,18 +1129,18 @@
 
         function loadUserData(userId) {
             const dbRef = firebase.database().ref('users/' + userId);
-
+            
             dbRef.on('value', (snapshot) => {
                 const data = snapshot.val();
                 if (data) {
                     document.getElementById('total-sessions').textContent = data.totalSessions || 0;
                     document.getElementById('monthly-hours').textContent = data.monthlyHours || 0;
                     document.getElementById('goals-achieved').textContent = data.goalsAchieved || 0;
-
+                    
                     // Load upcoming sessions
                     const sessionsList = document.getElementById('sessions-list');
                     sessionsList.innerHTML = '';
-
+                    
                     if (data.upcomingSessions) {
                         Object.values(data.upcomingSessions).forEach(session => {
                             const sessionElement = document.createElement('div');
@@ -899,7 +1169,7 @@
         function saveProfile() {
             const user = firebase.auth().currentUser;
             const newName = document.getElementById('profile-name').value;
-
+            
             user.updateProfile({
                 displayName: newName
             }).then(() => {
@@ -914,7 +1184,7 @@
             const user = firebase.auth().currentUser;
             const emailNotif = document.getElementById('email-notifications').checked;
             const smsNotif = document.getElementById('sms-notifications').checked;
-
+            
             firebase.database().ref('users/' + user.uid + '/notifications').set({
                 email: emailNotif,
                 sms: smsNotif
@@ -926,24 +1196,138 @@
             });
         }
 
+        function initializeCharts() {
+            // Behavior Chart
+            const behaviorCtx = document.getElementById('behavior-chart').getContext('2d');
+            new Chart(behaviorCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+                    datasets: [{
+                        label: 'Positive Behaviors',
+                        data: [65, 72, 78, 85],
+                        borderColor: '#4CAF50',
+                        tension: 0.1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100
+                        }
+                    }
+                }
+            });
+
+            // Skills Chart
+            const skillsCtx = document.getElementById('skills-chart').getContext('2d');
+            new Chart(skillsCtx, {
+                type: 'radar',
+                data: {
+                    labels: ['Communication', 'Social Skills', 'Motor Skills', 'Academic', 'Self-Care'],
+                    datasets: [{
+                        label: 'Current Level',
+                        data: [65, 75, 70, 80, 60],
+                        backgroundColor: 'rgba(33, 150, 243, 0.2)',
+                        borderColor: '#2196F3',
+                        pointBackgroundColor: '#2196F3'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        r: {
+                            beginAtZero: true,
+                            max: 100
+                        }
+                    }
+                }
+            });
+        }
+
         function sendMessage() {
             const messageInput = document.getElementById('message-input');
             const message = messageInput.value.trim();
-
+            
             if (message) {
                 const user = firebase.auth().currentUser;
+                const timestamp = firebase.database.ServerValue.TIMESTAMP;
+                
                 firebase.database().ref('messages').push({
                     userId: user.uid,
                     userName: user.displayName || user.email,
                     message: message,
-                    timestamp: firebase.database.ServerValue.TIMESTAMP
+                    timestamp: timestamp
                 }).then(() => {
                     messageInput.value = '';
-                }).catch(error => {
-                    console.error('Error sending message:', error);
+                    updateMessageNotifications();
                 });
             }
         }
+
+        let unreadMessages = 0;
+        function updateMessageNotifications() {
+            const messageNav = document.querySelector('[data-page="messages"]');
+            const currentPage = document.querySelector('.page.active').id;
+            
+            if (currentPage !== 'messages-page') {
+                unreadMessages++;
+                let badge = messageNav.querySelector('.notification-badge');
+                if (!badge) {
+                    badge = document.createElement('span');
+                    badge.className = 'notification-badge';
+                    messageNav.appendChild(badge);
+                }
+                badge.textContent = unreadMessages;
+            }
+        }
+
+        document.querySelector('[data-page="messages"]').addEventListener('click', () => {
+            unreadMessages = 0;
+            const badge = document.querySelector('.notification-badge');
+            if (badge) badge.remove();
+        });
+
+        function formatMessageTime(timestamp) {
+            const date = new Date(timestamp);
+            return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        }
+
+        firebase.database().ref('messages').on('value', (snapshot) => {
+            const messageList = document.getElementById('message-list');
+            messageList.innerHTML = '';
+            
+            const messages = snapshot.val();
+            const currentUser = firebase.auth().currentUser;
+            
+            if (messages) {
+                Object.values(messages).forEach(msg => {
+                    const messageElement = document.createElement('div');
+                    messageElement.className = `message ${msg.userId === currentUser.uid ? 'own-message' : ''}`;
+                    messageElement.innerHTML = `
+                        <strong>${msg.userName}</strong>
+                        <span style="float: right; font-size: 0.8em; color: #666;">
+                            ${formatMessageTime(msg.timestamp)}
+                        </span><br>
+                        ${msg.message}
+                    `;
+                    messageList.appendChild(messageElement);
+                });
+                
+                messageList.scrollTop = messageList.scrollHeight;
+                updateMessageNotifications();
+            }
+        });
+
+        document.querySelector('[data-page="progress"]').addEventListener('click', initializeCharts);
+
+        document.getElementById('message-input').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
 
         function logout() {
             firebase.auth().signOut().then(() => {
@@ -953,25 +1337,84 @@
             });
         }
 
-        // Load messages
-        firebase.database().ref('messages').on('value', (snapshot) => {
-            const messageList = document.getElementById('message-list');
-            messageList.innerHTML = '';
+        function initializeResources() {
+            const updatesRef = firebase.database().ref('resources/updates');
+            const resourcesRef = firebase.database().ref('resources/items');
+            
+            // Listen for new updates
+            updatesRef.on('value', (snapshot) => {
+                const updates = snapshot.val();
+                const updatesList = document.getElementById('updates-list');
+                updatesList.innerHTML = '';
+                
+                if (updates) {
+                    Object.values(updates).forEach(update => {
+                        const updateElement = document.createElement('div');
+                        updateElement.className = 'update-item';
+                        updateElement.innerHTML = `
+                            <div>
+                                <h4>${update.title}</h4>
+                                <p>${update.description}</p>
+                            </div>
+                            <span>${new Date(update.timestamp).toLocaleDateString()}</span>
+                        `;
+                        updatesList.appendChild(updateElement);
+                    });
+                }
+            });
 
-            const messages = snapshot.val();
-            if (messages) {
-                Object.values(messages).forEach(msg => {
-                    const messageElement = document.createElement('div');
-                    messageElement.className = 'message';
-                    messageElement.innerHTML = `
-                        <strong>${msg.userName}</strong>: ${msg.message}
-                    `;
-                    messageList.appendChild(messageElement);
+            // Listen for new resources
+            resourcesRef.on('child_added', (snapshot) => {
+                const resource = snapshot.val();
+                showNotification('New Resource Available', resource.title);
+                updateResourcesBadge();
+            });
+        }
+
+        function showNotification(title, message) {
+            const toast = document.createElement('div');
+            toast.className = 'notification-toast';
+            toast.innerHTML = `
+                <i class="material-icons">notifications</i>
+                <div>
+                    <strong>${title}</strong>
+                    <p>${message}</p>
+                </div>
+            `;
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.remove();
+            }, 5000);
+        }
+
+        function updateResourcesBadge() {
+            const badge = document.querySelector('.resources-badge');
+            let count = parseInt(badge.textContent || '0');
+            badge.textContent = count + 1;
+            badge.style.display = 'block';
+        }
+
+        function accessResource(type) {
+            const user = firebase.auth().currentUser;
+            if (user) {
+                firebase.database().ref(`users/${user.uid}/resourceAccess`).push({
+                    type: type,
+                    timestamp: firebase.database.ServerValue.TIMESTAMP
                 });
-
-                // Scroll to bottom
-                messageList.scrollTop = messageList.scrollHeight;
+                
+                showNotification('Resource Accessed', `You've accessed ${type} materials`);
             }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeResources();
+        });
+
+        document.querySelector('[data-page="resources"]').addEventListener('click', () => {
+            const badge = document.querySelector('.resources-badge');
+            badge.style.display = 'none';
+            badge.textContent = '0';
         });
     </script>
 </body>
