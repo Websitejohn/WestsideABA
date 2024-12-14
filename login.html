@@ -30,23 +30,88 @@
   <link rel="stylesheet" href="assets/css/style-liberty.css">
   <link rel="stylesheet" href="assets/css/font-awesome.min.css">
   <style>
-    .hero-logo {
-      width: 150px;
-      margin-bottom: 20px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
+      #toggle-password {
+    position: absolute;
+    top: 67%;
+    right: 25px;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
 
-    .hero-logo {
-      max-width: 150px;
-      margin-bottom: 20px;
-      transition: transform 0.3s ease;
-    }
+  /* Custom Alert Styles */
+  .custom-alert {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 25px;
+    border-radius: 5px;
+    color: white;
+    max-width: 350px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    animation: slideIn 0.5s ease forwards;
+    z-index: 1000;
+  }
 
-    .hero-logo:hover {
-      transform: scale(1.1);
+  .custom-alert.error {
+    background-color: #dc3545;
+  }
+
+  .custom-alert.success {
+    background-color: #28a745;
+  }
+
+  @keyframes slideIn {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
     }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  .social-media a {
+    display: block;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 4px;
+    color: white;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .social-media a:hover {
+    opacity: 0.9;
+  }
+
+  .fb {
+    background: #3b5998;
+  }
+
+  .tw {
+    background: #1da1f2;
+  }
+
+  #loading-spinner {
+    position: absolute;
+    right: 100px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
   </style>
 
   <script>
