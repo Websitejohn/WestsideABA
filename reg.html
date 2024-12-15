@@ -350,6 +350,7 @@
               <span>or</span>
             </div>
 
+
             <form id="signup-form" class="needs-validation" novalidate>
               <div class="form-grid signupgrids">
                 <div class="input-field">
@@ -396,7 +397,31 @@
             <script type="module">
               import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
               import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, OAuthProvider } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
-              import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
+              import { getFirestore, doc, setDoc, collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
+
+              async function checkExistingUser(email, phone) {
+                try {
+                  const emailQuery = await getDocs(
+                    query(collection(db, "users"), where("email", "==", email))
+                  );
+
+                  if (!emailQuery.empty) {
+                    throw new Error("This email address is already registered");
+                  }
+
+                  const phoneQuery = await getDocs(
+                    query(collection(db, "users"), where("phone", "==", phone))
+                  );
+
+                  if (!phoneQuery.empty) {
+                    throw new Error("This phone number is already registered");
+                  }
+
+                  return true;
+                } catch (error) {
+                  throw error;
+                }
+              }
 
               function showAlert(message, type = 'error') {
                 const alert = document.createElement('div');
@@ -430,7 +455,6 @@
               const googleProvider = new GoogleAuthProvider();
               const linkedInProvider = new OAuthProvider('linkedin.com');
 
-              // Phone number initialization and validation
               const phoneInput = document.getElementById('phone');
               const phoneError = document.getElementById('phone-error');
               const iti = window.intlTelInput(phoneInput, {
@@ -440,7 +464,6 @@
                 formatOnDisplay: true
               });
 
-              // Phone validation function
               const validatePhone = () => {
                 if (phoneInput.value.trim()) {
                   phoneInput.classList.remove('phone-invalid');
@@ -451,13 +474,11 @@
                 return false;
               };
 
-              // Email validation function
               const validateEmail = (email) => {
                 const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
                 return emailRegex.test(email.toLowerCase());
               };
 
-              // Add event listeners for validation
               phoneInput.addEventListener('blur', validatePhone);
               phoneInput.addEventListener('change', validatePhone);
               phoneInput.addEventListener('keyup', validatePhone);
@@ -478,13 +499,11 @@
               form.addEventListener("submit", async (event) => {
                 event.preventDefault();
 
-                // Check phone validation
                 if (!validatePhone()) {
                   event.stopPropagation();
                   return;
                 }
 
-                // Check email validation
                 if (!validateEmail(emailInput.value)) {
                   event.stopPropagation();
                   showAlert("Please enter a valid email address");
@@ -499,7 +518,7 @@
 
                 const firstName = document.getElementById("first_name").value;
                 const lastName = document.getElementById("last_name").value;
-                const phone = iti.getNumber(); // Get formatted phone number with country code
+                const phone = iti.getNumber();
                 const email = document.getElementById("email").value;
                 const password = document.getElementById("password").value;
                 const confirmPassword = document.getElementById("confirm_password").value;
@@ -512,6 +531,15 @@
                 try {
                   signupButton.disabled = true;
                   loadingSpinner.classList.remove("d-none");
+
+                  try {
+                    await checkExistingUser(email, phone);
+                  } catch (error) {
+                    showAlert(error.message);
+                    signupButton.disabled = false;
+                    loadingSpinner.classList.add("d-none");
+                    return;
+                  }
 
                   const userCredential = await createUserWithEmailAndPassword(auth, email, password);
                   const user = userCredential.user;
@@ -540,10 +568,9 @@
                 }
               });
 
-              // Password validation
               const passwordInput = document.getElementById("password");
               passwordInput.addEventListener('input', function () {
-                this.setCustomValidity(''); // Always valid
+                this.setCustomValidity('');
               });
 
               const confirmPasswordInput = document.getElementById("confirm_password");
@@ -554,13 +581,44 @@
                   confirmPasswordInput.setCustomValidity("");
                 }
               });
+
+              document.getElementById('google-login').addEventListener('click', async () => {
+                try {
+                  const result = await signInWithPopup(auth, googleProvider);
+                  const user = result.user;
+
+                  try {
+                    await checkExistingUser(user.email, '');
+                  } catch (error) {
+                    showAlert("This email is already registered");
+                    return;
+                  }
+                } catch (error) {
+                  showAlert(error.message);
+                }
+              });
+
+              document.getElementById('linkedin-login').addEventListener('click', async () => {
+                try {
+                  const result = await signInWithPopup(auth, linkedInProvider);
+                  const user = result.user;
+
+                  try {
+                    await checkExistingUser(user.email, '');
+                  } catch (error) {
+                    showAlert("This email is already registered");
+                    return;
+                  }
+                } catch (error) {
+                  showAlert(error.message);
+                }
+              });
             </script>
           </div>
         </div>
       </div>
     </div>
   </section>
-
 
   <!-- footer -->
   <section class="w3l-footer-29-main">
