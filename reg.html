@@ -26,7 +26,12 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database-compat.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/style3.css">
@@ -34,11 +39,6 @@
   <link rel="stylesheet" href="assets/css/style-liberty.css">
   <link rel="stylesheet" href="assets/css/font-awesome.min.css">
   <style>
-    .w3l-loginblock {
-      padding: 40px 0;
-      background: #f8f9fa;
-    }
-
     .input-field {
       position: relative;
       margin-top: 1rem;
@@ -88,9 +88,7 @@
     }
 
     .google-btn {
-      background: #fff;
-      color: #757575;
-      border: 1px solid #ddd;
+      border: 1px solid;
     }
 
     .linkedin-btn {
@@ -114,8 +112,7 @@
 
     .divider span {
       padding: 0 10px;
-      color: #757575;
-      background: #f8f9fa;
+
     }
 
     @media (max-width: 768px) {
@@ -144,21 +141,21 @@
 
     @media (min-width: 1024px) {
       .custom-alert {
-        top: 30px;
+        top: 30%;
         max-width: 400px;
       }
     }
 
     @media (min-width: 768px) and (max-width: 1023px) {
       .custom-alert {
-        top: 20px;
+        top: 20%;
         max-width: 350px;
       }
     }
 
     @media (max-width: 767px) {
       .custom-alert {
-        top: 10px;
+        top: 10%;
         width: calc(100% - 30px);
         min-width: unset;
         font-size: 0.95em;
@@ -214,16 +211,28 @@
       }
     }
 
-    .phone-invalid {
-      border-color: #dc3545 !important;
+    .input-field {
+      position: relative;
+      margin-top: 1rem;
     }
 
-    .phone-valid {
-      border-color: #28a745 !important;
+    .input-field input {
+      width: 100%;
+      padding: 12px;
+
+      transition: all 0.3s ease;
+    }
+
+    #toggle-password {
+      position: absolute;
+      top: 67%;
+      right: 25px;
+      transform: translateY(-50%);
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: color 0.3s ease;
     }
   </style>
-
-
 </head>
 
 <body>
@@ -328,6 +337,7 @@
       </svg>
     </div>
   </section>
+
   <section class="w3l-loginblock pb-5" id="contact">
     <div class="contacts-9 pb-lg-5 pb-md-4">
       <div class="container">
@@ -335,12 +345,12 @@
           <div class="map-content-9">
             <div class="col-lg-6 social-login-details align-self pl-lg-5 mt-lg-0 mt-4">
               <div class="social-media">
-                <a class="social-btn google-btn" id="google-login" style="">
-                  <span class="fab fa-google" aria-hidden="true"></span>
+                <a class="social-btn google-btn" id="google-login">
+                  <i class="fab fa-google"></i>
                   Sign up with Google
                 </a>
-                <a class="social-btn linkedin-btn" id="linkedin-login" style=" background: #0077b5; color: white;">
-                  <span class="fab fa-linkedin-in" aria-hidden="true"></span>
+                <a class="social-btn linkedin-btn" id="linkedin-login" style="color: #ffff; background: #0077b5;">
+                  <i class="fab fa-linkedin-in"></i>
                   Sign up with LinkedIn
                 </a>
               </div>
@@ -349,8 +359,6 @@
             <div class="divider">
               <span>or</span>
             </div>
-
-
             <form id="signup-form" class="needs-validation" novalidate>
               <div class="form-grid signupgrids">
                 <div class="input-field">
@@ -366,7 +374,7 @@
                 <div class="input-field">
                   <label for="phone">Phone Number *</label>
                   <input type="tel" name="phone" id="phone" placeholder="Phone number" required>
-                  <span id="phone-error" class="invalid-feedback"></span>
+
                 </div>
                 <div class="input-field">
                   <label for="email">Email Address *</label>
@@ -375,13 +383,16 @@
                 </div>
                 <div class="input-field">
                   <label for="password">Password *</label>
-                  <input type="password" name="password" id="password" placeholder="Password" required>
-                  <div class="invalid-feedback">Please enter a password</div>
+                  <input type="password" name="password" id="password" placeholder="Password"
+                    pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" required>
+                  <span id="toggle-password" class="fa fa-eye-slash" aria-hidden="true"></span>
+                  <div class="invalid-feedback">Password must be at least 8 characters with letters and numbers.</div>
                 </div>
                 <div class="input-field">
                   <label for="confirm_password">Confirm Password *</label>
                   <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm password"
                     required>
+                  <span id="toggle-password" class="fa fa-eye-slash" aria-hidden="true"></span>
                   <div class="invalid-feedback">Passwords must match.</div>
                 </div>
               </div>
@@ -393,35 +404,21 @@
 
               <p class="mt-4">Already have an account? <a href="login.html">Login here</a></p>
             </form>
+            <script>
+              // Toggle Password Visibility
+              document.getElementById("toggle-password").addEventListener("click", () => {
+                const passwordInput = document.getElementById("password");
+                const type = passwordInput.type === "password" ? "text" : "password";
+                passwordInput.type = type;
 
+                document.getElementById("toggle-password").classList.toggle("fa-eye");
+                document.getElementById("toggle-password").classList.toggle("fa-eye-slash");
+              });
+            </script>
             <script type="module">
               import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
-              import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, OAuthProvider } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
-              import { getFirestore, doc, setDoc, collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
-
-              async function checkExistingUser(email, phone) {
-                try {
-                  const emailQuery = await getDocs(
-                    query(collection(db, "users"), where("email", "==", email))
-                  );
-
-                  if (!emailQuery.empty) {
-                    throw new Error("This email address is already registered");
-                  }
-
-                  const phoneQuery = await getDocs(
-                    query(collection(db, "users"), where("phone", "==", phone))
-                  );
-
-                  if (!phoneQuery.empty) {
-                    throw new Error("This phone number is already registered");
-                  }
-
-                  return true;
-                } catch (error) {
-                  throw error;
-                }
-              }
+              import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
+              import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
 
               function showAlert(message, type = 'error') {
                 const alert = document.createElement('div');
@@ -452,45 +449,6 @@
               const app = initializeApp(firebaseConfig);
               const auth = getAuth(app);
               const db = getFirestore(app);
-              const googleProvider = new GoogleAuthProvider();
-              const linkedInProvider = new OAuthProvider('linkedin.com');
-
-              const phoneInput = document.getElementById('phone');
-              const phoneError = document.getElementById('phone-error');
-              const iti = window.intlTelInput(phoneInput, {
-                utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
-                preferredCountries: ['us', 'gb', 'ca'],
-                separateDialCode: true,
-                formatOnDisplay: true
-              });
-
-              const validatePhone = () => {
-                if (phoneInput.value.trim()) {
-                  phoneInput.classList.remove('phone-invalid');
-                  phoneInput.classList.add('phone-valid');
-                  phoneError.textContent = '';
-                  return true;
-                }
-                return false;
-              };
-
-              const validateEmail = (email) => {
-                const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-                return emailRegex.test(email.toLowerCase());
-              };
-
-              phoneInput.addEventListener('blur', validatePhone);
-              phoneInput.addEventListener('change', validatePhone);
-              phoneInput.addEventListener('keyup', validatePhone);
-
-              const emailInput = document.getElementById('email');
-              emailInput.addEventListener('blur', () => {
-                if (!validateEmail(emailInput.value)) {
-                  emailInput.setCustomValidity('Please enter a valid email address');
-                } else {
-                  emailInput.setCustomValidity('');
-                }
-              });
 
               const form = document.getElementById("signup-form");
               const loadingSpinner = document.getElementById("loading-spinner");
@@ -498,17 +456,6 @@
 
               form.addEventListener("submit", async (event) => {
                 event.preventDefault();
-
-                if (!validatePhone()) {
-                  event.stopPropagation();
-                  return;
-                }
-
-                if (!validateEmail(emailInput.value)) {
-                  event.stopPropagation();
-                  showAlert("Please enter a valid email address");
-                  return;
-                }
 
                 if (!form.checkValidity()) {
                   event.stopPropagation();
@@ -518,7 +465,7 @@
 
                 const firstName = document.getElementById("first_name").value;
                 const lastName = document.getElementById("last_name").value;
-                const phone = iti.getNumber();
+                const phone = document.getElementById("phone").value;
                 const email = document.getElementById("email").value;
                 const password = document.getElementById("password").value;
                 const confirmPassword = document.getElementById("confirm_password").value;
@@ -532,15 +479,6 @@
                   signupButton.disabled = true;
                   loadingSpinner.classList.remove("d-none");
 
-                  try {
-                    await checkExistingUser(email, phone);
-                  } catch (error) {
-                    showAlert(error.message);
-                    signupButton.disabled = false;
-                    loadingSpinner.classList.add("d-none");
-                    return;
-                  }
-
                   const userCredential = await createUserWithEmailAndPassword(auth, email, password);
                   const user = userCredential.user;
 
@@ -549,8 +487,7 @@
                     lastName,
                     phone,
                     email,
-                    createdAt: new Date().toISOString(),
-                    provider: 'email'
+                    createdAt: new Date().toISOString()
                   });
 
                   showAlert("Registration successful! Redirecting to login...", "success");
@@ -568,49 +505,15 @@
                 }
               });
 
+              // Password validation
               const passwordInput = document.getElementById("password");
-              passwordInput.addEventListener('input', function () {
-                this.setCustomValidity('');
-              });
-
               const confirmPasswordInput = document.getElementById("confirm_password");
+
               confirmPasswordInput.addEventListener("input", () => {
                 if (confirmPasswordInput.value !== passwordInput.value) {
                   confirmPasswordInput.setCustomValidity("Passwords must match");
                 } else {
                   confirmPasswordInput.setCustomValidity("");
-                }
-              });
-
-              document.getElementById('google-login').addEventListener('click', async () => {
-                try {
-                  const result = await signInWithPopup(auth, googleProvider);
-                  const user = result.user;
-
-                  try {
-                    await checkExistingUser(user.email, '');
-                  } catch (error) {
-                    showAlert("This email is already registered");
-                    return;
-                  }
-                } catch (error) {
-                  showAlert(error.message);
-                }
-              });
-
-              document.getElementById('linkedin-login').addEventListener('click', async () => {
-                try {
-                  const result = await signInWithPopup(auth, linkedInProvider);
-                  const user = result.user;
-
-                  try {
-                    await checkExistingUser(user.email, '');
-                  } catch (error) {
-                    showAlert("This email is already registered");
-                    return;
-                  }
-                } catch (error) {
-                  showAlert(error.message);
                 }
               });
             </script>
@@ -620,18 +523,17 @@
     </div>
   </section>
 
+
   <!-- footer -->
   <section class="w3l-footer-29-main">
     <div class="footer-29 py-5">
       <div class="container py-md-4">
         <div class="row footer-top-29">
           <div class="col-lg-4 col-md-6 col-sm-7 footer-list-29 footer-1 pr-lg-5">
-            <h6 class="footer-title-29">Contact Info </h6>
-            <p>Address : Study course, 343 marketing, #2214 cravel street, NY - 62617.</p>
-            <p class="my-2">Phone : <a href="tel:+1(21) 234 4567">+1(21) 234 4567</a></p>
-            <p>Email : <a href="/cdn-cgi/l/email-protection#bad3d4dcd5fadfc2dbd7cad6df94d9d5d7"><span
-                  class="__cf_email__"
-                  data-cfemail="7b12151d143b1e031a160b171e55181416">[email�&nbsp;protected]</span></a></p>
+            <h6 class="footer-title-29">Contact Info</h6>
+            <p>Address: Westside ABA, Danville, Indiana, 46122.</p>
+            <p class="my-2">Phone: <a href="tel:+1 (774) 272-3844">+1 (774) 272-3844 </a></p>
+            <p>Email: <a href="mailto:info@example.com">info@westsideaba.com</a></p>
             <div class="main-social-footer-29 mt-4">
               <a href="#facebook" class="facebook"><span class="fa fa-facebook"></span></a>
               <a href="#twitter" class="twitter"><span class="fa fa-twitter"></span></a>
@@ -640,21 +542,20 @@
             </div>
           </div>
           <div class="col-lg-3 col-md-6 col-sm-5 col-6 footer-list-29 footer-2 mt-sm-0 mt-5">
-
             <ul>
               <h6 class="footer-title-29">Company</h6>
               <li><a href="about.html">About Company</a></li>
               <li><a href="blog1.html">Latest Blog Posts</a></li>
               <li><a href="#teacher">Join The Team</a></li>
-              <li><a href="service.html">Online Courses</a></li>
+              <li><a href="service.html">Our Services</a></li>
               <li><a href="contact.html">Get in Touch</a></li>
             </ul>
           </div>
 
           <div class="col-lg-3 col-md-6 col-sm-7 footer-list-29 footer-4 mt-lg-0 mt-5">
-            <h6 class="footer-title-29">Suppport</h6>
-            <a href="#playstore"><img src="images/googleplay.png" class="img-responsive" alt=""></a>
-            <a href="#appstore"><img src="images/appstore.png" class="img-responsive mt-3" alt=""></a>
+            <h6 class="footer-title-29">Support</h6>
+            <a href="#playstore"><img src="assets/images/googleplay.png" class="img-responsive" alt=""></a>
+            <a href="#appstore"><img src="assets/images/appstore.png" class="img-responsive mt-3" alt=""></a>
           </div>
         </div>
       </div>
@@ -662,59 +563,80 @@
     <!-- copyright -->
     <section class="w3l-copyright text-center">
       <div class="container">
-        <p class="copy-footer-29">© 2020 Study Course. All rights reserved. Design by <a href="https://w3layouts.com/"
-            target="_blank">
-            W3Layouts</a></p>
+        <p class="copy-footer-29">© 2024 Westside ABA. All rights reserved. Design by <a
+            href="https://creativesparxstudio.com/" target="_blank">Creative Sparx Studio</a></p>
       </div>
 
-      <!-- move top -->
-      <button onclick="topFunction()" id="movetop" title="Go to top">
-        ⤴
-      </button>
-      <script data-cfasync="false" src="js1/email-decode.min.js"></script>
-      <script>
-        // When the user scrolls down 20px from the top of the document, show the button
-        window.onscroll = function () {
-          scrollFunction()
-        };
+      < <!-- move top -->
+        <button onclick="topFunction()" id="movetop" title="Go to top">
+          &#10548;
+        </button>
+        <script>
+          // When the user scrolls down 20px from the top of the document, show the button
+          window.onscroll = function () {
+            scrollFunction()
+          };
 
-        function scrollFunction() {
-          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            document.getElementById("movetop").style.display = "block";
-          } else {
-            document.getElementById("movetop").style.display = "none";
+          function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+              document.getElementById("movetop").style.display = "block";
+            } else {
+              document.getElementById("movetop").style.display = "none";
+            }
           }
-        }
 
-        // When the user clicks on the button, scroll to the top of the document
-        function topFunction() {
-          document.body.scrollTop = 0;
-          document.documentElement.scrollTop = 0;
-        }
-      </script>
-      <!-- /move top -->
+          // When the user clicks on the button, scroll to the top of the document
+          function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+          }
+        </script>
+        <!-- /move top -->
     </section>
     <!-- //copyright -->
   </section>
   <!-- //footer -->
 
   <!-- Template JavaScript -->
-  <script src="js1/jquery-3.3.1.min.js"></script>
+  <script src="assets/js/jquery-3.3.1.min.js"></script>
 
-  <script src="js1/theme-change.js"></script>
+  <script src="assets/js/theme-change.js"></script>
+  <script src="js1/script.js"></script>
+
+  <!--Start of Tawk.to Script-->
+  <script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function () {
+      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/66f68e7f4cbc4814f7dfe6ec/1i8php9op';
+      s1.charset = 'UTF-8';
+      s1.setAttribute('crossorigin', '*');
+      s0.parentNode.insertBefore(s1, s0);
+    })();
+  </script>
+  <!--End of Tawk.to Script-->
+  <!-- Template JavaScript -->
+
+
+  <script src="assets/js/jquery-3.3.1.min.js"></script>
+
+  <script src="assets/js/theme-change.js"></script>
+  <script src="js1/script.js"></script>
 
   <!-- stats number counter-->
-  <script src="js1/jquery.waypoints.min.js"></script>
-  <script src="js1/jquery.countup.js"></script>
+  <script src="assets/js/jquery.waypoints.min.js"></script>
+  <script src="assets/js/jquery.countup.js"></script>
   <script>
     $('.counter').countUp();
   </script>
   <!-- //stats number counter -->
 
-  <script src="js1/owl.carousel.js"></script>
+  <script src="assets/js/owl.carousel.js"></script>
   <!-- script for banner slider-->
   <script>
     $(document).ready(function () {
+      // Owl Carousel initialization
       $('.owl-one').owlCarousel({
         loop: true,
         margin: 0,
@@ -722,8 +644,8 @@
         dots: false,
         responsiveClass: true,
         autoplay: true,
-        autoplayTimeout: 5000,
-        autoplaySpeed: 1000,
+        autoplayTimeout: 6000, // Adjusted to give enough time for animation
+        autoplaySpeed: 1200,   // Smooth transition between slides
         autoplayHoverPause: false,
         responsive: {
           0: {
@@ -739,9 +661,25 @@
             items: 1,
             nav: true
           }
+        },
+        // Reset AOS for the current slide and animate only once
+        onTranslate: function () {
+          $('.owl-item.active .aos-animate').removeClass('aos-animate'); // Remove class before animating
+        },
+        onTranslated: function () {
+          $('.owl-item.active [data-aos]').addClass('aos-animate'); // Add class only to active slide elements
+          AOS.refreshHard();  // Refresh only for the active slide
         }
-      })
-    })
+      });
+
+      // Initialize AOS with once: true to animate elements only once
+      AOS.init({
+        duration: 1500,       // Duration of animations
+        easing: 'ease-in-out', // Smooth easing
+        once: true,           // Animate only once per element
+        mirror: false         // Disable reverse animations when scrolling back
+      });
+    });
   </script>
   <!-- //script -->
 
@@ -812,14 +750,38 @@
   </script>
   <!--//MENU-JS-->
 
-  <script src="js1/bootstrap.min.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="script2.js"></script>
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <script>
+    // Text animation using Typed.js
+    var typingEffect = new Typed('.multiText', {
+      strings: ["Therapist", "Behavior Specialist", "Caregiver"],
+      loop: true,
+      typeSpeed: 100,
+      backSpeed: 80,
+      backDelay: 1500,
+    });
 
+    // Burger menu toggle script
+    const burger = document.querySelector('.burger');
+    const navItems = document.querySelector('.navItems');
 
-
-  <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'8c27fb376d0166b0',t:'MTcyNjIyODg3My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
-  <iframe height="1" width="1"
-    style="position: absolute; top: 0px; left: 0px; border: none; visibility: hidden;"></iframe>
-
+    burger.addEventListener('click', () => {
+      navItems.classList.toggle('nav-active');
+      burger.classList.toggle('toggle');
+    });
+  </script>
+  <!-- AOS Library JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 2000,  // Animation duration
+      offset: 200,     // Offset to trigger animation closer to the view (increase this for later animation trigger)
+      easing: 'ease-in-out', // Animation easing
+      once: true       // Ensure the animation runs only once (if this is desired)
+    });
+  </script>
 </body>
 
 </html>
