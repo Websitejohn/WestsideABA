@@ -23,15 +23,10 @@
   <meta property="og:type" content="website">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <!-- Bootstrap CSS -->
+
+
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database-compat.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/style3.css">
@@ -210,29 +205,9 @@
         background-image: url("https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/img/flags@2x.png");
       }
     }
-
-    .input-field {
-      position: relative;
-      margin-top: 1rem;
-    }
-
-    .input-field input {
-      width: 100%;
-      padding: 12px;
-
-      transition: all 0.3s ease;
-    }
-
-    #toggle-password {
-      position: absolute;
-      top: 67%;
-      right: 25px;
-      transform: translateY(-50%);
-      font-size: 1.2rem;
-      cursor: pointer;
-      transition: color 0.3s ease;
-    }
   </style>
+
+
 </head>
 
 <body>
@@ -359,6 +334,7 @@
             <div class="divider">
               <span>or</span>
             </div>
+
             <form id="signup-form" class="needs-validation" novalidate>
               <div class="form-grid signupgrids">
                 <div class="input-field">
@@ -373,8 +349,8 @@
                 </div>
                 <div class="input-field">
                   <label for="phone">Phone Number *</label>
-                  <input type="tel" name="phone" id="phone" placeholder="Phone number" required>
-
+                  <input type="tel" name="phone" id="phone" placeholder="Phone number" pattern="[0-9]{11}" required>
+                  <div class="invalid-feedback">Please enter a valid 11-digit phone number.</div>
                 </div>
                 <div class="input-field">
                   <label for="email">Email Address *</label>
@@ -385,14 +361,12 @@
                   <label for="password">Password *</label>
                   <input type="password" name="password" id="password" placeholder="Password"
                     pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" required>
-                  <span id="toggle-password" class="fa fa-eye-slash" aria-hidden="true"></span>
                   <div class="invalid-feedback">Password must be at least 8 characters with letters and numbers.</div>
                 </div>
                 <div class="input-field">
                   <label for="confirm_password">Confirm Password *</label>
                   <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm password"
                     required>
-                  <span id="toggle-password" class="fa fa-eye-slash" aria-hidden="true"></span>
                   <div class="invalid-feedback">Passwords must match.</div>
                 </div>
               </div>
@@ -404,17 +378,7 @@
 
               <p class="mt-4">Already have an account? <a href="login.html">Login here</a></p>
             </form>
-            <script>
-              // Toggle Password Visibility
-              document.getElementById("toggle-password").addEventListener("click", () => {
-                const passwordInput = document.getElementById("password");
-                const type = passwordInput.type === "password" ? "text" : "password";
-                passwordInput.type = type;
 
-                document.getElementById("toggle-password").classList.toggle("fa-eye");
-                document.getElementById("toggle-password").classList.toggle("fa-eye-slash");
-              });
-            </script>
             <script type="module">
               import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
               import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
